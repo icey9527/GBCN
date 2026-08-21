@@ -257,6 +257,10 @@
       const root = doc.getElementById('root');
       rewriteImages(root);
       rewriteLinks(root);
+      // 画廊页不展示图片（图片文件已从本地移除以节省空间）
+      if ((page.title || '').indexOf('/Gallery') >= 0) {
+        root.querySelectorAll('figure, picture, img').forEach(n => n.remove());
+      }
       Localize.replaceInDom(root);
 
       const e = Localize.findByPage(page.title);
