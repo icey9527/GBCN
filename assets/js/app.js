@@ -302,14 +302,29 @@
   }
 
   /* 把远程图片地址换成本地路径（images_map.json），失败则保留远程 */
+  function lookupImage(src) {
+    // 精确匹配，其次按 /revision/latest 之前的基地址匹配（忽略缩放参数）
+    let local = state.imagesMap[src];
+    if (local) return local;
+    const idx = src.indexOf('/revision/latest');
+    if (idx >= 0) {
+      local = state.imagesMap[src.slice(0, idx + '/revision/latest'.length)];
+      if (local) return local;
+    }
+    return null;
+  }
   function rewriteImages(root) {
     root.querySelectorAll('img').forEach(img => {
       img.removeAttribute('srcset');
-      const src = img.getAttribute('src');
-      if (!src) return;
-      const local = state.imagesMap[src];
-      if (local) img.src = local;
+      let src = img.getAttribute('src');
+      const dataSrc = img.getAttribute('data-src');
+      // Fandom 懒加载占位图（src 是 1x1 base64 gif），真实地址在 data-src
+      if ((!src || src.startsWith('data:')) && dataSrc) src = dataSrc;
+      if (!src || src.startsWith('data:')) return;
+      const local = lookupImage(src);
+      if (local) img.src = 'wiki_data/' + local;
       img.loading = 'lazy';
+      img.removeAttribute('data-src');
     });
   }
 
