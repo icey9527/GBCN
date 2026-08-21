@@ -1,0 +1,12 @@
+﻿21:30:08 scanning pages for image urls...
+21:30:11 found 19283 distinct image urls
+21:30:11 to download: 19283 (already mapped: 0)
+21:30:44 scanning pages for <img src> urls...
+21:30:47 found 11090 img src urls -> 11090 distinct images
+21:30:47 to download: 11090 (already mapped: 0)
+21:30:54 DONE: 15 downloaded, 0 failed; map has 15 urls
+21:31:30 scanning pages for <img src> urls...
+21:31:32 found 11090 img src urls -> 10554 distinct images
+21:31:33 to download: 10554 (already mapped: 0)
+21:33:56 progress: 100/10554
+21:36:54 progress: 200/10554

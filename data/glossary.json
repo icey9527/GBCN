@@ -1,0 +1,3857 @@
+﻿[
+    {
+        "term":  "ＢＪ",
+        "translation":  "Ｂ．Ｊ．",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "ＢＬＡＤＥ",
+        "translation":  "刃",
+        "note":  "阶段"
+    },
+    {
+        "term":  "ＣＬＡＳＨ　ＯＦ　ＳＷＯＲＤＳ",
+        "translation":  "刀剑交锋",
+        "note":  "阶段"
+    },
+    {
+        "term":  "ＤＡＮＣＩＮ’　ＡＮＧＥＬ",
+        "translation":  "舞动天使",
+        "note":  "阶段"
+    },
+    {
+        "term":  "ＤＥＡＴＨ　ＴＲＡＰ",
+        "translation":  "死亡陷阱",
+        "note":  "技能"
+    },
+    {
+        "term":  "Ｓｐｉｒａｌ　Ｃｈａｏｓ",
+        "translation":  "螺旋混沌",
+        "note":  "阶段"
+    },
+    {
+        "term":  "Ｓｐｉｒａｌ　Ｃｏｌｏｓｓｅｕｍ",
+        "translation":  "螺旋斗技场",
+        "note":  "阶段"
+    },
+    {
+        "term":  "アイヴィー",
+        "translation":  "艾薇",
+        "note":  "角色，出自《灵魂能力》"
+    },
+    {
+        "term":  "アイドル★オンステージ",
+        "translation":  "偶像★登台",
+        "note":  "阶段"
+    },
+    {
+        "term":  "アイネ",
+        "translation":  "艾涅",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "アイリ",
+        "translation":  "艾莉",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "アサシンファング",
+        "translation":  "暗杀者之牙",
+        "note":  "技能"
+    },
+    {
+        "term":  "アサルトアタック",
+        "translation":  "突袭攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "アサルトバスター",
+        "translation":  "突击破坏者",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "アサルトレイド",
+        "translation":  "突袭猛攻",
+        "note":  "技能"
+    },
+    {
+        "term":  "アストラルランプ",
+        "translation":  "星灵之灯",
+        "note":  "技能"
+    },
+    {
+        "term":  "アッパースイング",
+        "translation":  "上挑挥击",
+        "note":  "技能"
+    },
+    {
+        "term":  "アニー",
+        "translation":  "安妮",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "アマラの鉄拳",
+        "translation":  "阿玛拉铁拳",
+        "note":  "技能"
+    },
+    {
+        "term":  "アリス",
+        "translation":  "爱丽丝",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "アリュッタ",
+        "translation":  "阿莉尤塔",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "アルドラ",
+        "translation":  "阿尔德拉",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "アルドラの城",
+        "translation":  "阿尔德拉城",
+        "note":  "地名"
+    },
+    {
+        "term":  "アレイン",
+        "translation":  "阿莱茵",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "アンビリアタック",
+        "translation":  "安比莉亚攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "イーグルタロン",
+        "translation":  "鹰爪",
+        "note":  "技能"
+    },
+    {
+        "term":  "イグドラ",
+        "translation":  "伊格德拉",
+        "note":  "怪物"
+    },
+    {
+        "term":  "イルマ",
+        "translation":  "伊尔玛",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "いろは",
+        "translation":  "伊吕波",
+        "note":  "角色，出自《侍魂》"
+    },
+    {
+        "term":  "インビジブル",
+        "translation":  "隐身",
+        "note":  "技能"
+    },
+    {
+        "term":  "インフェルノ",
+        "translation":  "地狱烈焰",
+        "note":  "技能"
+    },
+    {
+        "term":  "ヴァイス",
+        "translation":  "维丝",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "ヴァンス伯爵",
+        "translation":  "万斯伯爵",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ヴァンス伯爵家の部屋",
+        "translation":  "万斯伯爵家房间",
+        "note":  "地名"
+    },
+    {
+        "term":  "ヴァンス家の腸詰",
+        "translation":  "万斯家香肠",
+        "note":  "物品"
+    },
+    {
+        "term":  "ヴァンス領地内",
+        "translation":  "万斯领地内",
+        "note":  "地名"
+    },
+    {
+        "term":  "ヴィーナスブレス",
+        "translation":  "维纳斯手链",
+        "note":  "物品"
+    },
+    {
+        "term":  "ウィッチドレス",
+        "translation":  "魔女礼服",
+        "note":  "物品"
+    },
+    {
+        "term":  "ウイングラッシュ",
+        "translation":  "翼突进",
+        "note":  "技能"
+    },
+    {
+        "term":  "うさぎんドレス",
+        "translation":  "兔兔礼服",
+        "note":  "物品"
+    },
+    {
+        "term":  "ウサメカ",
+        "translation":  "兔机甲",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ウタカビの無常",
+        "translation":  "歌影无常",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "ウミチムンの煌き",
+        "translation":  "海珍之辉",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "ウンディーネの加護",
+        "translation":  "温蒂妮加护",
+        "note":  "物品"
+    },
+    {
+        "term":  "エキドナ",
+        "translation":  "艾奇多娜",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "エナジーストーン",
+        "translation":  "能量石",
+        "note":  "物品"
+    },
+    {
+        "term":  "エマ",
+        "translation":  "艾玛",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "エミリー",
+        "translation":  "艾米莉",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "エリアヒール",
+        "translation":  "范围治疗",
+        "note":  "技能"
+    },
+    {
+        "term":  "エリアリフレッシュ",
+        "translation":  "范围净化",
+        "note":  "技能"
+    },
+    {
+        "term":  "エリアリペアー",
+        "translation":  "范围修复",
+        "note":  "技能"
+    },
+    {
+        "term":  "エリナ",
+        "translation":  "艾莉娜",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "エルフのハーブ",
+        "translation":  "精灵香草",
+        "note":  "物品"
+    },
+    {
+        "term":  "エルフのマント",
+        "translation":  "精灵披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "エルフの秘薬",
+        "translation":  "精灵秘药",
+        "note":  "物品"
+    },
+    {
+        "term":  "エルフの指輪",
+        "translation":  "精灵戒指",
+        "note":  "物品"
+    },
+    {
+        "term":  "エンジェルキック",
+        "translation":  "天使踢",
+        "note":  "技能"
+    },
+    {
+        "term":  "オーガー",
+        "translation":  "食人魔",
+        "note":  "怪物"
+    },
+    {
+        "term":  "オーク",
+        "translation":  "兽人",
+        "note":  "怪物"
+    },
+    {
+        "term":  "オードリィ",
+        "translation":  "奥德莉",
+        "note":  "怪物"
+    },
+    {
+        "term":  "オーバーキック",
+        "translation":  "过载踢",
+        "note":  "技能"
+    },
+    {
+        "term":  "オールアップ",
+        "translation":  "全属性提升",
+        "note":  "状态"
+    },
+    {
+        "term":  "オールダウン",
+        "translation":  "全属性下降",
+        "note":  "状态"
+    },
+    {
+        "term":  "おやつタイム",
+        "translation":  "点心时间",
+        "note":  "物品"
+    },
+    {
+        "term":  "カースガード",
+        "translation":  "诅咒防护",
+        "note":  "物品"
+    },
+    {
+        "term":  "カースプラス",
+        "translation":  "诅咒加成",
+        "note":  "状态"
+    },
+    {
+        "term":  "カーチャ",
+        "translation":  "卡恰",
+        "note":  "角色，出自《圣痕炼金士》"
+    },
+    {
+        "term":  "ガード",
+        "translation":  "防御",
+        "note":  "物品"
+    },
+    {
+        "term":  "ガードブレイク",
+        "translation":  "破防",
+        "note":  "技能"
+    },
+    {
+        "term":  "ガイノス",
+        "translation":  "盖诺斯",
+        "note":  "地名"
+    },
+    {
+        "term":  "カオスストーン",
+        "translation":  "混沌石",
+        "note":  "物品"
+    },
+    {
+        "term":  "カトレア",
+        "translation":  "卡特蕾娅",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "カニのシチュー",
+        "translation":  "螃蟹炖菜",
+        "note":  "物品"
+    },
+    {
+        "term":  "ガンマ・レイ",
+        "translation":  "伽马射线",
+        "note":  "技能，出自《罪恶装备》"
+    },
+    {
+        "term":  "ギガスロール",
+        "translation":  "巨型翻滚",
+        "note":  "技能"
+    },
+    {
+        "term":  "ギガタロスナックル",
+        "translation":  "巨型塔罗斯拳",
+        "note":  "武器"
+    },
+    {
+        "term":  "ギガントクラブ",
+        "translation":  "巨型棍",
+        "note":  "武器"
+    },
+    {
+        "term":  "キック",
+        "translation":  "踢击",
+        "note":  "技能"
+    },
+    {
+        "term":  "キュアオール",
+        "translation":  "全解除",
+        "note":  "技能"
+    },
+    {
+        "term":  "キュアカース",
+        "translation":  "解咒",
+        "note":  "技能"
+    },
+    {
+        "term":  "キュアコンフュ",
+        "translation":  "解乱",
+        "note":  "技能"
+    },
+    {
+        "term":  "キュアタイアー",
+        "translation":  "解疲",
+        "note":  "技能"
+    },
+    {
+        "term":  "キュアパライズ",
+        "translation":  "解麻",
+        "note":  "技能"
+    },
+    {
+        "term":  "キュアポイズン",
+        "translation":  "解毒",
+        "note":  "技能"
+    },
+    {
+        "term":  "キュアメルト",
+        "translation":  "解溶",
+        "note":  "技能"
+    },
+    {
+        "term":  "キュアレイジー",
+        "translation":  "解沉",
+        "note":  "技能"
+    },
+    {
+        "term":  "キュート",
+        "translation":  "库特",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "キングローパー",
+        "translation":  "触手王",
+        "note":  "怪物"
+    },
+    {
+        "term":  "クイーンオーク",
+        "translation":  "兽人女皇",
+        "note":  "怪物"
+    },
+    {
+        "term":  "クイーンゲル",
+        "translation":  "凝胶女皇",
+        "note":  "怪物"
+    },
+    {
+        "term":  "クイーンズランド",
+        "translation":  "女皇之国",
+        "note":  "地名"
+    },
+    {
+        "term":  "クェイサー",
+        "translation":  "奎萨",
+        "note":  "角色，出自《圣痕炼金士》"
+    },
+    {
+        "term":  "グラスドレス",
+        "translation":  "玻璃礼服",
+        "note":  "物品"
+    },
+    {
+        "term":  "クラッシュネイル",
+        "translation":  "粉碎之爪",
+        "note":  "技能"
+    },
+    {
+        "term":  "グラビティボール",
+        "translation":  "重力球",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "グリーンゲル",
+        "translation":  "绿色凝胶",
+        "note":  "怪物"
+    },
+    {
+        "term":  "クリティカルアップ",
+        "translation":  "会心提升",
+        "note":  "状态"
+    },
+    {
+        "term":  "クリティカルダウン",
+        "translation":  "会心下降",
+        "note":  "状态"
+    },
+    {
+        "term":  "クリティカルフィニッシュ",
+        "translation":  "会心终结",
+        "note":  "技能"
+    },
+    {
+        "term":  "クレイジーアックス",
+        "translation":  "疯狂之斧",
+        "note":  "武器"
+    },
+    {
+        "term":  "クローデット",
+        "translation":  "库罗德特",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ゲイト内部",
+        "translation":  "门扉内部",
+        "note":  "地名"
+    },
+    {
+        "term":  "ゲイト前",
+        "translation":  "门扉前",
+        "note":  "地名"
+    },
+    {
+        "term":  "ケーキ",
+        "translation":  "蛋糕",
+        "note":  "物品"
+    },
+    {
+        "term":  "ケーキ（レイナに教えてもらった）",
+        "translation":  "蛋糕（蕾娜教的）",
+        "note":  "物品"
+    },
+    {
+        "term":  "ケラット",
+        "translation":  "凯拉特",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ゲル",
+        "translation":  "凝胶",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ゲルフルード",
+        "translation":  "凝胶液",
+        "note":  "怪物"
+    },
+    {
+        "term":  "コウモリアタック",
+        "translation":  "蝙蝠攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ゴーゴー・ルー",
+        "translation":  "冲啊·露",
+        "note":  "技能"
+    },
+    {
+        "term":  "ゴーゴン",
+        "translation":  "戈耳工",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ゴーレム",
+        "translation":  "石魔像",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ゴーレムナックル",
+        "translation":  "石魔像之拳",
+        "note":  "怪物"
+    },
+    {
+        "term":  "コンフュガード",
+        "translation":  "混乱防护",
+        "note":  "物品"
+    },
+    {
+        "term":  "コンフュプラス",
+        "translation":  "混乱加成",
+        "note":  "状态"
+    },
+    {
+        "term":  "こん棒",
+        "translation":  "棍棒",
+        "note":  "武器"
+    },
+    {
+        "term":  "サーシャ",
+        "translation":  "萨莎",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "サイクロンキック",
+        "translation":  "旋风踢",
+        "note":  "技能"
+    },
+    {
+        "term":  "サイドステップ",
+        "translation":  "侧步",
+        "note":  "技能"
+    },
+    {
+        "term":  "ささやく",
+        "translation":  "低语",
+        "note":  "技能"
+    },
+    {
+        "term":  "さびれた村",
+        "translation":  "荒凉之村",
+        "note":  "地名"
+    },
+    {
+        "term":  "シザーアタック",
+        "translation":  "剪击",
+        "note":  "武器"
+    },
+    {
+        "term":  "シズカ",
+        "translation":  "静",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "シャウト",
+        "translation":  "咆哮",
+        "note":  "技能"
+    },
+    {
+        "term":  "ジャグリラ",
+        "translation":  "雅格莉拉",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ジャベリン攻撃",
+        "translation":  "标枪攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "シャルロット",
+        "translation":  "夏洛特",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "ジャン",
+        "translation":  "简",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ジン",
+        "translation":  "琴恩",
+        "note":  ""
+    },
+    {
+        "term":  "ジン・キサラギ",
+        "translation":  "如月琴恩",
+        "note":  "角色，出自《苍翼默示录》"
+    },
+    {
+        "term":  "スウィープ",
+        "translation":  "横扫",
+        "note":  "技能"
+    },
+    {
+        "term":  "スーシェル",
+        "translation":  "苏谢尔",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "スターマイン",
+        "translation":  "星焰",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "ステゴ",
+        "translation":  "剑龙",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ステゴアーマー",
+        "translation":  "剑龙装甲",
+        "note":  "物品"
+    },
+    {
+        "term":  "ステゴエッジ",
+        "translation":  "剑龙之刃",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ステゴスライサー",
+        "translation":  "剑龙切割者",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ステゴソード",
+        "translation":  "剑龙剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ステュクス",
+        "translation":  "斯提克斯",
+        "note":  "地名"
+    },
+    {
+        "term":  "ステラ",
+        "translation":  "斯特拉",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "スネークテイル",
+        "translation":  "蛇尾",
+        "note":  "技能"
+    },
+    {
+        "term":  "スパイククラブ",
+        "translation":  "钉刺棍",
+        "note":  "武器"
+    },
+    {
+        "term":  "スピードアップ",
+        "translation":  "速度提升",
+        "note":  "状态"
+    },
+    {
+        "term":  "スピードダウン",
+        "translation":  "速度下降",
+        "note":  "状态"
+    },
+    {
+        "term":  "スメラギ",
+        "translation":  "皇",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "スライム",
+        "translation":  "史莱姆",
+        "note":  "怪物"
+    },
+    {
+        "term":  "スラッシュ",
+        "translation":  "斩击",
+        "note":  "技能"
+    },
+    {
+        "term":  "スンガンの誘い",
+        "translation":  "松岸的邀约",
+        "note":  "技能"
+    },
+    {
+        "term":  "セトラ",
+        "translation":  "赛托拉",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "セトラアタック",
+        "translation":  "塞特拉攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "セレネ",
+        "translation":  "塞蕾涅",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "ソードアタック",
+        "translation":  "剑击",
+        "note":  "武器"
+    },
+    {
+        "term":  "ソードブレイク",
+        "translation":  "破剑者",
+        "note":  "武器"
+    },
+    {
+        "term":  "ダークフレイム",
+        "translation":  "黑暗烈焰",
+        "note":  "技能"
+    },
+    {
+        "term":  "ダークペイン",
+        "translation":  "黑暗之痛",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "ダークマミー",
+        "translation":  "暗黑木乃伊",
+        "note":  "怪物"
+    },
+    {
+        "term":  "タイアーガード",
+        "translation":  "疲劳防护",
+        "note":  "物品"
+    },
+    {
+        "term":  "タイアープラス",
+        "translation":  "疲劳加成",
+        "note":  "状态"
+    },
+    {
+        "term":  "ダイノス",
+        "translation":  "恐爪龙",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ダウンスイング",
+        "translation":  "下斩",
+        "note":  "技能"
+    },
+    {
+        "term":  "ダガー／短剣",
+        "translation":  "匕首／短剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ダガースラッシュ",
+        "translation":  "匕首斩击",
+        "note":  "武器"
+    },
+    {
+        "term":  "ダガーピック",
+        "translation":  "匕首啄击",
+        "note":  "武器"
+    },
+    {
+        "term":  "ダガー投げ",
+        "translation":  "投掷匕首",
+        "note":  "武器"
+    },
+    {
+        "term":  "タックル",
+        "translation":  "冲撞",
+        "note":  "技能"
+    },
+    {
+        "term":  "ダブルインパクト",
+        "translation":  "双重冲击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ダブルスイング",
+        "translation":  "双重横扫",
+        "note":  "技能"
+    },
+    {
+        "term":  "タロス",
+        "translation":  "塔罗斯",
+        "note":  "武器"
+    },
+    {
+        "term":  "チャムチャム",
+        "translation":  "查姆查姆",
+        "note":  "角色，出自《侍魂》"
+    },
+    {
+        "term":  "チャンプル",
+        "translation":  "香普尔",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ディヴィジョン",
+        "translation":  "分裂",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "ティガル",
+        "translation":  "提加尔",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ディズィー",
+        "translation":  "蒂姬",
+        "note":  "角色，出自《罪恶装备》"
+    },
+    {
+        "term":  "ティノ",
+        "translation":  "蒂诺",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "ディバイディング",
+        "translation":  "分割",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "ディフェンスアップ",
+        "translation":  "防御提升",
+        "note":  "状态"
+    },
+    {
+        "term":  "ディフェンスダウン",
+        "translation":  "防御下降",
+        "note":  "状态"
+    },
+    {
+        "term":  "ティラノ",
+        "translation":  "暴龙",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ティラノ・ハンマー",
+        "translation":  "暴龙·之锤",
+        "note":  "武器"
+    },
+    {
+        "term":  "ティラノアーマー",
+        "translation":  "暴龙装甲",
+        "note":  "物品"
+    },
+    {
+        "term":  "ティラノインパクト",
+        "translation":  "暴龙冲击",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ティラノハンマー",
+        "translation":  "暴龙锤",
+        "note":  "武器"
+    },
+    {
+        "term":  "ティラノブレイカー",
+        "translation":  "暴龙破坏者",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ティンクル",
+        "translation":  "汀克尔",
+        "note":  "怪物"
+    },
+    {
+        "term":  "テールスマッシュ",
+        "translation":  "尾击",
+        "note":  "技能"
+    },
+    {
+        "term":  "デス・フローズン",
+        "translation":  "死亡冰冻",
+        "note":  "技能"
+    },
+    {
+        "term":  "デスウィング",
+        "translation":  "死亡之翼",
+        "note":  "技能"
+    },
+    {
+        "term":  "デススイング",
+        "translation":  "死亡横扫",
+        "note":  "技能"
+    },
+    {
+        "term":  "デスハウンド",
+        "translation":  "死亡猎犬",
+        "note":  "怪物"
+    },
+    {
+        "term":  "デッドアタック",
+        "translation":  "死亡攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "デモンズ・キッス",
+        "translation":  "恶魔之吻",
+        "note":  "技能"
+    },
+    {
+        "term":  "テレポート",
+        "translation":  "传送",
+        "note":  "技能"
+    },
+    {
+        "term":  "ドーラ",
+        "translation":  "朵拉",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "トモエ",
+        "translation":  "巴",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "トモエルート",
+        "translation":  "巴路线",
+        "note":  "阶段"
+    },
+    {
+        "term":  "ドライアドの加護",
+        "translation":  "树精加护",
+        "note":  "物品"
+    },
+    {
+        "term":  "ドライヴ",
+        "translation":  "驱动",
+        "note":  "技能"
+    },
+    {
+        "term":  "トライデント",
+        "translation":  "三叉戟",
+        "note":  "技能"
+    },
+    {
+        "term":  "ドラゴン",
+        "translation":  "龙",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ドラゴンウイング",
+        "translation":  "龙翼",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ドラゴンキック",
+        "translation":  "龙踢",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ドラゴンテイル",
+        "translation":  "龙尾",
+        "note":  "怪物"
+    },
+    {
+        "term":  "トリケラアーマー",
+        "translation":  "三角龙装甲",
+        "note":  "物品"
+    },
+    {
+        "term":  "ドワーフの修具",
+        "translation":  "矮人修理工具",
+        "note":  "物品"
+    },
+    {
+        "term":  "ナオくん",
+        "translation":  "小直",
+        "note":  "角色，出自《もえたん》"
+    },
+    {
+        "term":  "ナナエル",
+        "translation":  "娜娜艾露",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ナナエルルート",
+        "translation":  "娜娜艾尔路线",
+        "note":  "阶段"
+    },
+    {
+        "term":  "ニードルウィップ",
+        "translation":  "尖刺鞭",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニクス",
+        "translation":  "妮柯斯",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ニセノコギリソード",
+        "translation":  "假锯剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセのシザーネイル",
+        "translation":  "假剪甲",
+        "note":  "武器，出自《女皇之门》"
+    },
+    {
+        "term":  "ニセのダガー／ニセの短剣",
+        "translation":  "假匕首／假短剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセのフレイル",
+        "translation":  "假链枷",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセのメイス",
+        "translation":  "假钉头锤",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセの大刀",
+        "translation":  "假大刀",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセの刀",
+        "translation":  "假刀",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセの剣",
+        "translation":  "假剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセの剣／ニセのダガー",
+        "translation":  "假剑／假匕首",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセの鎌",
+        "translation":  "假镰刀",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセの両手剣",
+        "translation":  "假双手剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセの槍／ニセの鉄爪",
+        "translation":  "假长枪／假铁爪",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセの杖",
+        "translation":  "假法杖",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセの杖／ニセボーラ",
+        "translation":  "假法杖／假套索",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセバトルアックス",
+        "translation":  "假战斧",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセマジカルステッキ",
+        "translation":  "假魔法手杖",
+        "note":  "物品"
+    },
+    {
+        "term":  "ニセワンダーリング",
+        "translation":  "假奇迹指环",
+        "note":  "物品"
+    },
+    {
+        "term":  "ニセ二丁拳銃　ニセパーツ",
+        "translation":  "假双枪　假配件",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセ拳銃などの火器",
+        "translation":  "假手枪等火器",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセ忍者刀",
+        "translation":  "假忍者刀",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセ双剣",
+        "translation":  "假双剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニセ癒しの杖",
+        "translation":  "假治愈之杖",
+        "note":  "武器"
+    },
+    {
+        "term":  "ニャンダーウィップ",
+        "translation":  "喵鞭",
+        "note":  "武器"
+    },
+    {
+        "term":  "にんじんパニック",
+        "translation":  "胡萝卜恐慌",
+        "note":  "技能"
+    },
+    {
+        "term":  "ヌルブレード",
+        "translation":  "无刃剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ネクロのイライラ",
+        "translation":  "奈克罗的焦躁",
+        "note":  "技能"
+    },
+    {
+        "term":  "ノエル",
+        "translation":  "诺爱尔",
+        "note":  ""
+    },
+    {
+        "term":  "ノエル＝ヴァーミリオン",
+        "translation":  "诺爱尔·梵米利昂",
+        "note":  "角色，出自《苍翼默示录》"
+    },
+    {
+        "term":  "ノコギリソード",
+        "translation":  "锯剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "のほほん空間",
+        "translation":  "悠哉空间",
+        "note":  "技能"
+    },
+    {
+        "term":  "ノワ",
+        "translation":  "诺娃",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "バーサーカーブレス",
+        "translation":  "狂战士之息",
+        "note":  "物品"
+    },
+    {
+        "term":  "バードアーマー",
+        "translation":  "飞鸟装甲",
+        "note":  "物品"
+    },
+    {
+        "term":  "ハーピー",
+        "translation":  "哈比",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ハーピーズフェザー",
+        "translation":  "哈比之羽",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ハーブ",
+        "translation":  "香草",
+        "note":  "物品"
+    },
+    {
+        "term":  "ハイオーク",
+        "translation":  "高等兽人",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ハイキック",
+        "translation":  "高踢",
+        "note":  "技能"
+    },
+    {
+        "term":  "ハイパーガード",
+        "translation":  "超强防御",
+        "note":  "物品"
+    },
+    {
+        "term":  "ハイハーピー",
+        "translation":  "高等哈比",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ハウンド",
+        "translation":  "猎犬",
+        "note":  "怪物"
+    },
+    {
+        "term":  "パクパク・ガブル",
+        "translation":  "咬咬·吞噬",
+        "note":  "怪物"
+    },
+    {
+        "term":  "パックンウィップ",
+        "translation":  "咬咬鞭",
+        "note":  "武器"
+    },
+    {
+        "term":  "バトルアックス",
+        "translation":  "战斧",
+        "note":  "武器"
+    },
+    {
+        "term":  "バトルダンス",
+        "translation":  "战斗之舞",
+        "note":  "技能"
+    },
+    {
+        "term":  "パライズガード",
+        "translation":  "麻痹防护",
+        "note":  "物品"
+    },
+    {
+        "term":  "パライズプラス",
+        "translation":  "麻痹加成",
+        "note":  "状态"
+    },
+    {
+        "term":  "バレットレイン",
+        "translation":  "弹幕之雨",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "パワーＭＡＸ発動",
+        "translation":  "力量ＭＡＸ发动",
+        "note":  "技能"
+    },
+    {
+        "term":  "パワーアップ",
+        "translation":  "力量提升",
+        "note":  "状态"
+    },
+    {
+        "term":  "パワーダウン",
+        "translation":  "力量下降",
+        "note":  "状态"
+    },
+    {
+        "term":  "ハンス",
+        "translation":  "汉斯",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ハンスの店",
+        "translation":  "汉斯之店",
+        "note":  "地名"
+    },
+    {
+        "term":  "バンパイア",
+        "translation":  "吸血鬼",
+        "note":  "怪物"
+    },
+    {
+        "term":  "バンパイアドレス",
+        "translation":  "吸血鬼礼服",
+        "note":  "物品"
+    },
+    {
+        "term":  "ピアッシング",
+        "translation":  "贯穿",
+        "note":  "技能"
+    },
+    {
+        "term":  "ヒーラーポカスカ",
+        "translation":  "治愈师笃笃",
+        "note":  "技能"
+    },
+    {
+        "term":  "ヒール",
+        "translation":  "治疗",
+        "note":  "技能"
+    },
+    {
+        "term":  "ピクシー",
+        "translation":  "皮克希",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ビッグインパクト",
+        "translation":  "巨大冲击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ビッグネイル",
+        "translation":  "巨爪",
+        "note":  "技能"
+    },
+    {
+        "term":  "ヒットアップ",
+        "translation":  "命中提升",
+        "note":  "状态"
+    },
+    {
+        "term":  "ヒットダウン",
+        "translation":  "命中下降",
+        "note":  "状态"
+    },
+    {
+        "term":  "ヒュドラ",
+        "translation":  "九头蛇",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ヒュミナ",
+        "translation":  "菲米娜",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "ヒュミナの本拠",
+        "translation":  "菲米娜据点",
+        "note":  "地名"
+    },
+    {
+        "term":  "ファイヤーブレス",
+        "translation":  "烈焰吐息",
+        "note":  "物品"
+    },
+    {
+        "term":  "ファインストーン",
+        "translation":  "精金石",
+        "note":  "物品"
+    },
+    {
+        "term":  "ファミレス",
+        "translation":  "家庭餐厅",
+        "note":  "地名"
+    },
+    {
+        "term":  "フィッシュベッド",
+        "translation":  "鱼贝镇",
+        "note":  "地名"
+    },
+    {
+        "term":  "プーグル",
+        "translation":  "普格尔",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "ブースト",
+        "translation":  "强化",
+        "note":  "技能"
+    },
+    {
+        "term":  "フェアリー",
+        "translation":  "妖精",
+        "note":  "怪物"
+    },
+    {
+        "term":  "フェアリーチャーム",
+        "translation":  "妖精护符",
+        "note":  "物品"
+    },
+    {
+        "term":  "フェアリードレス",
+        "translation":  "妖精礼服",
+        "note":  "物品"
+    },
+    {
+        "term":  "フォトンスーツ",
+        "translation":  "光子服",
+        "note":  "物品"
+    },
+    {
+        "term":  "フォトンレイ",
+        "translation":  "光子射线",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "フットスタンプ",
+        "translation":  "踩踏",
+        "note":  "技能"
+    },
+    {
+        "term":  "ふっとばし",
+        "translation":  "击飞",
+        "note":  "技能"
+    },
+    {
+        "term":  "フニクラ",
+        "translation":  "弗妮库拉",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "フニクラ様殴打",
+        "translation":  "弗妮库拉大人猛击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ブラックステッキ",
+        "translation":  "黑暗手杖",
+        "note":  "物品"
+    },
+    {
+        "term":  "フラッシュ",
+        "translation":  "闪光",
+        "note":  "技能"
+    },
+    {
+        "term":  "ブラッディローズ",
+        "translation":  "血色玫瑰",
+        "note":  "技能"
+    },
+    {
+        "term":  "ブラッドストーン",
+        "translation":  "血石",
+        "note":  "物品"
+    },
+    {
+        "term":  "ブラッドスピア",
+        "translation":  "血之枪",
+        "note":  "武器"
+    },
+    {
+        "term":  "プラム",
+        "translation":  "普拉姆",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "フラワーウィップ",
+        "translation":  "花之鞭",
+        "note":  "武器"
+    },
+    {
+        "term":  "フラワーガーデン",
+        "translation":  "花园",
+        "note":  "技能"
+    },
+    {
+        "term":  "フラワーダンス",
+        "translation":  "花舞",
+        "note":  "技能"
+    },
+    {
+        "term":  "フラワーピラー",
+        "translation":  "花柱",
+        "note":  "技能"
+    },
+    {
+        "term":  "ブリッツライン",
+        "translation":  "闪击线",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "ブルーゲル",
+        "translation":  "蓝色凝胶",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ブルームトリガー",
+        "translation":  "绽放扳机",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "フルスイング",
+        "translation":  "全力挥击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ブレイクシュート",
+        "translation":  "破甲射击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ブレイクバースト",
+        "translation":  "破灭爆发",
+        "note":  "技能"
+    },
+    {
+        "term":  "フレイムドラゴン",
+        "translation":  "烈焰龙",
+        "note":  "怪物"
+    },
+    {
+        "term":  "フレイル",
+        "translation":  "链枷",
+        "note":  "武器"
+    },
+    {
+        "term":  "ブロードソード",
+        "translation":  "阔剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ぶんどる",
+        "translation":  "抢夺",
+        "note":  "技能"
+    },
+    {
+        "term":  "ぶんまわし",
+        "translation":  "旋转挥击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ペインウィップ",
+        "translation":  "痛楚之鞭",
+        "note":  "武器"
+    },
+    {
+        "term":  "ベス",
+        "translation":  "贝丝",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "ベテランヒール",
+        "translation":  "老练治疗",
+        "note":  "技能"
+    },
+    {
+        "term":  "ペネトレイション",
+        "translation":  "穿透",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "ヘビーゴーレム",
+        "translation":  "重型石魔像",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ヘブンズソード",
+        "translation":  "天堂之剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ヘルダンシング",
+        "translation":  "地狱之舞",
+        "note":  "技能"
+    },
+    {
+        "term":  "ヘルドラゴン",
+        "translation":  "地狱龙",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ポイズンガード",
+        "translation":  "剧毒防护",
+        "note":  "物品"
+    },
+    {
+        "term":  "ポイズンストーン",
+        "translation":  "剧毒石",
+        "note":  "物品"
+    },
+    {
+        "term":  "ポイズンプラス",
+        "translation":  "中毒加成",
+        "note":  "状态"
+    },
+    {
+        "term":  "ホーリーストーン",
+        "translation":  "神圣石",
+        "note":  "物品"
+    },
+    {
+        "term":  "ホーリーダイブ",
+        "translation":  "圣光俯冲",
+        "note":  "技能"
+    },
+    {
+        "term":  "ホーンクラッシュ",
+        "translation":  "角击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ホーンドアーマー",
+        "translation":  "角甲",
+        "note":  "物品"
+    },
+    {
+        "term":  "ホッピング",
+        "translation":  "跳跃",
+        "note":  "技能"
+    },
+    {
+        "term":  "マーム",
+        "translation":  "玛姆",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "マイクボムレット",
+        "translation":  "麦克风炸弹",
+        "note":  "技能"
+    },
+    {
+        "term":  "まかろんラッシュ",
+        "translation":  "马卡龙连击",
+        "note":  "技能"
+    },
+    {
+        "term":  "マジカルシザーネイル",
+        "translation":  "魔法剪甲",
+        "note":  "武器，出自《女皇之门》"
+    },
+    {
+        "term":  "マジカルシザーネイル・極",
+        "translation":  "魔法剪甲·极",
+        "note":  "武器，出自《女皇之门》"
+    },
+    {
+        "term":  "マジカルステッキ",
+        "translation":  "魔法手杖",
+        "note":  "物品"
+    },
+    {
+        "term":  "まじかるハンマー",
+        "translation":  "魔法之锤",
+        "note":  "武器"
+    },
+    {
+        "term":  "マッドローパー",
+        "translation":  "泥泞触手怪",
+        "note":  "怪物"
+    },
+    {
+        "term":  "マナストリーム",
+        "translation":  "魔力洪流",
+        "note":  "技能"
+    },
+    {
+        "term":  "マミー",
+        "translation":  "木乃伊",
+        "note":  "怪物"
+    },
+    {
+        "term":  "まろん",
+        "translation":  "玛珑",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "まんいーたー",
+        "translation":  "曼伊塔",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ミキリスライド",
+        "translation":  "滑行",
+        "note":  "技能"
+    },
+    {
+        "term":  "ミシェル",
+        "translation":  "米歇尔",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ミソチルリング",
+        "translation":  "弥索奇尔戒指",
+        "note":  "物品"
+    },
+    {
+        "term":  "ミニオン召喚",
+        "translation":  "召唤爪牙",
+        "note":  "技能"
+    },
+    {
+        "term":  "ミラクルステッキ",
+        "translation":  "奇迹手杖",
+        "note":  "物品"
+    },
+    {
+        "term":  "ムーブアップ",
+        "translation":  "移动提升",
+        "note":  "状态"
+    },
+    {
+        "term":  "ムーブダウン",
+        "translation":  "移动下降",
+        "note":  "状态"
+    },
+    {
+        "term":  "ムーラ・パクパク",
+        "translation":  "穆拉·咬咬",
+        "note":  "怪物"
+    },
+    {
+        "term":  "メイ",
+        "translation":  "梅",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "メイス",
+        "translation":  "钉头锤",
+        "note":  "武器"
+    },
+    {
+        "term":  "メテオスイング",
+        "translation":  "流星横扫",
+        "note":  "技能"
+    },
+    {
+        "term":  "メテオライト",
+        "translation":  "陨石",
+        "note":  "技能"
+    },
+    {
+        "term":  "メデューサ",
+        "translation":  "美杜莎",
+        "note":  "怪物"
+    },
+    {
+        "term":  "メナス",
+        "translation":  "美纳斯",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "メナスの宮殿",
+        "translation":  "梅娜丝宫殿",
+        "note":  "地名"
+    },
+    {
+        "term":  "メリッサ",
+        "translation":  "梅丽莎",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "メルトガード",
+        "translation":  "溶解防护",
+        "note":  "物品"
+    },
+    {
+        "term":  "メルトプラス",
+        "translation":  "溶解加成",
+        "note":  "状态"
+    },
+    {
+        "term":  "メルファ",
+        "translation":  "梅露法",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "メローナ",
+        "translation":  "梅罗娜",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ユーミル",
+        "translation":  "优米尔",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ユーミルルート",
+        "translation":  "由米尔路线",
+        "note":  "阶段"
+    },
+    {
+        "term":  "ユニコーンの指輪",
+        "translation":  "独角兽戒指",
+        "note":  "物品"
+    },
+    {
+        "term":  "ユニゾン・ノヴァ",
+        "translation":  "合奏·新星",
+        "note":  "技能"
+    },
+    {
+        "term":  "ライノン",
+        "translation":  "莱农",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ラヴリラ",
+        "translation":  "拉维拉",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ラッキー",
+        "translation":  "幸运",
+        "note":  "技能"
+    },
+    {
+        "term":  "ラッキーコイン",
+        "translation":  "幸运硬币",
+        "note":  "物品"
+    },
+    {
+        "term":  "ラナ",
+        "translation":  "拉纳",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ラフレシア",
+        "translation":  "大王花",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ラミカ",
+        "translation":  "拉米卡",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ラル",
+        "translation":  "拉尔",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "ランシェル",
+        "translation":  "兰谢尔",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ランドパウンド",
+        "translation":  "大地重击",
+        "note":  "技能"
+    },
+    {
+        "term":  "リスティ",
+        "translation":  "丽斯蒂",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "リスティのアジト",
+        "translation":  "莉丝蒂的据点",
+        "note":  "地名"
+    },
+    {
+        "term":  "リビング・セプター“セトラ”",
+        "translation":  "活体王笏“塞特拉”",
+        "note":  "物品"
+    },
+    {
+        "term":  "リビングしてないセプター",
+        "translation":  "非活体王笏",
+        "note":  "物品"
+    },
+    {
+        "term":  "リビングセプター",
+        "translation":  "活体王笏",
+        "note":  "物品"
+    },
+    {
+        "term":  "リブート",
+        "translation":  "重启",
+        "note":  "技能"
+    },
+    {
+        "term":  "リフレッシュ",
+        "translation":  "净化",
+        "note":  "技能"
+    },
+    {
+        "term":  "リペアー",
+        "translation":  "修理",
+        "note":  "技能"
+    },
+    {
+        "term":  "リペアストーン",
+        "translation":  "修复石",
+        "note":  "物品"
+    },
+    {
+        "term":  "リベンジ",
+        "translation":  "复仇",
+        "note":  "技能"
+    },
+    {
+        "term":  "リリ",
+        "translation":  "莉莉",
+        "note":  "角色，出自《铁拳》"
+    },
+    {
+        "term":  "ルー",
+        "translation":  "露",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "ルー・アタック",
+        "translation":  "露·攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ルーナ",
+        "translation":  "露娜",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "レイジ",
+        "translation":  "狂怒",
+        "note":  "技能"
+    },
+    {
+        "term":  "レイジーガード",
+        "translation":  "消沉防护",
+        "note":  "物品"
+    },
+    {
+        "term":  "レイジープラス",
+        "translation":  "消沉加成",
+        "note":  "状态"
+    },
+    {
+        "term":  "レイダー",
+        "translation":  "掠夺者",
+        "note":  "怪物"
+    },
+    {
+        "term":  "レイナ",
+        "translation":  "蕾娜",
+        "note":  "角色，出自《女皇之刃》"
+    },
+    {
+        "term":  "レイナルート",
+        "translation":  "蕾娜路线",
+        "note":  "阶段"
+    },
+    {
+        "term":  "レールガン",
+        "translation":  "磁轨炮",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "レックス",
+        "translation":  "雷克斯",
+        "note":  "怪物"
+    },
+    {
+        "term":  "レンジアップ",
+        "translation":  "射程提升",
+        "note":  "状态"
+    },
+    {
+        "term":  "レンジダウン",
+        "translation":  "射程下降",
+        "note":  "状态"
+    },
+    {
+        "term":  "ローパー",
+        "translation":  "触手怪",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ローパーダケ",
+        "translation":  "触手怪群",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ローリング",
+        "translation":  "翻滚",
+        "note":  "物品"
+    },
+    {
+        "term":  "ロールアタック",
+        "translation":  "翻滚攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ロングソード",
+        "translation":  "长剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "ワイルドアタック",
+        "translation":  "狂野攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ワイルドカード",
+        "translation":  "万能牌",
+        "note":  "技能"
+    },
+    {
+        "term":  "ワイルドシャウト",
+        "translation":  "狂野咆哮",
+        "note":  "技能"
+    },
+    {
+        "term":  "ワイルドハーピー",
+        "translation":  "狂野哈比",
+        "note":  "怪物"
+    },
+    {
+        "term":  "ワイルドマチェット",
+        "translation":  "狂野砍刀",
+        "note":  "武器"
+    },
+    {
+        "term":  "わんだぁクロー",
+        "translation":  "奇妙之爪",
+        "note":  "技能"
+    },
+    {
+        "term":  "ワンダーショット",
+        "translation":  "神奇射击",
+        "note":  "技能"
+    },
+    {
+        "term":  "ワンダーパワー",
+        "translation":  "神奇力量",
+        "note":  "技能"
+    },
+    {
+        "term":  "ワンダーモモ",
+        "translation":  "神奇桃桃",
+        "note":  "角色，出自《神奇桃桃》"
+    },
+    {
+        "term":  "ワンダーリング",
+        "translation":  "奇迹指环",
+        "note":  "物品"
+    },
+    {
+        "term":  "闇夜の殺陣",
+        "translation":  "暗夜杀阵",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "闇隠れ",
+        "translation":  "暗影藏匿",
+        "note":  "技能"
+    },
+    {
+        "term":  "覇王の腕輪",
+        "translation":  "霸者手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "覇者の腕輪",
+        "translation":  "霸王手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "白虎の紋章",
+        "translation":  "白虎纹章",
+        "note":  "物品"
+    },
+    {
+        "term":  "抱擁せし風精王",
+        "translation":  "拥抱之风精王",
+        "note":  "技能"
+    },
+    {
+        "term":  "豹の腕輪",
+        "translation":  "豹纹手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "暴鬼",
+        "translation":  "暴鬼",
+        "note":  "怪物"
+    },
+    {
+        "term":  "暴走族のアジト",
+        "translation":  "暴走族据点",
+        "note":  "地名"
+    },
+    {
+        "term":  "爆裂一魂",
+        "translation":  "爆裂一魂",
+        "note":  "技能"
+    },
+    {
+        "term":  "爆炎弾",
+        "translation":  "爆炎弹",
+        "note":  "技能"
+    },
+    {
+        "term":  "爆炎舞",
+        "translation":  "爆炎之舞",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "変身攻撃",
+        "translation":  "变身攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "波動砲",
+        "translation":  "波动炮",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "玻璃玉",
+        "translation":  "玻璃玉",
+        "note":  "物品"
+    },
+    {
+        "term":  "不知火舞",
+        "translation":  "不知火舞",
+        "note":  "角色，出自《拳皇》"
+    },
+    {
+        "term":  "歩行術",
+        "translation":  "步行术",
+        "note":  "技能"
+    },
+    {
+        "term":  "部位修復",
+        "translation":  "部位修复",
+        "note":  "技能"
+    },
+    {
+        "term":  "参之閃",
+        "translation":  "参之闪",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "蔵舞",
+        "translation":  "藏舞",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "超掃除機",
+        "translation":  "超强吸尘器",
+        "note":  "技能"
+    },
+    {
+        "term":  "次元の亀裂",
+        "translation":  "次元裂缝",
+        "note":  "地名"
+    },
+    {
+        "term":  "次元の狭間",
+        "translation":  "次元狭缝",
+        "note":  "地名"
+    },
+    {
+        "term":  "達人の腕輪",
+        "translation":  "达人手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "打尾",
+        "translation":  "甩尾",
+        "note":  "技能"
+    },
+    {
+        "term":  "大地の加護",
+        "translation":  "大地加护",
+        "note":  "物品"
+    },
+    {
+        "term":  "大剣／ジャベリン",
+        "translation":  "大剑／标枪",
+        "note":  "武器"
+    },
+    {
+        "term":  "大剣巨人殺し",
+        "translation":  "巨人杀手大剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "大扇舞",
+        "translation":  "大扇之舞",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "大王石",
+        "translation":  "大王石",
+        "note":  "物品"
+    },
+    {
+        "term":  "地弓心",
+        "translation":  "地弓心",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "地霊の腕輪",
+        "translation":  "地灵手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "地獄",
+        "translation":  "地狱",
+        "note":  "地名"
+    },
+    {
+        "term":  "低級霊召還",
+        "translation":  "低级灵召唤",
+        "note":  "技能"
+    },
+    {
+        "term":  "冬曙雪月花",
+        "translation":  "冬曙雪月花",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "闘気の霊香",
+        "translation":  "斗气灵香",
+        "note":  "物品"
+    },
+    {
+        "term":  "闘気の秘香",
+        "translation":  "斗气秘香",
+        "note":  "物品"
+    },
+    {
+        "term":  "闘気の神香",
+        "translation":  "斗气神香",
+        "note":  "物品"
+    },
+    {
+        "term":  "闘気減退",
+        "translation":  "斗气减退",
+        "note":  "状态"
+    },
+    {
+        "term":  "闘気増進",
+        "translation":  "斗气增进",
+        "note":  "状态"
+    },
+    {
+        "term":  "闘神石",
+        "translation":  "斗神石",
+        "note":  "物品"
+    },
+    {
+        "term":  "闘士のマント",
+        "translation":  "斗士披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "闘士の腕輪",
+        "translation":  "斗士手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "闘争心",
+        "translation":  "战斗心",
+        "note":  "技能"
+    },
+    {
+        "term":  "毒耐性",
+        "translation":  "中毒耐性",
+        "note":  "状态"
+    },
+    {
+        "term":  "毒蛇の牙",
+        "translation":  "毒蛇之牙",
+        "note":  "技能"
+    },
+    {
+        "term":  "毒消し",
+        "translation":  "解毒药",
+        "note":  "物品"
+    },
+    {
+        "term":  "悪鬼デルモア",
+        "translation":  "恶鬼德尔摩亚",
+        "note":  "技能"
+    },
+    {
+        "term":  "二人で御奉仕",
+        "translation":  "二人侍奉",
+        "note":  "技能"
+    },
+    {
+        "term":  "弐之閃",
+        "translation":  "贰之闪",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "髪槍",
+        "translation":  "发枪",
+        "note":  "武器"
+    },
+    {
+        "term":  "髪爪",
+        "translation":  "发爪",
+        "note":  "技能"
+    },
+    {
+        "term":  "番人のマント",
+        "translation":  "看守披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "翻弄",
+        "translation":  "戏弄",
+        "note":  "技能"
+    },
+    {
+        "term":  "飛竜の腕輪",
+        "translation":  "飞龙手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "飛行",
+        "translation":  "飞行",
+        "note":  "状态"
+    },
+    {
+        "term":  "廃墟　闘技場前",
+        "translation":  "废墟·斗技场前",
+        "note":  "地名"
+    },
+    {
+        "term":  "廃墟商店街",
+        "translation":  "废墟商店街",
+        "note":  "地名"
+    },
+    {
+        "term":  "粉砕",
+        "translation":  "粉碎",
+        "note":  "技能"
+    },
+    {
+        "term":  "風のマント",
+        "translation":  "风之披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "風車",
+        "translation":  "风车",
+        "note":  "技能"
+    },
+    {
+        "term":  "風神のマント",
+        "translation":  "风神披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "服部絢子",
+        "translation":  "服部绚子",
+        "note":  "角色，出自《最后的大魔王》"
+    },
+    {
+        "term":  "浮遊",
+        "translation":  "漂浮",
+        "note":  "状态"
+    },
+    {
+        "term":  "剛力の腕輪",
+        "translation":  "刚力手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "港町",
+        "translation":  "港镇",
+        "note":  "地名"
+    },
+    {
+        "term":  "攻撃不発",
+        "translation":  "攻击失效",
+        "note":  "技能"
+    },
+    {
+        "term":  "光合成",
+        "translation":  "光合作用",
+        "note":  "技能"
+    },
+    {
+        "term":  "鬼蜘蛛",
+        "translation":  "鬼蜘蛛",
+        "note":  "怪物"
+    },
+    {
+        "term":  "豪連打",
+        "translation":  "豪连打",
+        "note":  "技能"
+    },
+    {
+        "term":  "好戦意欲",
+        "translation":  "好战欲",
+        "note":  "技能"
+    },
+    {
+        "term":  "鶴の一声",
+        "translation":  "鹤鸣一声",
+        "note":  "技能"
+    },
+    {
+        "term":  "虹原いんく",
+        "translation":  "虹原殷久",
+        "note":  "角色，出自《もえたん》"
+    },
+    {
+        "term":  "紅蓮石",
+        "translation":  "红莲石",
+        "note":  "物品"
+    },
+    {
+        "term":  "厚手のマント",
+        "translation":  "厚实披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "呼び出す",
+        "translation":  "召唤",
+        "note":  "技能"
+    },
+    {
+        "term":  "狐火",
+        "translation":  "狐火",
+        "note":  "技能"
+    },
+    {
+        "term":  "虎縞のマント",
+        "translation":  "虎纹披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "護鬼",
+        "translation":  "护鬼",
+        "note":  "怪物"
+    },
+    {
+        "term":  "花嵐",
+        "translation":  "花岚",
+        "note":  "技能"
+    },
+    {
+        "term":  "花鳥風月",
+        "translation":  "花鸟风月",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "華",
+        "translation":  "华",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "華の聖乳",
+        "translation":  "花之圣乳",
+        "note":  "技能"
+    },
+    {
+        "term":  "華麗なドルチェ",
+        "translation":  "华丽甜点",
+        "note":  "技能"
+    },
+    {
+        "term":  "幻惑",
+        "translation":  "幻惑",
+        "note":  "技能"
+    },
+    {
+        "term":  "黄泉の門",
+        "translation":  "黄泉之门",
+        "note":  "地名"
+    },
+    {
+        "term":  "回避不可",
+        "translation":  "无法回避",
+        "note":  "状态"
+    },
+    {
+        "term":  "回復",
+        "translation":  "回复",
+        "note":  "技能"
+    },
+    {
+        "term":  "回復薬",
+        "translation":  "回复药",
+        "note":  "物品"
+    },
+    {
+        "term":  "慧梨",
+        "translation":  "慧梨",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "混沌の欠片",
+        "translation":  "混沌碎片",
+        "note":  "物品"
+    },
+    {
+        "term":  "混沌の腕輪",
+        "translation":  "混沌手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "混沌王の欠片",
+        "translation":  "混沌王碎片",
+        "note":  "物品"
+    },
+    {
+        "term":  "混沌王の腕輪",
+        "translation":  "混沌王手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "混乱耐性",
+        "translation":  "混乱耐性",
+        "note":  "状态"
+    },
+    {
+        "term":  "火氷",
+        "translation":  "火冰",
+        "note":  "技能"
+    },
+    {
+        "term":  "火竜の腕輪",
+        "translation":  "火龙手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "火鳥封月",
+        "translation":  "火鸟封月",
+        "note":  "技能"
+    },
+    {
+        "term":  "激角",
+        "translation":  "激角",
+        "note":  "技能"
+    },
+    {
+        "term":  "疾風迅雷",
+        "translation":  "疾风迅雷",
+        "note":  "技能"
+    },
+    {
+        "term":  "疾風斬り",
+        "translation":  "疾风斩",
+        "note":  "技能"
+    },
+    {
+        "term":  "極氷凍",
+        "translation":  "极冰冻",
+        "note":  "技能"
+    },
+    {
+        "term":  "極上メニュー",
+        "translation":  "极致菜单",
+        "note":  "技能"
+    },
+    {
+        "term":  "極炎凍",
+        "translation":  "极炎冻",
+        "note":  "技能"
+    },
+    {
+        "term":  "見切り",
+        "translation":  "识破",
+        "note":  "技能"
+    },
+    {
+        "term":  "見習いの修具",
+        "translation":  "见习修理工具",
+        "note":  "物品"
+    },
+    {
+        "term":  "見習いヒール",
+        "translation":  "见习治疗",
+        "note":  "技能"
+    },
+    {
+        "term":  "剣／ダガー",
+        "translation":  "剑／匕首",
+        "note":  "武器"
+    },
+    {
+        "term":  "剣の舞",
+        "translation":  "剑舞",
+        "note":  "武器"
+    },
+    {
+        "term":  "剣竜鬼",
+        "translation":  "剑龙鬼",
+        "note":  "武器"
+    },
+    {
+        "term":  "結界",
+        "translation":  "结界",
+        "note":  "状态"
+    },
+    {
+        "term":  "精霊のマント",
+        "translation":  "精灵斗篷",
+        "note":  "物品"
+    },
+    {
+        "term":  "精霊石",
+        "translation":  "精灵石",
+        "note":  "物品"
+    },
+    {
+        "term":  "精気吸収",
+        "translation":  "精气吸收",
+        "note":  "技能"
+    },
+    {
+        "term":  "精神の秘薬",
+        "translation":  "精神秘药",
+        "note":  "物品"
+    },
+    {
+        "term":  "精神の神像",
+        "translation":  "精神神像",
+        "note":  "物品"
+    },
+    {
+        "term":  "精神の聖典",
+        "translation":  "精神圣典",
+        "note":  "物品"
+    },
+    {
+        "term":  "究極フルコース",
+        "translation":  "究极全餐",
+        "note":  "技能"
+    },
+    {
+        "term":  "九尾の狐",
+        "translation":  "九尾狐",
+        "note":  "怪物"
+    },
+    {
+        "term":  "救急治療",
+        "translation":  "急救",
+        "note":  "技能"
+    },
+    {
+        "term":  "巨大化",
+        "translation":  "巨大化",
+        "note":  "状态"
+    },
+    {
+        "term":  "決死の覚悟",
+        "translation":  "决死觉悟",
+        "note":  "技能"
+    },
+    {
+        "term":  "覚醒",
+        "translation":  "觉醒",
+        "note":  "状态"
+    },
+    {
+        "term":  "覚醒せし剣姫",
+        "translation":  "觉醒之剑姬",
+        "note":  "武器"
+    },
+    {
+        "term":  "絶技の霊香",
+        "translation":  "绝技灵香",
+        "note":  "物品"
+    },
+    {
+        "term":  "絶技の秘香",
+        "translation":  "绝技秘香",
+        "note":  "物品"
+    },
+    {
+        "term":  "絶技の神香",
+        "translation":  "绝技神香",
+        "note":  "物品"
+    },
+    {
+        "term":  "絶望の深淵",
+        "translation":  "绝望深渊",
+        "note":  "技能"
+    },
+    {
+        "term":  "空舞",
+        "translation":  "空舞",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "叩き付け",
+        "translation":  "猛砸",
+        "note":  "技能"
+    },
+    {
+        "term":  "快癒のディッシュ",
+        "translation":  "快愈料理",
+        "note":  "技能"
+    },
+    {
+        "term":  "雷撃",
+        "translation":  "雷击",
+        "note":  "技能"
+    },
+    {
+        "term":  "雷鳴",
+        "translation":  "雷鸣",
+        "note":  "技能"
+    },
+    {
+        "term":  "雷鳴震撼",
+        "translation":  "雷鸣震撼",
+        "note":  "技能"
+    },
+    {
+        "term":  "雷雲の誇り",
+        "translation":  "雷云之傲",
+        "note":  "技能"
+    },
+    {
+        "term":  "黎明",
+        "translation":  "黎明",
+        "note":  "技能"
+    },
+    {
+        "term":  "力の秘薬",
+        "translation":  "力量秘药",
+        "note":  "物品"
+    },
+    {
+        "term":  "力の神像",
+        "translation":  "力量神像",
+        "note":  "物品"
+    },
+    {
+        "term":  "力の聖典",
+        "translation":  "力量圣典",
+        "note":  "物品"
+    },
+    {
+        "term":  "連打衝",
+        "translation":  "连打冲击",
+        "note":  "技能"
+    },
+    {
+        "term":  "連続行動",
+        "translation":  "连续行动",
+        "note":  "技能"
+    },
+    {
+        "term":  "錬棒",
+        "translation":  "炼棒",
+        "note":  "武器"
+    },
+    {
+        "term":  "錬金術",
+        "translation":  "炼金术",
+        "note":  "技能"
+    },
+    {
+        "term":  "両手剣",
+        "translation":  "双手剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "霊鳥突き",
+        "translation":  "灵鸟突刺",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "琉璃玉",
+        "translation":  "琉璃玉",
+        "note":  "物品"
+    },
+    {
+        "term":  "瑠那",
+        "translation":  "瑠那",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "柳生十兵衛",
+        "translation":  "柳生十兵卫",
+        "note":  "角色，出自《百花缭乱 SAMURAI GIRLS》"
+    },
+    {
+        "term":  "竜王の腕輪",
+        "translation":  "龙王手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "麻痺耐性",
+        "translation":  "麻痹耐性",
+        "note":  "状态"
+    },
+    {
+        "term":  "麻痺耐性１",
+        "translation":  "麻痹耐性１",
+        "note":  "状态"
+    },
+    {
+        "term":  "麻痺耐性２",
+        "translation":  "麻痹耐性２",
+        "note":  "状态"
+    },
+    {
+        "term":  "麻痺耐性３",
+        "translation":  "麻痹耐性３",
+        "note":  "状态"
+    },
+    {
+        "term":  "麻痺消し",
+        "translation":  "麻痹解除药",
+        "note":  "物品"
+    },
+    {
+        "term":  "麻酔銃",
+        "translation":  "麻醉枪",
+        "note":  "技能"
+    },
+    {
+        "term":  "毛皮のマント",
+        "translation":  "毛皮披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "美しさのヴェール",
+        "translation":  "美丽面纱",
+        "note":  "物品"
+    },
+    {
+        "term":  "美脚の秘薬",
+        "translation":  "美腿秘药",
+        "note":  "物品"
+    },
+    {
+        "term":  "猛り狂う地霊",
+        "translation":  "狂暴地灵",
+        "note":  "技能"
+    },
+    {
+        "term":  "猛る武火",
+        "translation":  "狂暴武火",
+        "note":  "技能"
+    },
+    {
+        "term":  "猛反撃",
+        "translation":  "猛烈反击",
+        "note":  "技能"
+    },
+    {
+        "term":  "謎の触手",
+        "translation":  "谜之触手",
+        "note":  "武器"
+    },
+    {
+        "term":  "明鏡止水",
+        "translation":  "明镜止水",
+        "note":  "技能"
+    },
+    {
+        "term":  "冥界の指輪",
+        "translation":  "冥界戒指",
+        "note":  "物品"
+    },
+    {
+        "term":  "命の秘薬",
+        "translation":  "生命秘药",
+        "note":  "物品"
+    },
+    {
+        "term":  "命の神像",
+        "translation":  "生命神像",
+        "note":  "物品"
+    },
+    {
+        "term":  "命の聖典",
+        "translation":  "生命圣典",
+        "note":  "物品"
+    },
+    {
+        "term":  "魔の瞳",
+        "translation":  "魔瞳",
+        "note":  "技能"
+    },
+    {
+        "term":  "魔界の神殿",
+        "translation":  "魔界神殿",
+        "note":  "地名"
+    },
+    {
+        "term":  "魔人のマント",
+        "translation":  "魔人披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "魔刃剣",
+        "translation":  "魔刃剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "魔石の欠片",
+        "translation":  "魔石碎片",
+        "note":  "物品"
+    },
+    {
+        "term":  "母は強し",
+        "translation":  "为母则强",
+        "note":  "技能"
+    },
+    {
+        "term":  "木の葉隠れの術",
+        "translation":  "木叶隐身术",
+        "note":  "技能"
+    },
+    {
+        "term":  "逆鱗",
+        "translation":  "逆鳞",
+        "note":  "技能"
+    },
+    {
+        "term":  "蔦攻撃",
+        "translation":  "藤蔓攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "凝固薬",
+        "translation":  "凝固药",
+        "note":  "物品"
+    },
+    {
+        "term":  "怒り爆発",
+        "translation":  "怒意爆发",
+        "note":  "技能"
+    },
+    {
+        "term":  "怒り心頭",
+        "translation":  "怒火中烧",
+        "note":  "技能"
+    },
+    {
+        "term":  "怒涛の追撃",
+        "translation":  "怒涛追击",
+        "note":  "技能"
+    },
+    {
+        "term":  "女郎蜘蛛",
+        "translation":  "女郎蜘蛛",
+        "note":  "怪物"
+    },
+    {
+        "term":  "女神の指輪",
+        "translation":  "女神戒指",
+        "note":  "物品"
+    },
+    {
+        "term":  "女王のハーブ",
+        "translation":  "女皇香草",
+        "note":  "物品"
+    },
+    {
+        "term":  "女王のマント",
+        "translation":  "女皇披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "女王の威厳",
+        "translation":  "女皇威严",
+        "note":  "技能"
+    },
+    {
+        "term":  "女王謁見室",
+        "translation":  "女皇谒见室",
+        "note":  "地名"
+    },
+    {
+        "term":  "咆哮",
+        "translation":  "咆哮",
+        "note":  "技能"
+    },
+    {
+        "term":  "疲労耐性",
+        "translation":  "疲劳耐性",
+        "note":  "状态"
+    },
+    {
+        "term":  "破壊の腕輪",
+        "translation":  "破坏手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "破壊神の秘香",
+        "translation":  "破坏神秘香",
+        "note":  "物品"
+    },
+    {
+        "term":  "破邪のマント",
+        "translation":  "破邪披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "破邪石",
+        "translation":  "破邪石",
+        "note":  "物品"
+    },
+    {
+        "term":  "破邪舞い",
+        "translation":  "破邪之舞",
+        "note":  "技能"
+    },
+    {
+        "term":  "気付け薬",
+        "translation":  "提神药",
+        "note":  "物品"
+    },
+    {
+        "term":  "気合い溜め",
+        "translation":  "蓄气",
+        "note":  "技能"
+    },
+    {
+        "term":  "気力薬",
+        "translation":  "气力药",
+        "note":  "物品"
+    },
+    {
+        "term":  "気迫",
+        "translation":  "气魄",
+        "note":  "技能"
+    },
+    {
+        "term":  "千年狐狸精",
+        "translation":  "千年狐狸精",
+        "note":  "技能"
+    },
+    {
+        "term":  "槍／鉄爪",
+        "translation":  "长枪／铁爪",
+        "note":  "武器"
+    },
+    {
+        "term":  "錆びたナタ",
+        "translation":  "生锈砍刀",
+        "note":  "武器"
+    },
+    {
+        "term":  "強さのヴェール",
+        "translation":  "强大面纱",
+        "note":  "物品"
+    },
+    {
+        "term":  "強襲レシピ",
+        "translation":  "强袭食谱",
+        "note":  "技能"
+    },
+    {
+        "term":  "強壮薬",
+        "translation":  "强壮药",
+        "note":  "物品"
+    },
+    {
+        "term":  "切り落とし",
+        "translation":  "斩落",
+        "note":  "技能"
+    },
+    {
+        "term":  "琴音",
+        "translation":  "琴音",
+        "note":  "角色，出自《ペインキラー琴音ちゃん》"
+    },
+    {
+        "term":  "全回避",
+        "translation":  "全回避",
+        "note":  "状态"
+    },
+    {
+        "term":  "全異常耐性",
+        "translation":  "全异常耐性",
+        "note":  "状态"
+    },
+    {
+        "term":  "拳銃などの火器",
+        "translation":  "手枪等火器",
+        "note":  "武器"
+    },
+    {
+        "term":  "忍者刀",
+        "translation":  "忍者刀",
+        "note":  "武器"
+    },
+    {
+        "term":  "溶刀",
+        "translation":  "溶刀",
+        "note":  "武器"
+    },
+    {
+        "term":  "溶解耐性",
+        "translation":  "溶解耐性",
+        "note":  "状态"
+    },
+    {
+        "term":  "溶解液噴出",
+        "translation":  "溶解液喷射",
+        "note":  "技能"
+    },
+    {
+        "term":  "肉裂秘剣",
+        "translation":  "裂肉秘剑",
+        "note":  "武器"
+    },
+    {
+        "term":  "三連武者蹴り",
+        "translation":  "三连武者踢",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "三厳の太刀",
+        "translation":  "三严太刀",
+        "note":  "武器"
+    },
+    {
+        "term":  "砂漠の村",
+        "translation":  "沙漠之村",
+        "note":  "地名"
+    },
+    {
+        "term":  "殺人許可",
+        "translation":  "杀戮许可",
+        "note":  "技能"
+    },
+    {
+        "term":  "山の中",
+        "translation":  "山中",
+        "note":  "地名"
+    },
+    {
+        "term":  "山吹",
+        "translation":  "山吹",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "山刀",
+        "translation":  "山刀",
+        "note":  "武器"
+    },
+    {
+        "term":  "上段斬り",
+        "translation":  "上段斩",
+        "note":  "技能"
+    },
+    {
+        "term":  "蛇腹剣「バレンタイン」",
+        "translation":  "蛇腹剑「瓦伦丁」",
+        "note":  "武器，出自《灵魂能力》"
+    },
+    {
+        "term":  "蛇神降臨",
+        "translation":  "蛇神降临",
+        "note":  "技能"
+    },
+    {
+        "term":  "蛇手",
+        "translation":  "蛇手",
+        "note":  "技能"
+    },
+    {
+        "term":  "身体強化",
+        "translation":  "身体强化",
+        "note":  "技能"
+    },
+    {
+        "term":  "神の祝福",
+        "translation":  "神之祝福",
+        "note":  "技能"
+    },
+    {
+        "term":  "神殿",
+        "translation":  "神殿",
+        "note":  "地名"
+    },
+    {
+        "term":  "神秘のマント",
+        "translation":  "神秘披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "神秘の霊薬",
+        "translation":  "神秘灵药",
+        "note":  "物品"
+    },
+    {
+        "term":  "神青石",
+        "translation":  "神青石",
+        "note":  "物品"
+    },
+    {
+        "term":  "神鉄の腕輪",
+        "translation":  "神铁手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "聖なるハーブ",
+        "translation":  "神圣香草",
+        "note":  "物品"
+    },
+    {
+        "term":  "聖印",
+        "translation":  "圣印",
+        "note":  "物品"
+    },
+    {
+        "term":  "聖者の腕輪",
+        "translation":  "圣者手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "師の教え",
+        "translation":  "师之教诲",
+        "note":  "技能"
+    },
+    {
+        "term":  "獅子の腕輪",
+        "translation":  "狮子手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "十文字突き",
+        "translation":  "十字突刺",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "石化邪眼",
+        "translation":  "石化邪眼",
+        "note":  "技能"
+    },
+    {
+        "term":  "手ごころの霊香",
+        "translation":  "手下留情灵香",
+        "note":  "物品"
+    },
+    {
+        "term":  "手ごころの秘香",
+        "translation":  "手下留情秘香",
+        "note":  "物品"
+    },
+    {
+        "term":  "手ごころの神香",
+        "translation":  "手下留情神香",
+        "note":  "物品"
+    },
+    {
+        "term":  "守りの秘薬",
+        "translation":  "守护秘药",
+        "note":  "物品"
+    },
+    {
+        "term":  "守りの神像",
+        "translation":  "守护神像",
+        "note":  "物品"
+    },
+    {
+        "term":  "守りの聖典",
+        "translation":  "守护圣典",
+        "note":  "物品"
+    },
+    {
+        "term":  "守護者のマント",
+        "translation":  "守护者披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "双角鬼",
+        "translation":  "双角鬼",
+        "note":  "怪物"
+    },
+    {
+        "term":  "瞬間移動",
+        "translation":  "瞬移",
+        "note":  "技能"
+    },
+    {
+        "term":  "肆之閃",
+        "translation":  "肆之闪",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "素早さの秘薬",
+        "translation":  "敏捷秘药",
+        "note":  "物品"
+    },
+    {
+        "term":  "素早さの神像",
+        "translation":  "敏捷神像",
+        "note":  "物品"
+    },
+    {
+        "term":  "素早さの聖典",
+        "translation":  "敏捷圣典",
+        "note":  "物品"
+    },
+    {
+        "term":  "速攻",
+        "translation":  "速攻",
+        "note":  "技能"
+    },
+    {
+        "term":  "宿屋の食堂",
+        "translation":  "旅店食堂",
+        "note":  "地名"
+    },
+    {
+        "term":  "太陽石",
+        "translation":  "太阳石",
+        "note":  "物品"
+    },
+    {
+        "term":  "特殊防護スーツ",
+        "translation":  "特殊防护服",
+        "note":  "物品"
+    },
+    {
+        "term":  "特務スーツ",
+        "translation":  "特工服",
+        "note":  "物品"
+    },
+    {
+        "term":  "特効薬",
+        "translation":  "特效药",
+        "note":  "物品"
+    },
+    {
+        "term":  "体力の神像",
+        "translation":  "体力神像",
+        "note":  "物品"
+    },
+    {
+        "term":  "体力の聖典",
+        "translation":  "体力圣典",
+        "note":  "物品"
+    },
+    {
+        "term":  "天狐",
+        "translation":  "天狐",
+        "note":  "怪物"
+    },
+    {
+        "term":  "天槍の宝玉",
+        "translation":  "天枪宝玉",
+        "note":  "物品"
+    },
+    {
+        "term":  "挑発",
+        "translation":  "挑衅",
+        "note":  "技能"
+    },
+    {
+        "term":  "鉄槍",
+        "translation":  "铁枪",
+        "note":  "武器"
+    },
+    {
+        "term":  "突撃",
+        "translation":  "突击",
+        "note":  "技能"
+    },
+    {
+        "term":  "万能薬",
+        "translation":  "万能药",
+        "note":  "物品"
+    },
+    {
+        "term":  "王家の格闘技",
+        "translation":  "王家格斗术",
+        "note":  "技能"
+    },
+    {
+        "term":  "王家の秘香",
+        "translation":  "王家秘香",
+        "note":  "物品"
+    },
+    {
+        "term":  "王家の頭突き",
+        "translation":  "王家头槌",
+        "note":  "技能"
+    },
+    {
+        "term":  "王者の腕輪",
+        "translation":  "王者手环",
+        "note":  "物品"
+    },
+    {
+        "term":  "巫女蹴り",
+        "translation":  "巫女踢",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "無防備",
+        "translation":  "无防备",
+        "note":  "技能"
+    },
+    {
+        "term":  "夕鶴の舞",
+        "translation":  "夕鹤之舞",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "吸血",
+        "translation":  "吸血",
+        "note":  "技能"
+    },
+    {
+        "term":  "吸血の触手",
+        "translation":  "吸血触手",
+        "note":  "武器"
+    },
+    {
+        "term":  "仙狐",
+        "translation":  "仙狐",
+        "note":  "怪物"
+    },
+    {
+        "term":  "先制攻撃",
+        "translation":  "先制攻击",
+        "note":  "技能"
+    },
+    {
+        "term":  "賢者の石",
+        "translation":  "贤者之石",
+        "note":  "物品"
+    },
+    {
+        "term":  "消沈耐性",
+        "translation":  "消沉耐性",
+        "note":  "状态"
+    },
+    {
+        "term":  "消失世界",
+        "translation":  "消失世界",
+        "note":  "地名"
+    },
+    {
+        "term":  "小ドラゴン",
+        "translation":  "小龙",
+        "note":  "怪物"
+    },
+    {
+        "term":  "小悪魔の指輪",
+        "translation":  "小恶魔戒指",
+        "note":  "物品"
+    },
+    {
+        "term":  "校庭",
+        "translation":  "操场",
+        "note":  "地名"
+    },
+    {
+        "term":  "心眼の霊香",
+        "translation":  "心眼灵香",
+        "note":  "物品"
+    },
+    {
+        "term":  "心眼の霊薬",
+        "translation":  "心眼灵药",
+        "note":  "物品"
+    },
+    {
+        "term":  "心眼の秘香",
+        "translation":  "心眼秘香",
+        "note":  "物品"
+    },
+    {
+        "term":  "心眼の秘薬",
+        "translation":  "心眼秘药",
+        "note":  "物品"
+    },
+    {
+        "term":  "心眼の神香",
+        "translation":  "心眼神香",
+        "note":  "物品"
+    },
+    {
+        "term":  "心眼の神像",
+        "translation":  "心眼神像",
+        "note":  "物品"
+    },
+    {
+        "term":  "心眼の聖典",
+        "translation":  "心眼圣典",
+        "note":  "物品"
+    },
+    {
+        "term":  "辛口評価",
+        "translation":  "毒舌评价",
+        "note":  "技能"
+    },
+    {
+        "term":  "星の聖衣",
+        "translation":  "星之圣衣",
+        "note":  "物品"
+    },
+    {
+        "term":  "行動不可",
+        "translation":  "无法行动",
+        "note":  "技能"
+    },
+    {
+        "term":  "幸せのリボン",
+        "translation":  "幸福缎带",
+        "note":  "物品"
+    },
+    {
+        "term":  "修復",
+        "translation":  "修复",
+        "note":  "技能"
+    },
+    {
+        "term":  "虚数界",
+        "translation":  "虚数界",
+        "note":  "地名"
+    },
+    {
+        "term":  "虚数界・神殿の中",
+        "translation":  "虚数界·神殿内",
+        "note":  "地名"
+    },
+    {
+        "term":  "虚数界の神殿",
+        "translation":  "虚数界神殿",
+        "note":  "地名"
+    },
+    {
+        "term":  "学園",
+        "translation":  "学园",
+        "note":  "地名"
+    },
+    {
+        "term":  "学園校庭",
+        "translation":  "学园操场",
+        "note":  "地名"
+    },
+    {
+        "term":  "雪時雨",
+        "translation":  "雪时雨",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "薫子",
+        "translation":  "薰子",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "迅雷",
+        "translation":  "迅雷",
+        "note":  "技能"
+    },
+    {
+        "term":  "迅雷一撃",
+        "translation":  "迅雷一击",
+        "note":  "技能"
+    },
+    {
+        "term":  "言霊",
+        "translation":  "言灵",
+        "note":  "技能"
+    },
+    {
+        "term":  "焔",
+        "translation":  "烈焰",
+        "note":  "技能"
+    },
+    {
+        "term":  "焔玉",
+        "translation":  "焰玉",
+        "note":  "物品"
+    },
+    {
+        "term":  "陽炎の舞",
+        "translation":  "阳炎之舞",
+        "note":  "技能"
+    },
+    {
+        "term":  "陽炎空蝉之舞",
+        "translation":  "阳炎空蝉之舞",
+        "note":  "技能，出自《侍魂》"
+    },
+    {
+        "term":  "陽子",
+        "translation":  "阳子",
+        "note":  "角色，出自《女皇之门》"
+    },
+    {
+        "term":  "妖しい触手",
+        "translation":  "妖异触手",
+        "note":  "武器"
+    },
+    {
+        "term":  "妖狐",
+        "translation":  "妖狐",
+        "note":  "怪物"
+    },
+    {
+        "term":  "妖尾円舞",
+        "translation":  "妖尾圆舞",
+        "note":  "技能"
+    },
+    {
+        "term":  "野生の勘",
+        "translation":  "野性直觉",
+        "note":  "技能"
+    },
+    {
+        "term":  "壱之閃",
+        "translation":  "壹之闪",
+        "note":  "技能，出自《苍翼默示录》"
+    },
+    {
+        "term":  "疑似人格",
+        "translation":  "拟似人格",
+        "note":  "技能"
+    },
+    {
+        "term":  "異界",
+        "translation":  "异界",
+        "note":  "地名"
+    },
+    {
+        "term":  "飲み込み",
+        "translation":  "吞噬",
+        "note":  "技能"
+    },
+    {
+        "term":  "応援",
+        "translation":  "助威",
+        "note":  "技能"
+    },
+    {
+        "term":  "英雄のマント",
+        "translation":  "英雄披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "硬化",
+        "translation":  "硬化",
+        "note":  "技能"
+    },
+    {
+        "term":  "優しさのヴェール",
+        "translation":  "温柔面纱",
+        "note":  "物品"
+    },
+    {
+        "term":  "羽カッター",
+        "translation":  "羽刃",
+        "note":  "技能"
+    },
+    {
+        "term":  "癒しの杖",
+        "translation":  "治愈之杖",
+        "note":  "武器"
+    },
+    {
+        "term":  "月光石",
+        "translation":  "月光石",
+        "note":  "物品"
+    },
+    {
+        "term":  "斬り返し",
+        "translation":  "回斩",
+        "note":  "技能"
+    },
+    {
+        "term":  "戦いの秘薬",
+        "translation":  "战斗秘药",
+        "note":  "物品"
+    },
+    {
+        "term":  "戦闘不可",
+        "translation":  "无法战斗",
+        "note":  "技能"
+    },
+    {
+        "term":  "戦闘意欲減",
+        "translation":  "战斗欲下降",
+        "note":  "技能"
+    },
+    {
+        "term":  "戦技指導",
+        "translation":  "战技指导",
+        "note":  "技能"
+    },
+    {
+        "term":  "戦将の指輪",
+        "translation":  "战将戒指",
+        "note":  "物品"
+    },
+    {
+        "term":  "戦神の秘香",
+        "translation":  "战神秘香",
+        "note":  "物品"
+    },
+    {
+        "term":  "戦神の指輪",
+        "translation":  "战神戒指",
+        "note":  "物品"
+    },
+    {
+        "term":  "戦士のマント",
+        "translation":  "战士披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "戦士の指輪",
+        "translation":  "战士戒指",
+        "note":  "物品"
+    },
+    {
+        "term":  "戦士長の教え",
+        "translation":  "战士长之教诲",
+        "note":  "技能"
+    },
+    {
+        "term":  "戦姫の指輪",
+        "translation":  "战姬戒指",
+        "note":  "物品"
+    },
+    {
+        "term":  "杖／ボーラ",
+        "translation":  "法杖／套索",
+        "note":  "武器"
+    },
+    {
+        "term":  "照竜鬼",
+        "translation":  "照龙鬼",
+        "note":  "怪物"
+    },
+    {
+        "term":  "真鏡名ミナ",
+        "translation":  "真镜名弥娜",
+        "note":  "角色，出自《侍魂》"
+    },
+    {
+        "term":  "姫蜘蛛",
+        "translation":  "姬蜘蛛",
+        "note":  "怪物"
+    },
+    {
+        "term":  "振り回し",
+        "translation":  "挥舞",
+        "note":  "技能"
+    },
+    {
+        "term":  "蜘蛛",
+        "translation":  "蜘蛛",
+        "note":  "怪物"
+    },
+    {
+        "term":  "蜘蛛糸呪縛",
+        "translation":  "蜘蛛丝咒缚",
+        "note":  "怪物"
+    },
+    {
+        "term":  "蜘蛛糸呪怨",
+        "translation":  "蜘蛛丝咒怨",
+        "note":  "怪物"
+    },
+    {
+        "term":  "職人の修具",
+        "translation":  "工匠修理工具",
+        "note":  "物品"
+    },
+    {
+        "term":  "治癒",
+        "translation":  "治愈",
+        "note":  "技能"
+    },
+    {
+        "term":  "重力石",
+        "translation":  "重力石",
+        "note":  "物品"
+    },
+    {
+        "term":  "呪いのビンタ",
+        "translation":  "诅咒耳光",
+        "note":  "技能"
+    },
+    {
+        "term":  "呪いの眼差し",
+        "translation":  "诅咒之眼",
+        "note":  "技能"
+    },
+    {
+        "term":  "呪い耐性",
+        "translation":  "诅咒耐性",
+        "note":  "状态"
+    },
+    {
+        "term":  "呪打",
+        "translation":  "咒击",
+        "note":  "技能"
+    },
+    {
+        "term":  "呪縛連打",
+        "translation":  "咒缚连打",
+        "note":  "技能"
+    },
+    {
+        "term":  "呪青石",
+        "translation":  "咒青石",
+        "note":  "物品"
+    },
+    {
+        "term":  "呪怨の爪",
+        "translation":  "咒怨之爪",
+        "note":  "技能"
+    },
+    {
+        "term":  "祝福のマント",
+        "translation":  "祝福披风",
+        "note":  "物品"
+    },
+    {
+        "term":  "祝福の修具",
+        "translation":  "祝福修理工具",
+        "note":  "物品"
+    },
+    {
+        "term":  "灼熱焔弾",
+        "translation":  "灼热火焰弹",
+        "note":  "技能"
+    },
+    {
+        "term":  "足がすくむ",
+        "translation":  "胆怯",
+        "note":  "技能"
+    },
+    {
+        "term":  "罪人の響き",
+        "translation":  "罪人之响",
+        "note":  "技能"
+    }
+]
