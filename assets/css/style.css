@@ -165,13 +165,11 @@ table.glossary-table th { background: var(--bg-alt); color: var(--accent-gold); 
   border: 1px solid var(--border); padding: 4px 8px; font-size: 13px;
 }
 .wiki-content table.infobox { float: right; margin: 0 0 16px 20px; width: 300px; }
-@media (max-width: 700px) { .wiki-content table.infobox { float: none; margin: 0 0 16px; width: 100%; } }
 .wiki-content figure[typeof~="mw:File/Thumb"] {
   float: right; clear: right; margin: 8px 0 16px 20px; width: 280px;
   background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 6px;
 }
-@media (max-width: 700px) { .wiki-content figure[typeof~="mw:File/Thumb"] { float: none; margin: 0 0 16px; width: 100%; } }
 .wiki-content figure img { width: 100%; }
 .wiki-content figcaption { font-size: 12px; color: var(--text-dim); padding: 4px 2px 0; }
 .wiki-content .gallery { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; }
@@ -181,6 +179,36 @@ table.glossary-table th { background: var(--bg-alt); color: var(--accent-gold); 
 .wiki-content ul { padding-left: 22px; }
 .wiki-content .catlinks { display: none; }
 .mw-redirect { color: var(--link); }
+
+/* ---------- 移动端适配（≤700px） ---------- */
+@media (max-width: 700px) {
+  .layout { padding: 12px; gap: 16px; }
+  .main-content { padding: 16px 14px; }
+  .article-header .page-ja-zh { font-size: 22px; }
+
+  /* Fandom 信息框：内联 style="float:right; width:300px"，样式表盖不住，必须 !important */
+  .wiki-content table[style*="float"],
+  .wiki-content table.infobox {
+    float: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 16px !important;
+  }
+  /* 缩略图/媒体框：内联 style="width:200px" 同理 */
+  .wiki-content figure[typeof~="mw:File/Thumb"],
+  .wiki-content figure.thumb {
+    float: none !important;
+    clear: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 16px !important;
+  }
+  /* 其他内联浮动元素兜底 */
+  .wiki-content div[style*="float"] { float: none !important; margin-left: 0 !important; margin-right: 0 !important; }
+  /* 固定宽度表格兜底：不溢出、单元格可换行 */
+  .wiki-content table[style*="width"] { max-width: 100% !important; }
+  .wiki-content table td, .wiki-content table th { word-break: break-word; }
+}
 
 /* 搜索结果 */
 .search-result { padding: 10px 0; border-bottom: 1px dashed var(--border); }
