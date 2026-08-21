@@ -1,12 +1,12 @@
 ﻿{
-    "title":  "Skelle",
-    "displaytitle":  "\u003cspan class=\"mw-page-title-main\"\u003eSkelle\u003c/span\u003e",
-    "categories":  [
-                       "Characters",
-                       "Queen\u0027s_Blade:_Limit_Break_characters"
-                   ],
-    "images":  [
-                   "Skelle_QBULB.jpg"
-               ],
-    "html":  "\u003cdiv class=\"mw-content-ltr mw-parser-output\" lang=\"en\" dir=\"ltr\"\u003e\u003cp\u003e\u003cspan typeof=\"mw:File\"\u003e\u003ca href=\"https://static.wikia.nocookie.net/queensblade/images/0/0e/Skelle_QBULB.jpg/revision/latest?cb=20241128021721\" class=\"mw-file-description image\"\u003e\u003cimg alt=\"Skelle QBULB\" src=\"https://static.wikia.nocookie.net/queensblade/images/0/0e/Skelle_QBULB.jpg/revision/latest/scale-to-width-down/400?cb=20241128021721\" decoding=\"async\" loading=\"lazy\" width=\"400\" height=\"1025\" class=\"mw-file-element\" data-image-name=\"Skelle QBULB.jpg\" data-image-key=\"Skelle_QBULB.jpg\" data-relevant=\"1\" /\u003e\u003c/a\u003e\u003c/span\u003e\n\u003c/p\u003e\u003cp\u003e\u003cb\u003eCorpse defender\u003c/b\u003e\n\u003c/p\u003e\u003cp\u003eA necromancer and beatiful warrior dressed as a noblewoman. Despite being a necromancer, she is known by fighting wielding a coffin. Only she knows who is in the coffin...\n\u003c/p\u003e\n\u003c!-- \nNewPP limit report\nCached time: 20260821132256\nCache expiry: 1209600\nReduced expiry: false\nComplications: []\nCPU time usage: 0.004 seconds\nReal time usage: 0.005 seconds\nPreprocessor visited node count: 1/1000000\nPost‐expand include size: 0/2097152 bytes\nTemplate argument size: 0/2097152 bytes\nHighest expansion depth: 1/100\nExpensive parser function count: 0/100\nUnstrip recursion depth: 0/20\nUnstrip post‐expand size: 0/5000000 bytes\n--\u003e\n\u003c!--\nTransclusion expansion time report (%,ms,calls,template)\n100.00%    0.000      1 -total\n--\u003e\n\n\u003c!-- Saved in parser cache with key 1.43.9_prod_queensblade:pcache:idhash:39785-0!sseVary=RegularPage!FandomDesktop!LegacyGalleries and timestamp 20260821132256 and revision id 64369. Rendering was triggered because: api-parse\n --\u003e\n\u003c/div\u003e"
+    "title": "Skelle",
+    "displaytitle": "<span class=\"mw-page-title-main\">Skelle</span>",
+    "categories": [
+        "Characters",
+        "Queen's_Blade:_Limit_Break_characters"
+    ],
+    "images": [
+        "Skelle_QBULB.jpg"
+    ],
+    "html": "<div class=\"mw-content-ltr mw-parser-output\" lang=\"en\" dir=\"ltr\"><p><span typeof=\"mw:File\"><a href=\"https://static.wikia.nocookie.net/queensblade/images/0/0e/Skelle_QBULB.jpg/revision/latest?cb=20241128021721\" class=\"mw-file-description image\"><img alt=\"Skelle QBULB\" src=\"https://static.wikia.nocookie.net/queensblade/images/0/0e/Skelle_QBULB.jpg/revision/latest/scale-to-width-down/400?cb=20241128021721\" decoding=\"async\" loading=\"lazy\" width=\"400\" height=\"1025\" class=\"mw-file-element\" data-image-name=\"Skelle QBULB.jpg\" data-image-key=\"Skelle_QBULB.jpg\" data-relevant=\"1\" /></a></span>\n</p><p><b>尸体守卫</b>\n</p><p>一位身着贵族女装的死灵法师兼美丽战士。尽管是死灵法师，她却以挥舞棺材战斗而闻名。只有她知道棺材里是谁……\n\n</p>\n<!-- \nNewPP limit report\nCached time: 20260821132256\nCache expiry: 1209600\nReduced expiry: false\nComplications: []\nCPU time usage: 0.004 seconds\nReal time usage: 0.005 seconds\nPreprocessor visited node count: 1/1000000\nPost‐expand include size: 0/2097152 bytes\nTemplate argument size: 0/2097152 bytes\nHighest expansion depth: 1/100\nExpensive parser function count: 0/100\nUnstrip recursion depth: 0/20\nUnstrip post‐expand size: 0/5000000 bytes\n-->\n<!--\nTransclusion expansion time report (%,ms,calls,template)\n100.00%    0.000      1 -total\n-->\n\n<!-- Saved in parser cache with key 1.43.9_prod_queensblade:pcache:idhash:39785-0!sseVary=RegularPage!FandomDesktop!LegacyGalleries and timestamp 20260821132256 and revision id 64369. Rendering was triggered because: api-parse\n -->\n</div>"
 }

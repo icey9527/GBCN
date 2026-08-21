@@ -40,7 +40,7 @@ web/
 |---|---|
 | 改角色的日中文名、加新角色 | 编辑 `data/names.json`，刷新页面即可 |
 | wiki 内容更新了 | 依次跑 `download_wiki.ps1` → `download_images.ps1` → `build_index.ps1` |
-| 术语表更新了 | 跑 `export_data.ps1`（改一下脚本里的源文件路径） |
+| 术语表更新了 | 把新导出的 `terms-*.json` 丢进 `data\` 目录，跑 `export_data.ps1`（自动选最新的那个文件） |
 | 文章里某个词替换得不合适 | 在 `names.json` 对应条目的 `variants` 里调整匹配词 |
 
 ## names.json 字段说明

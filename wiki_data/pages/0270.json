@@ -1,12 +1,12 @@
 ﻿{
-    "title":  "Pleia",
-    "displaytitle":  "\u003cspan class=\"mw-page-title-main\"\u003ePleia\u003c/span\u003e",
-    "categories":  [
-                       "Characters",
-                       "Queen\u0027s_Blade:_Limit_Break_characters"
-                   ],
-    "images":  [
-                   "PleiaQBULB.jpg"
-               ],
-    "html":  "\u003cdiv class=\"mw-content-ltr mw-parser-output\" lang=\"en\" dir=\"ltr\"\u003e\u003cp\u003e\u003cspan typeof=\"mw:File\"\u003e\u003ca href=\"https://static.wikia.nocookie.net/queensblade/images/e/e7/PleiaQBULB.jpg/revision/latest?cb=20240803002302\" class=\"mw-file-description image\"\u003e\u003cimg alt=\"PleiaQBULB\" src=\"https://static.wikia.nocookie.net/queensblade/images/e/e7/PleiaQBULB.jpg/revision/latest/scale-to-width-down/400?cb=20240803002302\" decoding=\"async\" loading=\"lazy\" width=\"400\" height=\"726\" class=\"mw-file-element\" data-image-name=\"PleiaQBULB.jpg\" data-image-key=\"PleiaQBULB.jpg\" data-relevant=\"1\" /\u003e\u003c/a\u003e\u003c/span\u003e\n\u003c/p\u003e\u003cp\u003e\u003cb\u003eBattling Merchant\u003c/b\u003e\n\u003c/p\u003e\u003cp\u003e\u003cbr /\u003e\nThe daughter of a merchant family. She loathes discounts.\nThis is why she is unable to serve costumers, do negociations, or leave her parents\u0027 nest.\nShe knows she can\u0027t help her family business, but keeps trying. She\u0027s already become a brilliant warrior in the process.\n\u003c/p\u003e\n\u003c!-- \nNewPP limit report\nCached time: 20260821131854\nCache expiry: 1209600\nReduced expiry: false\nComplications: []\nCPU time usage: 0.005 seconds\nReal time usage: 0.005 seconds\nPreprocessor visited node count: 1/1000000\nPost‐expand include size: 0/2097152 bytes\nTemplate argument size: 0/2097152 bytes\nHighest expansion depth: 1/100\nExpensive parser function count: 0/100\nUnstrip recursion depth: 0/20\nUnstrip post‐expand size: 0/5000000 bytes\n--\u003e\n\u003c!--\nTransclusion expansion time report (%,ms,calls,template)\n100.00%    0.000      1 -total\n--\u003e\n\n\u003c!-- Saved in parser cache with key 1.43.9_prod_queensblade:pcache:idhash:39530-0!sseVary=RegularPage!FandomDesktop!LegacyGalleries and timestamp 20260821131854 and revision id 63607. Rendering was triggered because: api-parse\n --\u003e\n\u003c/div\u003e"
+    "title": "Pleia",
+    "displaytitle": "<span class=\"mw-page-title-main\">Pleia</span>",
+    "categories": [
+        "Characters",
+        "Queen's_Blade:_Limit_Break_characters"
+    ],
+    "images": [
+        "PleiaQBULB.jpg"
+    ],
+    "html": "<div class=\"mw-content-ltr mw-parser-output\" lang=\"en\" dir=\"ltr\"><p><span typeof=\"mw:File\"><a href=\"https://static.wikia.nocookie.net/queensblade/images/e/e7/PleiaQBULB.jpg/revision/latest?cb=20240803002302\" class=\"mw-file-description image\"><img alt=\"PleiaQBULB\" src=\"https://static.wikia.nocookie.net/queensblade/images/e/e7/PleiaQBULB.jpg/revision/latest/scale-to-width-down/400?cb=20240803002302\" decoding=\"async\" loading=\"lazy\" width=\"400\" height=\"726\" class=\"mw-file-element\" data-image-name=\"PleiaQBULB.jpg\" data-image-key=\"PleiaQBULB.jpg\" data-relevant=\"1\" /></a></span>\n</p><p><b>战斗商人</b>\n</p><p><br />\n\n一个商人家庭的女儿。她厌恶折扣。\n这就是为什么她无法服务顾客、进行谈判或离开父母家。\n她知道她帮不上家里的生意，但一直在努力。在这个过程中，她已经成为一名出色的战士。\n\n</p>\n<!-- \nNewPP limit report\nCached time: 20260821131854\nCache expiry: 1209600\nReduced expiry: false\nComplications: []\nCPU time usage: 0.005 seconds\nReal time usage: 0.005 seconds\nPreprocessor visited node count: 1/1000000\nPost‐expand include size: 0/2097152 bytes\nTemplate argument size: 0/2097152 bytes\nHighest expansion depth: 1/100\nExpensive parser function count: 0/100\nUnstrip recursion depth: 0/20\nUnstrip post‐expand size: 0/5000000 bytes\n-->\n<!--\nTransclusion expansion time report (%,ms,calls,template)\n100.00%    0.000      1 -total\n-->\n\n<!-- Saved in parser cache with key 1.43.9_prod_queensblade:pcache:idhash:39530-0!sseVary=RegularPage!FandomDesktop!LegacyGalleries and timestamp 20260821131854 and revision id 63607. Rendering was triggered because: api-parse\n -->\n</div>"
 }

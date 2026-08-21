@@ -1,11 +1,7 @@
 ﻿{
-    "title":  "Skirmishes",
-    "displaytitle":  "\u003cspan class=\"mw-page-title-main\"\u003eSkirmishes\u003c/span\u003e",
-    "categories":  [
-
-                   ],
-    "images":  [
-
-               ],
-    "html":  "\u003cdiv class=\"mw-content-ltr mw-parser-output\" lang=\"en\" dir=\"ltr\"\u003e\u003cp\u003ePreliminary fights, also known as, \u003cb\u003eskirmishes\u003c/b\u003e. That’s what the period before the actual \u003ca href=\"/wiki/Queen%27s_Blade_(Tournament)\" title=\"Queen\u0026#39;s Blade (Tournament)\"\u003eQueen’s Blade\u003c/a\u003e was called. The arrangement of these skirmishes was left up to the participants; unlike the main fights, anyone could freely choose who to battle at this stage. The participants fought frequently to learn of each other\u0027s ability and to measure their own power, in preparation for the real fights. It was no exaggeration to say that whenever two participants met, a fight would break out.\n\u003c/p\u003e\n\u003c!-- \nNewPP limit report\nCached time: 20260819055820\nCache expiry: 1209600\nReduced expiry: false\nComplications: []\nCPU time usage: 0.002 seconds\nReal time usage: 0.003 seconds\nPreprocessor visited node count: 1/1000000\nPost‐expand include size: 0/2097152 bytes\nTemplate argument size: 0/2097152 bytes\nHighest expansion depth: 1/100\nExpensive parser function count: 0/100\nUnstrip recursion depth: 0/20\nUnstrip post‐expand size: 0/5000000 bytes\n--\u003e\n\u003c!--\nTransclusion expansion time report (%,ms,calls,template)\n100.00%    0.000      1 -total\n--\u003e\n\n\u003c!-- Saved in parser cache with key 1.43.9_prod_queensblade:pcache:idhash:39504-0!sseVary=RegularPage!FandomDesktop!LegacyGalleries and timestamp 20260819055820 and revision id 64363. Rendering was triggered because: unknown\n --\u003e\n\u003c/div\u003e"
+    "title": "Skirmishes",
+    "displaytitle": "<span class=\"mw-page-title-main\">Skirmishes</span>",
+    "categories": [],
+    "images": [],
+    "html": "<div class=\"mw-content-ltr mw-parser-output\" lang=\"en\" dir=\"ltr\"><p>预赛，也称为，  <b>小规模战斗</b>。那就是正赛之前的阶段  <a href=\"/wiki/Queen%27s_Blade_(Tournament)\" title=\"Queen&#39;s Blade (Tournament)\">女皇之刃</a>  这些小型战斗的安排由参与者自行决定；与正赛不同，任何人都能自由选择对手。参与者频繁战斗，以了解彼此的能力并衡量自身实力，为正赛做准备。毫不夸张地说，只要两个参与者相遇，就会爆发战斗。\n\n</p>\n<!-- \nNewPP limit report\nCached time: 20260819055820\nCache expiry: 1209600\nReduced expiry: false\nComplications: []\nCPU time usage: 0.002 seconds\nReal time usage: 0.003 seconds\nPreprocessor visited node count: 1/1000000\nPost‐expand include size: 0/2097152 bytes\nTemplate argument size: 0/2097152 bytes\nHighest expansion depth: 1/100\nExpensive parser function count: 0/100\nUnstrip recursion depth: 0/20\nUnstrip post‐expand size: 0/5000000 bytes\n-->\n<!--\nTransclusion expansion time report (%,ms,calls,template)\n100.00%    0.000      1 -total\n-->\n\n<!-- Saved in parser cache with key 1.43.9_prod_queensblade:pcache:idhash:39504-0!sseVary=RegularPage!FandomDesktop!LegacyGalleries and timestamp 20260819055820 and revision id 64363. Rendering was triggered because: unknown\n -->\n</div>"
 }
