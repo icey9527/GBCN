@@ -84,8 +84,8 @@
 <div class="grid">
   <div class="stat"><div class="n">51</div><div class="l">QBSC 主线剧情/战斗关卡文件（0000–0050）</div></div>
   <div class="stat"><div class="n">112</div><div class="l">QBSC 自由对话文件（16 角色 × 7 段）</div></div>
-  <div class="stat"><div class="n">85</div><div class="l">QGSC 主线剧情/战斗关卡文件（map.bin 0000–0084）</div></div>
-  <div class="stat"><div class="n">34</div><div class="l">QGSC 自由对话文件（0090–0123）</div></div>
+  <div class="stat"><div class="n">85</div><div class="l">QGSC 主线关卡（0000–0084）· 切成 4 段适配 4 人</div></div>
+  <div class="stat"><div class="n">34</div><div class="l">QGSC 自由对话（0090–0123）· 均分 4 份，每人 8–9 角色</div></div>
 </div>
 
 <!-- ==================== QBSC ==================== -->
@@ -182,24 +182,79 @@
   <h2>二、QGSC（女皇之门 螺旋混沌）<span class="g">utf8/QGSC/</span></h2>
   <p class="sub">map.bin 共 161 个 .txt + shared.bin/0009.lice 共 2 个。结构比 QBSC 复杂：<b>0000–0084</b> 关卡（85，每关=30 种怪物招募对话+战斗条件+剧情）、<b>0085–0088</b> 城镇商店事件、<b>0089</b> 训练教学、<b>0090–0123</b> 自由对话（34）、<b>0124–0160</b> 地图块名称（<span class="kw">日语未翻译，非剧情文本</span>）。</p>
 
-  <h3>分法 A：主线按「话 × 分支选项」切段 —— 提取文本中为 <b style="color:#c2255c">7 段（6 个选项）</b></h3>
+  <h3>分法 A：主线分段（最终推荐 —— 量均衡 + 剧情连贯，适配 4 人分工）</h3>
+  <p class="sub">QGSC 主线为「话」制（攻略至第 49 话，含分支专属话）。按<b>累计文本量均分 + 剧情连贯</b>切为 4 段（每段一个完整大篇章；6 处选项落在段内不切割剧情），各段占比 22.6%–27.2%，正好 4 人各翻一段。</p>
+
   <div class="flow">
-    <div class="seg"><div class="sn">段 ① · 0000–0002</div><div class="sf">序盘招募教学</div></div>
-    <div class="branch"><div class="bt">★ 选项 1（0003）</div><div class="bo">「追赶舞和朵拉」/「追赶绚子和拉米卡」＝ Stage 3</div></div>
-    <div class="seg"><div class="sn">段 ② · 0003–0017</div><div class="sf">森林/追击战</div></div>
-    <div class="branch"><div class="bt">★ 选项 2（0018）</div><div class="bo">「前往兰谢尔所在处」/「前往苏谢尔所在处」＝ Stage 18 双子护卫</div></div>
-    <div class="seg"><div class="sn">段 ③ · 0018–0040</div><div class="sf">虚数界神殿/学园篇</div></div>
-    <div class="branch"><div class="bt">★ 选项 3（0041）</div><div class="bo">「与爱丽丝寻找秘宝」/「追随艾涅，与莉莉同行」</div></div>
-    <div class="seg"><div class="sn">段 ④ · 0041–0045</div><div class="sf">—</div></div>
-    <div class="branch"><div class="bt">★ 选项 4（0046）</div><div class="bo">「与爱丽丝前往暴走族据点」/「与舞前往强盗团据点」</div></div>
-    <div class="seg"><div class="sn">段 ⑤ · 0046</div><div class="sf">—</div></div>
-    <div class="branch"><div class="bt">★ 选项 5（0047）</div><div class="bo">「寻找蘑菇」/「采集蜂蜜」</div></div>
-    <div class="seg"><div class="sn">段 ⑥ · 0047–0068</div><div class="sf">中盘各路线</div></div>
-    <div class="branch"><div class="bt">★ 选项 6（0069）</div><div class="bo">「跟我来！」/「和阿莱茵一起走」</div></div>
-    <div class="seg"><div class="sn">段 ⑦ · 0069–0084</div><div class="sf">后盘：维丝战等 → 结局分支</div></div>
+    <div class="seg"><div class="sn">第1段 · 0000–0018（19文件）</div><div class="sf">序盘：次元裂缝 → 追踪龙之巫女 → 双子战</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">119,826 字符 · 26.2%</div></div>
+    <div class="branch" style="align-self:center;margin:0 6px;border-color:#c7d4f5;background:#eef2ff;color:#2f4fb0">段内选项：★1@0003 ★2@0018</div>
+    <div class="seg"><div class="sn">第2段 · 0019–0037（19文件）</div><div class="sf">异世界潜入：阿尔德拉阴谋 → 消失世界 → 分身战</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">103,659 字符 · 22.6%</div></div>
+    <div class="branch" style="align-self:center;margin:0 6px;border-color:#c7d4f5;background:#eef2ff;color:#2f4fb0">段内选项：★3@0041 ★4@0046 ★5@0047</div>
+    <div class="seg"><div class="sn">第3段 · 0038–0059（22文件）</div><div class="sf">女皇之国 → 学园篇 → 据点/斗技场</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">124,490 字符 · 27.2%</div></div>
+    <div class="branch" style="align-self:center;margin:0 6px;border-color:#c7d4f5;background:#eef2ff;color:#2f4fb0">段内选项：★6@0069</div>
+    <div class="seg"><div class="sn">第4段 · 0060–0084（25文件）</div><div class="sf">终章：维丝真相 → 宇宙决战 → 结局/后日谈</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">110,015 字符 · 24.0%</div></div>
   </div>
 
   <div class="ok"><b>✔ 攻略核对：</b>选项 1、2 与 GameFAQs（Stage 3 / Stage 18）吻合；GameFAQs 另记载 Stage 22（舞/莉莉分流）、Stage 28（爱丽丝/莉莉）、Stage 31（绚子/舞/阿莱茵）决定 4 种结局——但提取文本中无对应「路线选择」字样（应为菜单选择，不落文本）。</div>
+
+  <h3>分法 A1：总剧情分段卡（最终推荐切法 · 全部可点击复制）</h3>
+  <p class="sub">每段一张卡：点「复制」按钮即可复制对应的文件范围 / 文本量 / 剧情总结；点「复制整段」一次复制全部信息。</p>
+
+  <div class="segcard">
+    <div class="seghead"><b id="qg1_title">第1段 · 序盘：次元裂缝 → 追踪龙之巫女 → 双子战</b><button class="cp" onclick="copySeg('qg1')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="qg1_range">QGSC/map.bin/0000.logo.txt ～ 0018.logo.txt</span><button class="cp" onclick="copyEl('qg1_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="qg1_size">19 文件 · 119,826 台词字符 · 6,465 消息块（占比 26.2%）｜段内选项：★1「追赶舞和朵拉/追赶绚子和拉米卡」@0003、★2「前往兰谢尔所在处/前往苏谢尔所在处」@0018</span><button class="cp" onclick="copyEl('qg1_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">剧情总结</span><span class="p story" id="qg1_story">序章：玛隆从天上掉到ジャン身边，两人在异世界密林苏醒（0000 教程）；次元裂缝爆发，废墟街出现异变（0001）；爱丽丝登场，说明「龙之巫女」引发的次元混乱（0002）；选项1：追赶舞和朵拉，或追赶绚子和拉米卡（0003）；众人跨次元追踪，巴、优米尔、伊吕波先后登场，途中遭阿莱茵设伏被擒（0004–0012）；密林中娜娜艾露/卡洽、诺瓦/查姆查姆各自行动（0013–0015）；深入虚数界神殿，米歇尔寻找失踪的姐姐们（0016–0017）；选项2：前往兰谢尔或苏谢尔所在处，与龙之巫女双子激战（0018）。</span><button class="cp" onclick="copyEl('qg1_story')">复制</button></div>
+  </div>
+
+  <div class="segcard">
+    <div class="seghead"><b id="qg2_title">第2段 · 异世界潜入：阿尔德拉阴谋 → 消失世界 → 分身战</b><button class="cp" onclick="copySeg('qg2')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="qg2_range">QGSC/map.bin/0019.logo.txt ～ 0037.logo.txt</span><button class="cp" onclick="copyEl('qg2_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="qg2_size">19 文件 · 103,659 台词字符 · 5,570 消息块（占比 22.6%）</span><button class="cp" onclick="copyEl('qg2_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">剧情总结</span><span class="p story" id="qg2_story">穿越到和平的异次元街道（0019），蕾娜、克洛黛特、艾莉娜与敌人交战（0020）；来到阿尔德拉城，露娜与伊尔玛侍奉女王（0021）；舞与绚子潜入城中偷听阿尔德拉的阴谋（0022–0023），爱丽丝与卡洽破解警报、潜入废墟街（0024）；山中休整，艾奇多娜初尝咖啡牛奶（0025）；进入消失世界，蒂姬登场，盖特被吞，米歇尔与库特陷入困境（0026–0027）；本应消失的维丝再度出现（0029–0031）；露娜、菲米娜、阿莉尤塔的分身陆续登场，「谁才是真的」的混战爆发（0032–0037）。</span><button class="cp" onclick="copyEl('qg2_story')">复制</button></div>
+  </div>
+
+  <div class="segcard">
+    <div class="seghead"><b id="qg3_title">第3段 · 女皇之国 → 学园篇 → 据点/斗技场</b><button class="cp" onclick="copySeg('qg3')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="qg3_range">QGSC/map.bin/0038.logo.txt ～ 0059.logo.txt</span><button class="cp" onclick="copyEl('qg3_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="qg3_size">22 文件 · 124,490 台词字符 · 7,065 消息块（占比 27.2%）｜段内选项：★3「与爱丽丝寻找秘宝/追随艾涅与莉莉」@0041、★4「与爱丽丝前往暴走族据点/与舞前往强盗团据点」@0046、★5「寻找蘑菇/采集蜂蜜」@0047</span><button class="cp" onclick="copyEl('qg3_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">剧情总结</span><span class="p story" id="qg3_story">回到女皇之国游乐园，#M 确认大小姐平安（0038）；琴音与众人来到女皇之国外的街道（0039），阿尔德拉企图占领森林（0040）；选项3：与爱丽丝寻找秘宝，或追随艾涅与莉莉（0041）；学园篇——阿莱茵发出警戒，虹原茵可重游学园（0042–0044），海滨与阿莉尤塔玩捉迷藏（0045）；选项4：与爱丽丝前往暴走族据点，或与舞前往强盗团据点（0046）；选项5：寻找蘑菇或采集蜂蜜（0047）；随后是据点战与斗技场战——暴走族据点、废墟斗技场观众、洞窟中的克洛黛特（0048–0055），以及跨次元的异界探索：库特、蒂姬、诺爱尔等人各自行动（0056–0059）。</span><button class="cp" onclick="copyEl('qg3_story')">复制</button></div>
+  </div>
+
+  <div class="segcard">
+    <div class="seghead"><b id="qg4_title">第4段 · 终章：维丝真相 → 宇宙决战 → 结局/后日谈</b><button class="cp" onclick="copySeg('qg4')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="qg4_range">QGSC/map.bin/0060.logo.txt ～ 0084.logo.txt</span><button class="cp" onclick="copyEl('qg4_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="qg4_size">25 文件 · 110,015 台词字符 · 5,954 消息块（占比 24.0%）｜段内选项：★6「跟我来/和阿莱茵一起走」@0069</span><button class="cp" onclick="copyEl('qg4_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">剧情总结</span><span class="p story" id="qg4_story">招募关衔接（0060–0061）；港镇躲避追兵（0062），荒凉村、矿山、庆典、厨房等各地日常与线索（0063–0068）；选项6：跟我来，或和阿莱茵一起走（0069）；深入异界与消失世界，爱丽丝与兰谢尔对话、苏谢尔提及「永恒精华」，饼干秘密揭晓、找到维丝的弱点（0070–0076）；宇宙战场决战维丝，最终战胜利（0077–0078）；结局篇——爱丽丝立誓找到女皇之门（0079），各角色后日谈（0080–0082）；后日谈挑战：门扉前第二回合连胜战（0083–0084）。</span><button class="cp" onclick="copyEl('qg4_story')">复制</button></div>
+  </div>
+
+  <h3>分法 A2：自由对话按 4 人分工分份（0090–0123 · 34 角色 · 176,862 字符）</h3>
+  <p class="sub">自由对话体量很大（比主线任何单段都多），按角色均分 4 份，正好每人一份，与主线 4 段配套。</p>
+  <div class="segcard">
+    <div class="seghead"><b id="qgfd1_title">自由对话 份1 · 8 角色</b><button class="cp" onclick="copySeg('qgfd1')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="qgfd1_range">QGSC/map.bin/0090.logo.txt ～ 0097.logo.txt</span><button class="cp" onclick="copyEl('qgfd1_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="qgfd1_size">8 角色 · 44,921 台词字符 · 2,069 消息块（占比 25.4%）</span><button class="cp" onclick="copyEl('qgfd1_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">角色清单</span><span class="p" id="qgfd1_story">艾薇(0090)、艾莉(0091)、#SA女郎蜘蛛(0092)、#YA妖精(0093)、爱丽丝(0094)、阿尔德拉(0095)、阿莱茵(0096)、伊吕波(0097)</span><button class="cp" onclick="copyEl('qgfd1_story')">复制</button></div>
+  </div>
+  <div class="segcard">
+    <div class="seghead"><b id="qgfd2_title">自由对话 份2 · 9 角色</b><button class="cp" onclick="copySeg('qgfd2')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="qgfd2_range">QGSC/map.bin/0098.logo.txt ～ 0106.logo.txt</span><button class="cp" onclick="copyEl('qgfd2_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="qgfd2_size">9 角色 · 46,265 台词字符 · 2,127 消息块（占比 26.2%）</span><button class="cp" onclick="copyEl('qgfd2_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">角色清单</span><span class="p" id="qgfd2_story">虹原茵可(0098)、艾奇多娜(0099)、#OA奥德莉(0100)、卡洽(0101)、米歇尔·含库特(0102)、#TA双角鬼(0103)、#UA剑龙鬼(0104)、查姆查姆(0105)、蒂姬(0106)</span><button class="cp" onclick="copyEl('qgfd2_story')">复制</button></div>
+  </div>
+  <div class="segcard">
+    <div class="seghead"><b id="qgfd3_title">自由对话 份3 · 9 角色</b><button class="cp" onclick="copySeg('qgfd3')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="qgfd3_range">QGSC/map.bin/0107.logo.txt ～ 0115.logo.txt</span><button class="cp" onclick="copyEl('qgfd3_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="qgfd3_size">9 角色 · 43,825 台词字符 · 2,224 消息块（占比 24.8%）</span><button class="cp" onclick="copyEl('qgfd3_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">角色清单</span><span class="p" id="qgfd3_story">朵拉(0107)、诺爱尔·梵米利昂(0108)、#GA哈比(0109)、#F主角玛隆(0110)、真镜名弥娜(0111)、#DA美杜莎(0112)、拉米卡(0113)、莉丝蒂(0114)、莉莉(0115)</span><button class="cp" onclick="copyEl('qgfd3_story')">复制</button></div>
+  </div>
+  <div class="segcard">
+    <div class="seghead"><b id="qgfd4_title">自由对话 份4 · 8 角色</b><button class="cp" onclick="copySeg('qgfd4')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="qgfd4_range">QGSC/map.bin/0116.logo.txt ～ 0123.logo.txt</span><button class="cp" onclick="copyEl('qgfd4_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="qgfd4_size">8 角色 · 41,851 台词字符 · 1,887 消息块（占比 23.7%）</span><button class="cp" onclick="copyEl('qgfd4_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">角色清单</span><span class="p" id="qgfd4_story">#LA拉维拉(0116)、#RA照龙鬼(0117)、神奇桃桃(0118)、服部绚子(0119)、琴音(0120)、#KA九尾(0121)、柳生十兵卫(0122)、不知火舞(0123)</span><button class="cp" onclick="copyEl('qgfd4_story')">复制</button></div>
+  </div>
+  <p class="note">城镇事件（0085–0088，1,398 字符）、训练教学（0089，218 字符）、训练模式（shared.bin/0009，2 文件）体量很小，可随手分配；地图块名（0124–0160，563 字符）为日语数据名，按需翻译。</p>
 
   <details>
     <summary>QGSC 主线 85 个文件明细（文件名＋复制按钮｜胜利条件｜标注｜剧情关联）</summary>
@@ -209,7 +264,7 @@
     </table>
   </details>
 
-  <h3>分法 B：自由对话按角色（0090–0123，34 角色各 1 段）</h3>
+  <h3>分法 B：自由对话明细（0090–0123，34 角色各 1 段 · 按 4 人分份见「分法 A2」）</h3>
   <table>
     <tr><th>文件（点击复制）</th><th>角色</th></tr>
     <tr><td class="mono">0090.logo.txt <button class="cp" data-p="QGSC/map.bin/0090.logo.txt" onclick="copyPath(this)">0090.logo.txt</button></td><td>艾薇</td></tr><tr><td class="mono">0091.logo.txt <button class="cp" data-p="QGSC/map.bin/0091.logo.txt" onclick="copyPath(this)">0091.logo.txt</button></td><td>艾莉</td></tr><tr><td class="mono">0092.logo.txt <button class="cp" data-p="QGSC/map.bin/0092.logo.txt" onclick="copyPath(this)">0092.logo.txt</button></td><td>#SA 女郎蜘蛛</td></tr><tr><td class="mono">0093.logo.txt <button class="cp" data-p="QGSC/map.bin/0093.logo.txt" onclick="copyPath(this)">0093.logo.txt</button></td><td>#YA 妖精</td></tr><tr><td class="mono">0094.logo.txt <button class="cp" data-p="QGSC/map.bin/0094.logo.txt" onclick="copyPath(this)">0094.logo.txt</button></td><td>爱丽丝</td></tr><tr><td class="mono">0095.logo.txt <button class="cp" data-p="QGSC/map.bin/0095.logo.txt" onclick="copyPath(this)">0095.logo.txt</button></td><td>阿尔德拉</td></tr><tr><td class="mono">0096.logo.txt <button class="cp" data-p="QGSC/map.bin/0096.logo.txt" onclick="copyPath(this)">0096.logo.txt</button></td><td>阿莱茵</td></tr><tr><td class="mono">0097.logo.txt <button class="cp" data-p="QGSC/map.bin/0097.logo.txt" onclick="copyPath(this)">0097.logo.txt</button></td><td>伊吕波</td></tr><tr><td class="mono">0098.logo.txt <button class="cp" data-p="QGSC/map.bin/0098.logo.txt" onclick="copyPath(this)">0098.logo.txt</button></td><td>虹原茵可</td></tr><tr><td class="mono">0099.logo.txt <button class="cp" data-p="QGSC/map.bin/0099.logo.txt" onclick="copyPath(this)">0099.logo.txt</button></td><td>艾奇多娜</td></tr><tr><td class="mono">0100.logo.txt <button class="cp" data-p="QGSC/map.bin/0100.logo.txt" onclick="copyPath(this)">0100.logo.txt</button></td><td>#OA 奥德莉</td></tr><tr><td class="mono">0101.logo.txt <button class="cp" data-p="QGSC/map.bin/0101.logo.txt" onclick="copyPath(this)">0101.logo.txt</button></td><td>卡洽</td></tr><tr><td class="mono">0102.logo.txt <button class="cp" data-p="QGSC/map.bin/0102.logo.txt" onclick="copyPath(this)">0102.logo.txt</button></td><td>米歇尔（含库特）</td></tr><tr><td class="mono">0103.logo.txt <button class="cp" data-p="QGSC/map.bin/0103.logo.txt" onclick="copyPath(this)">0103.logo.txt</button></td><td>#TA 双角鬼</td></tr><tr><td class="mono">0104.logo.txt <button class="cp" data-p="QGSC/map.bin/0104.logo.txt" onclick="copyPath(this)">0104.logo.txt</button></td><td>#UA 剑龙鬼</td></tr><tr><td class="mono">0105.logo.txt <button class="cp" data-p="QGSC/map.bin/0105.logo.txt" onclick="copyPath(this)">0105.logo.txt</button></td><td>查姆查姆</td></tr><tr><td class="mono">0106.logo.txt <button class="cp" data-p="QGSC/map.bin/0106.logo.txt" onclick="copyPath(this)">0106.logo.txt</button></td><td>蒂姬</td></tr><tr><td class="mono">0107.logo.txt <button class="cp" data-p="QGSC/map.bin/0107.logo.txt" onclick="copyPath(this)">0107.logo.txt</button></td><td>朵拉</td></tr><tr><td class="mono">0108.logo.txt <button class="cp" data-p="QGSC/map.bin/0108.logo.txt" onclick="copyPath(this)">0108.logo.txt</button></td><td>诺爱尔·梵米利昂</td></tr><tr><td class="mono">0109.logo.txt <button class="cp" data-p="QGSC/map.bin/0109.logo.txt" onclick="copyPath(this)">0109.logo.txt</button></td><td>#GA 哈比</td></tr><tr><td class="mono">0110.logo.txt <button class="cp" data-p="QGSC/map.bin/0110.logo.txt" onclick="copyPath(this)">0110.logo.txt</button></td><td>#F 主角（玛隆）</td></tr><tr><td class="mono">0111.logo.txt <button class="cp" data-p="QGSC/map.bin/0111.logo.txt" onclick="copyPath(this)">0111.logo.txt</button></td><td>真镜名弥娜</td></tr><tr><td class="mono">0112.logo.txt <button class="cp" data-p="QGSC/map.bin/0112.logo.txt" onclick="copyPath(this)">0112.logo.txt</button></td><td>#DA 美杜莎</td></tr><tr><td class="mono">0113.logo.txt <button class="cp" data-p="QGSC/map.bin/0113.logo.txt" onclick="copyPath(this)">0113.logo.txt</button></td><td>拉米卡</td></tr><tr><td class="mono">0114.logo.txt <button class="cp" data-p="QGSC/map.bin/0114.logo.txt" onclick="copyPath(this)">0114.logo.txt</button></td><td>莉丝蒂</td></tr><tr><td class="mono">0115.logo.txt <button class="cp" data-p="QGSC/map.bin/0115.logo.txt" onclick="copyPath(this)">0115.logo.txt</button></td><td>莉莉</td></tr><tr><td class="mono">0116.logo.txt <button class="cp" data-p="QGSC/map.bin/0116.logo.txt" onclick="copyPath(this)">0116.logo.txt</button></td><td>#LA 拉维拉</td></tr><tr><td class="mono">0117.logo.txt <button class="cp" data-p="QGSC/map.bin/0117.logo.txt" onclick="copyPath(this)">0117.logo.txt</button></td><td>#RA 照龙鬼</td></tr><tr><td class="mono">0118.logo.txt <button class="cp" data-p="QGSC/map.bin/0118.logo.txt" onclick="copyPath(this)">0118.logo.txt</button></td><td>神奇桃桃</td></tr><tr><td class="mono">0119.logo.txt <button class="cp" data-p="QGSC/map.bin/0119.logo.txt" onclick="copyPath(this)">0119.logo.txt</button></td><td>服部绚子</td></tr><tr><td class="mono">0120.logo.txt <button class="cp" data-p="QGSC/map.bin/0120.logo.txt" onclick="copyPath(this)">0120.logo.txt</button></td><td>琴音</td></tr><tr><td class="mono">0121.logo.txt <button class="cp" data-p="QGSC/map.bin/0121.logo.txt" onclick="copyPath(this)">0121.logo.txt</button></td><td>#KA 九尾</td></tr><tr><td class="mono">0122.logo.txt <button class="cp" data-p="QGSC/map.bin/0122.logo.txt" onclick="copyPath(this)">0122.logo.txt</button></td><td>柳生十兵卫</td></tr><tr><td class="mono">0123.logo.txt <button class="cp" data-p="QGSC/map.bin/0123.logo.txt" onclick="copyPath(this)">0123.logo.txt</button></td><td>不知火舞</td></tr>
@@ -256,6 +311,7 @@
     <tr><th style="width:200px">问题</th><th>结论</th></tr>
     <tr><td><b>建议 4 段还是 8 段？</b></td><td><b>建议 4 段。</b>理由：① 3 个选项是剧本天然的断点，每段是完整剧情弧（开端→分流→追人→终局），按 8 条路线组合拆会出现大量重复文本（分支共用文件），派工和校对都乱；② 实际派工时 4 段只是"大阶段"，真正的工作单位是<b>每个文件=一个关卡</b>（QBSC 51 个），自由对话再按 16 个角色分。这样层级清晰：4 大段 → 关卡文件 → 角色包。</td></tr>
     <tr><td>这 4 段文本量能均等吗？</td><td><b>能，且已按"量均衡 + 剧情连贯"定稿</b>：第1段 0000–0012（26.0%）/ 第2段 0013–0023（22.6%，含选项1、2）/ 第3段 0024–0035（27.8%，含选项3）/ 第4段 0036–0050（23.7%），每段都是完整剧情弧（见「分法 A1」分段卡，范围/量/总结均可复制）。与纯按选项切的方案A（32/9/20/39%）相比更均衡，且不切断剧情。</td></tr>
+    <tr><td>QGSC 也按 4 段分吗？</td><td><b>是，正好 4 人每人一段主线 + 一份自由对话</b>。主线 0000–0084 切 4 段：第1段 0000–0018（26.2%，含★1@0003、★2@0018）/ 第2段 0019–0037（22.6%）/ 第3段 0038–0059（27.2%，含★3/★4/★5）/ 第4段 0060–0084（24.0%，含★6@0069）；自由对话 34 角色均分 4 份（0090–0097 / 0098–0106 / 0107–0115 / 0116–0123，各 23.7%–26.2%）。每人的总量约 15–17 万字符，见「QGSC 分法 A1/A2」分段卡（全部可复制）。</td></tr>
     <tr><td>第一处选项是"寻找谁"？</td><td>是。QBSC <span class="mono">0016</span>：「寻找蕾娜」/「寻找巴」。</td></tr>
     <tr><td>战斗要不要标剧情关联？</td><td>已标。两作均为 SRPG，剧情与战斗在同一文件内交替（关卡=导入+战斗+收尾），无独立战斗文本；只有训练模式（QBSC 0018、QGSC 0089 + shared/0009）是独立战斗文本。</td></tr>
     <tr><td>战斗"抓获"</td><td>即"成为伙伴"招募对话：QGSC 在每关开头（30 种怪物台词），QBSC 在含招募标记的关卡中，可整体打包翻译。</td></tr>
