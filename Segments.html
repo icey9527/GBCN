@@ -56,6 +56,14 @@
   details{border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:8px 0; background:#fff;}
   summary{cursor:pointer; font-weight:600; font-size:14px; color:var(--accent);}
   .kw{color:#c2255c; font-weight:600;}
+  .segcard{border:1.5px solid var(--line); border-radius:12px; padding:14px 16px; margin:12px 0; background:#fcfdff;}
+  .segcard .seghead{font-size:15px; margin-bottom:8px; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .segcard .seghead b{color:var(--accent);}
+  .segcard .segrow{display:flex; align-items:flex-start; gap:8px; margin:6px 0; font-size:13px; flex-wrap:wrap;}
+  .segcard .lbl{flex:0 0 64px; color:var(--sub); font-weight:600; padding-top:1px;}
+  .segcard .p{flex:1; min-width:220px; font-family:Consolas,Menlo,monospace; font-size:12.5px; line-height:1.7; background:#f4f6fa; border:1px dashed #d5dbe8; border-radius:6px; padding:4px 8px; white-space:normal; word-break:break-all; user-select:all;}
+  .segcard .p.story{font-family:"Microsoft YaHei","PingFang SC",sans-serif; font-size:13px;}
+  .segcard .cp{flex:0 0 auto;}
   @media (max-width:720px){ .branch{margin:8px 0;} }
 </style>
 </head>
@@ -85,20 +93,50 @@
   <h2>一、QBSC（女皇之刃 螺旋混沌）<span class="g">utf8/QBSC/shared.bin/0010.lice/</span></h2>
   <p class="sub">共 163 个 .txt：<b>0000–0050</b> 主线剧情+战斗（51），<b>0051–0162</b> 自由对话（112）。文件内以 <span class="mono">#XXX</span> 标记说话人；点击表格里的「复制」按钮得到完整路径（如 <span class="mono">QBSC/shared.bin/0010.lice/0000.logo.txt</span>）。</p>
 
-  <h3>分法 A：主线按「章节（话）× 分支选项」切段 —— 建议 <b style="color:#c2255c">4 段</b></h3>
-  <p class="sub">QBSC 主线为「话」制（攻略共 30+ 话，含分支专属结局话），剧本中共 3 处路线选择，把主线切成 4 大段。"8" = 2×2×2 八条路线组合（见下方结论）。</p>
+  <h3>分法 A：主线分段（最终推荐 —— 量均衡 + 剧情连贯）</h3>
+  <p class="sub">QBSC 主线为「话」制（攻略共 30+ 话，含分支专属结局话），剧本中有 3 处路线选择。按<b>累计文本量均分 + 剧情连贯</b>原则切为 4 段（每段都是完整剧情弧；选项点落在段内不切割剧情），各段占比 22.6%–27.8%，接近均衡。"8" = 2×2×2 八条路线组合，不适合作为切分单位。</p>
 
   <div class="flow">
-    <div class="seg"><div class="sn">段 ① 开端 · 0000–0015</div><div class="sf">第一话～第四话：教程+山贼战+巴恩斯城，蕾娜/巴入队</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">文本量：41,860 字符 · 32.2%</div></div>
-    <div class="branch"><div class="bt">★ 选项 1（0016）</div><div class="bo">「寻找蕾娜」/「寻找巴」</div></div>
-    <div class="seg"><div class="sn">段 ② · 0016–0019</div><div class="sf">莉丝蒂登场，妮库丝/艾莉相关</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">文本量：11,532 字符 · 8.9%</div></div>
-    <div class="branch"><div class="bt">★ 选项 2（0020）</div><div class="bo">「追龙」/「追妮库丝」＝优米尔线/梅露法线</div></div>
-    <div class="seg"><div class="sn">段 ③ · 0020–0029</div><div class="sf">龙讨伐/商壳敌/森守护者/龙之颚 等</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">文本量：26,605 字符 · 20.5%</div></div>
-    <div class="branch"><div class="bt">★ 选项 3（0030）</div><div class="bo">「前往冥界」/「返回地面」</div></div>
-    <div class="seg"><div class="sn">段 ④ · 0030–0050</div><div class="sf">冥界篇/终焉之渊/龙之巫女/三路线终局</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">文本量：50,042 字符 · 38.5%</div></div>
+    <div class="seg"><div class="sn">第1段 · 0000–0012（13文件）</div><div class="sf">开局：山贼遭遇→巴恩斯城→卡特蕾娅初战</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">33,756 字符 · 26.0%</div></div>
+    <div class="branch" style="align-self:center;margin:0 6px;border-color:#c7d4f5;background:#eef2ff;color:#2f4fb0">段内选项：★1@0016 ★2@0020</div>
+    <div class="seg"><div class="sn">第2段 · 0013–0023（11文件）</div><div class="sf">阿莱茵带路→寻找蕾娜/巴→追龙/追妮库丝→沙漠</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">29,340 字符 · 22.6%</div></div>
+    <div class="branch" style="align-self:center;margin:0 6px;border-color:#c7d4f5;background:#eef2ff;color:#2f4fb0">段内选项：★3@0030</div>
+    <div class="seg"><div class="sn">第3段 · 0024–0035（12文件）</div><div class="sf">梅娜丝宫殿→龙巢→黄泉之门→冥界→盖诺斯</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">36,151 字符 · 27.8%</div></div>
+    <div class="seg"><div class="sn">第4段 · 0036–0050（15文件）</div><div class="sf">双子决战→回归现实→地狱→虚数界→最终战</div><div style="font-size:11.5px;color:#9aa3b2;margin-top:3px">30,792 字符 · 23.7%</div></div>
   </div>
 
   <div class="ok"><b>✔ 攻略核对：</b>三处选项与中文攻略（NW旅团、电玩之家、中关村）完全对上：①分支1→蕾娜线/巴线；②分支2「追龙/追妮库丝」→优米尔线（娜娜艾露离队）或梅露法线（诺瓦离队）；③分支3「冥界/地面」→决定最终话与隐藏同伴。</div>
+
+  <h3>分法 A1：总剧情分段卡（最终推荐切法 · 全部可点击复制）</h3>
+  <p class="sub">每段一张卡：点「复制」按钮即可复制对应的文件范围 / 文本量 / 剧情总结；点「复制整段」一次复制全部信息。</p>
+
+  <div class="segcard">
+    <div class="seghead"><b id="seg1_title">第1段 · 开局：山贼遭遇 → 卡特蕾娅初战</b><button class="cp" onclick="copySeg('seg1')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="seg1_range">QBSC/shared.bin/0010.lice/0000.logo.txt ～ 0012.logo.txt</span><button class="cp" onclick="copyEl('seg1_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="seg1_size">13 文件 · 33,756 台词字符 · 1,770 消息块（占比 26.0%）</span><button class="cp" onclick="copyEl('seg1_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">剧情总结</span><span class="p story" id="seg1_story">主角大小姐与随从#M离家出走、立志参加女皇之刃，途中遇山贼（0000 教程关，蕾娜、巴增援入队）；结伴旅行遭拉米卡与哈比袭击，学会捕获魔物（0001）；抵达巴恩斯城，蕾娜的妹妹艾莉娜登场（0002）；沼泽地再战艾莉娜（0003），在莉丝蒂据点处理与艾莉娜的恩怨（0004）；接连经历山贼战（0005）、巴的修行战（0006）、克洛黛特登场战（0007）；温泉休整（0008）；森林迷路，诺瓦登场（0009）、娜娜艾露登场（0010）；优米尔登场并与龙交战（0011），卡特蕾娅（分身）现身，众人苦战（0012）。</span><button class="cp" onclick="copyEl('seg1_story')">复制</button></div>
+  </div>
+
+  <div class="segcard">
+    <div class="seghead"><b id="seg2_title">第2段 · 抉择：阿莱茵带路 → 选项1/选项2 → 沙漠</b><button class="cp" onclick="copySeg('seg2')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="seg2_range">QBSC/shared.bin/0010.lice/0013.logo.txt ～ 0023.logo.txt</span><button class="cp" onclick="copyEl('seg2_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="seg2_size">11 文件 · 29,340 台词字符 · 1,545 消息块（占比 22.6%）｜段内选项：★1「寻找蕾娜/巴」@0016、★2「追龙/追妮库丝」@0020</span><button class="cp" onclick="copyEl('seg2_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">剧情总结</span><span class="p story" id="seg2_story">诺瓦的师父阿莱茵（战士长）为众人带路前往龙巢（0013、0014），途中大战（0015）；抵达万斯领地遭遇追兵，众人决定分头行动——选项1：寻找蕾娜或寻找巴（0016）；卡特蕾娅展现出压倒性实力（0017）；训练模式（0018）；废墟中刺客"静"袭击巴，众人被卷入阴谋（0019）；村庄异变，梅尔法察觉不妙——选项2：追龙（优米尔线）或追妮库丝（梅露法线）（0020）；在村庄瓦砾中搜寻妮库丝与娜娜艾露（0021），转战沙漠（0022、0023）。</span><button class="cp" onclick="copyEl('seg2_story')">复制</button></div>
+  </div>
+
+  <div class="segcard">
+    <div class="seghead"><b id="seg3_title">第3段 · 异界：梅娜丝宫殿 → 龙巢 → 冥界 → 盖诺斯</b><button class="cp" onclick="copySeg('seg3')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="seg3_range">QBSC/shared.bin/0010.lice/0024.logo.txt ～ 0035.logo.txt</span><button class="cp" onclick="copyEl('seg3_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="seg3_size">12 文件 · 36,151 台词字符 · 1,947 消息块（占比 27.8%）｜段内选项：★3「前往冥界/返回地面」@0030</span><button class="cp" onclick="copyEl('seg3_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">剧情总结</span><span class="p story" id="seg3_story">朵拉为对抗众人而求助梅娜丝，梅娜丝宫殿激战（0024、0025、0026）；优米尔线突入龙巢，与龙对决（0027、0028）；艾莉指引众人来到黄泉之门（0029），抵达冥界入口斯提克斯——选项3：前往冥界或返回地面（0030）；冥界内多场激战（0031），回到地上城镇与伊尔玛重逢（0032），伊尔玛战（0033）；来到盖诺斯，发现满城怪物（0034），克洛黛特与万斯卫兵集结备战（0035）。</span><button class="cp" onclick="copyEl('seg3_story')">复制</button></div>
+  </div>
+
+  <div class="segcard">
+    <div class="seghead"><b id="seg4_title">第4段 · 终章：双子决战 → 地狱 → 虚数界 → 最终战</b><button class="cp" onclick="copySeg('seg4')">复制整段</button></div>
+    <div class="segrow"><span class="lbl">文件范围</span><span class="p" id="seg4_range">QBSC/shared.bin/0010.lice/0036.logo.txt ～ 0050.logo.txt</span><button class="cp" onclick="copyEl('seg4_range')">复制</button></div>
+    <div class="segrow"><span class="lbl">文本量</span><span class="p" id="seg4_size">15 文件 · 30,792 台词字符 · 1,678 消息块（占比 23.7%）</span><button class="cp" onclick="copyEl('seg4_size')">复制</button></div>
+    <div class="segrow"><span class="lbl">剧情总结</span><span class="p story" id="seg4_story">魔界神殿与龙之巫女兰谢尔、苏谢尔姐妹决战（0036、0037）；回归现实世界，优米尔与卡特蕾娅进行最终决斗（0038），三路线终局战——美斗士之战（0039），旅店酒会庆功（0040）；艾莉、米歇尔带路深入地狱（0041–0044）；虚数界决战前夜（0045），目标气味消失、追踪受阻（0046），艾莉娜与克洛黛特再战（0047）；返回途中与妮库丝决斗（0048），最终战（0049、0050）。</span><button class="cp" onclick="copyEl('seg4_story')">复制</button></div>
+  </div>
 
   <h3>分法 A2：4 段文本量统计 与「按量均分」方案</h3>
   <p class="sub">台词字符 = 去掉说话人标记与格式符后的可见字符数；消息块 = 一条条完整台词（含说话人）。这是翻译工作量的两个参考指标。</p>
@@ -217,7 +255,7 @@
   <table>
     <tr><th style="width:200px">问题</th><th>结论</th></tr>
     <tr><td><b>建议 4 段还是 8 段？</b></td><td><b>建议 4 段。</b>理由：① 3 个选项是剧本天然的断点，每段是完整剧情弧（开端→分流→追人→终局），按 8 条路线组合拆会出现大量重复文本（分支共用文件），派工和校对都乱；② 实际派工时 4 段只是"大阶段"，真正的工作单位是<b>每个文件=一个关卡</b>（QBSC 51 个），自由对话再按 16 个角色分。这样层级清晰：4 大段 → 关卡文件 → 角色包。</td></tr>
-    <tr><td>这 4 段文本量能均等吗？</td><td>按选项切<b>不均等</b>（32.2% / 8.9% / 20.5% / 38.5%，段②只有段④的四分之一）。<b>但可以均分</b>：按累计文本量切成 0000–0011 / 0012–0023 / 0024–0034 / 0035–0050，每份 24%–26%（见「分法 A2」）。若既要叙事完整又要排期均衡，可接受"段①与段④偏大、段②偏小"的现状，按文件数/块数微调。</td></tr>
+    <tr><td>这 4 段文本量能均等吗？</td><td><b>能，且已按"量均衡 + 剧情连贯"定稿</b>：第1段 0000–0012（26.0%）/ 第2段 0013–0023（22.6%，含选项1、2）/ 第3段 0024–0035（27.8%，含选项3）/ 第4段 0036–0050（23.7%），每段都是完整剧情弧（见「分法 A1」分段卡，范围/量/总结均可复制）。与纯按选项切的方案A（32/9/20/39%）相比更均衡，且不切断剧情。</td></tr>
     <tr><td>第一处选项是"寻找谁"？</td><td>是。QBSC <span class="mono">0016</span>：「寻找蕾娜」/「寻找巴」。</td></tr>
     <tr><td>战斗要不要标剧情关联？</td><td>已标。两作均为 SRPG，剧情与战斗在同一文件内交替（关卡=导入+战斗+收尾），无独立战斗文本；只有训练模式（QBSC 0018、QGSC 0089 + shared/0009）是独立战斗文本。</td></tr>
     <tr><td>战斗"抓获"</td><td>即"成为伙伴"招募对话：QGSC 在每关开头（30 种怪物台词），QBSC 在含招募标记的关卡中，可整体打包翻译。</td></tr>
@@ -248,6 +286,44 @@ function fallback(p, btn, ok){
   document.body.appendChild(t); t.select();
   try { document.execCommand('copy'); ok(); } catch(e) { btn.textContent = '失败'; }
   document.body.removeChild(t);
+}
+function copyEl(id){
+  var el = document.getElementById(id);
+  if (!el) return;
+  copyText(el.textContent.trim());
+}
+function copySeg(id){
+  var parts = [];
+  ['title','range','size','story'].forEach(function(k){
+    var el = document.getElementById(id + '_' + k);
+    if (el) parts.push(el.textContent.trim());
+  });
+  copyText(parts.join('\n'));
+}
+function copyText(p){
+  var ok = function(){
+    var btn = document.querySelector('.cp.ok') || document.createElement('i');
+    // 简单反馈：闪烁所有最近点击的按钮由调用处处理
+    toast('✓ 已复制到剪贴板');
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(p).then(ok, function(){ fb(p, ok); });
+  } else { fb(p, ok); }
+}
+function fb(p, ok){
+  var t = document.createElement('textarea');
+  t.value = p; t.style.position = 'fixed'; t.style.opacity = '0';
+  document.body.appendChild(t); t.select();
+  try { document.execCommand('copy'); ok(); } catch(e) {}
+  document.body.removeChild(t);
+}
+function toast(msg){
+  var d = document.createElement('div');
+  d.textContent = msg;
+  d.style.cssText = 'position:fixed;left:50%;bottom:60px;transform:translateX(-50%);background:#1f2430;color:#fff;padding:8px 18px;border-radius:99px;font-size:13px;z-index:9999;box-shadow:0 4px 14px rgba(0,0,0,.25);opacity:0;transition:opacity .2s;';
+  document.body.appendChild(d);
+  requestAnimationFrame(function(){ d.style.opacity = '1'; });
+  setTimeout(function(){ d.style.opacity = '0'; setTimeout(function(){ document.body.removeChild(d); }, 250); }, 1100);
 }
 </script>
 </body>
