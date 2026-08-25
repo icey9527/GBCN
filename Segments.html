@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QBSC / QGSC 文本分组总表（翻译用）</title>
+<style>
+  :root{
+    --bg:#f7f8fa; --card:#ffffff; --ink:#1f2430; --sub:#5b6472;
+    --line:#e4e7ee; --accent:#2f6fed; --accent2:#7a4fd0; --warn:#b45309;
+    --chip:#eef2ff; --chipink:#2f4fb0; --tag1:#e3f2fd; --tag1ink:#0b5394;
+    --tag2:#fdeee8; --tag2ink:#b34700; --tag3:#e8f5ee; --tag3ink:#1b7a4d;
+    --tag4:#f5eefc; --tag4ink:#7a4fd0; --tag5:#fef3e2; --tag5ink:#9a6b00;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--ink); font-family:"Microsoft YaHei","PingFang SC",-apple-system,sans-serif; line-height:1.65; padding:28px 16px 80px;}
+  .wrap{max-width:1180px; margin:0 auto;}
+  header{background:linear-gradient(135deg,#2f6fed 0%,#7a4fd0 100%); color:#fff; border-radius:16px; padding:28px 32px; margin-bottom:20px;}
+  header h1{font-size:26px; margin-bottom:6px;}
+  header p{opacity:.92; font-size:14px;}
+  .bads{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;}
+  .bad{background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); padding:4px 12px; border-radius:99px; font-size:12.5px;}
+  .grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; margin:18px 0 8px;}
+  .stat{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px;}
+  .stat .n{font-size:26px; font-weight:700; color:var(--accent);}
+  .stat .l{font-size:12.5px; color:var(--sub); margin-top:2px;}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px; margin:18px 0;}
+  h2{font-size:20px; margin-bottom:4px; display:flex; align-items:center; gap:10px;}
+  h2 .g{font-size:12.5px; font-weight:600; color:var(--accent); background:var(--chip); padding:2px 10px; border-radius:99px;}
+  h3{font-size:16px; margin:18px 0 8px; color:var(--accent);}
+  .sub{color:var(--sub); font-size:13.5px; margin-bottom:10px;}
+  .note{background:#fffbe9; border:1px solid #f0e0a8; border-left:4px solid #e0b400; border-radius:8px; padding:10px 14px; font-size:13.5px; margin:12px 0; color:#6b5a00;}
+  .ok{background:#eefaf2; border:1px solid #bfe6cd; border-left:4px solid #2fa35c; border-radius:8px; padding:10px 14px; font-size:13.5px; margin:12px 0; color:#14532d;}
+  table{width:100%; border-collapse:collapse; font-size:13px; margin:8px 0;}
+  th{background:#f2f4f9; color:var(--sub); font-weight:600; text-align:left; padding:7px 10px; border:1px solid var(--line); white-space:nowrap; position:sticky; top:0;}
+  td{padding:6px 10px; border:1px solid var(--line); vertical-align:top;}
+  tr:nth-child(even) td{background:#fafbfd;}
+  .mono{font-family:Consolas,Menlo,monospace; font-size:12px; color:var(--accent2); white-space:nowrap;}
+  .t1{background:var(--tag1); color:var(--tag1ink); padding:1px 8px; border-radius:99px; font-size:12px; white-space:nowrap;}
+  .t2{background:var(--tag2); color:var(--tag2ink); padding:1px 8px; border-radius:99px; font-size:12px; white-space:nowrap;}
+  .t3{background:var(--tag3); color:var(--tag3ink); padding:1px 8px; border-radius:99px; font-size:12px; white-space:nowrap;}
+  .t4{background:var(--tag4); color:var(--tag4ink); padding:1px 8px; border-radius:99px; font-size:12px; white-space:nowrap;}
+  .t5{background:var(--tag5); color:var(--tag5ink); padding:1px 8px; border-radius:99px; font-size:12px; white-space:nowrap;}
+  .flow{display:flex; align-items:stretch; gap:0; flex-wrap:wrap; margin:14px 0;}
+  .seg{background:#fff; border:1.5px solid var(--accent); border-radius:10px; padding:10px 14px; min-width:130px; flex:1;}
+  .seg .sn{font-size:12px; color:var(--sub); font-weight:600;}
+  .seg .sf{font-size:12.5px; margin-top:4px; font-family:Consolas,monospace; color:var(--accent2);}
+  .branch{align-self:center; background:#fff0f3; border:1.5px solid #e26d85; color:#c2255c; border-radius:10px; padding:8px 12px; margin:0 6px; font-size:12.5px; min-width:150px; text-align:center;}
+  .branch .bt{font-weight:700; font-size:13px;}
+  .branch .bo{font-size:12px; margin-top:2px;}
+  .legend{display:flex; gap:8px; flex-wrap:wrap; margin:8px 0;}
+  .legend span{font-size:12px;}
+  details{border:1px solid var(--line); border-radius:10px; padding:10px 14px; margin:8px 0; background:#fff;}
+  summary{cursor:pointer; font-weight:600; font-size:14px; color:var(--accent);}
+  .kw{color:#c2255c; font-weight:600;}
+  .filelist{columns:3; font-size:12.5px; font-family:Consolas,monospace; color:var(--sub);}
+  @media (max-width:720px){ .filelist{columns:2;} .branch{margin:8px 0;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>QBSC / QGSC 文本分组总表</h1>
+  <p>女皇之刃 螺旋混沌（QBSC, PS2）· 女皇之门 螺旋混沌（QGSC, PSP）— utf8/ 提取文本的分组方案全列（供翻译排期与分工）</p>
+  <div class="bads">
+    <span class="bad">QBSC：163 个文本文件</span>
+    <span class="bad">QGSC：161 + 2 个文本文件</span>
+    <span class="bad">已与网上攻略核对分支选项</span>
+    <span class="bad">生成日期：2026-08-25</span>
+  </div>
+</header>
+
+<div class="grid">
+  <div class="stat"><div class="n">51</div><div class="l">QBSC 主线剧情/战斗关卡文件（0000–0050）</div></div>
+  <div class="stat"><div class="n">112</div><div class="l">QBSC 自由对话文件（16 角色 × 7 段）</div></div>
+  <div class="stat"><div class="n">85</div><div class="l">QGSC 主线剧情/战斗关卡文件（map.bin 0000–0084）</div></div>
+  <div class="stat"><div class="n">34</div><div class="l">QGSC 自由对话文件（34 角色/事件各 1 段）</div></div>
+</div>
+
+<!-- ==================== QBSC ==================== -->
+<div class="card">
+  <h2>一、QBSC（女皇之刃 螺旋混沌）<span class="g">utf8/QBSC/shared.bin/0010.lice/</span></h2>
+  <p class="sub">共 163 个 .txt：<b>0000–0050</b> 主线剧情+战斗（51），<b>0051–0162</b> 自由对话（112）。文件内以 <span class="mono">#XXX\n</span> 标记说话人，<span class="mono">\r\n</span> 为真实换行；每条对话块内含字面 <span class="mono">\n</span> 作台词内换行。</p>
+
+  <h3>分法 A：主线按「章节（话）× 分支选项」切段 —— 答案是 <b style="color:#c2255c">4 段</b></h3>
+  <p class="sub">QBSC 主线采用「话」制（攻略共 30+ 话，含分支专属结局话）。剧本中共有 <b>3 处路线选择</b>，把主线切成 <b>4 大段</b>。你记的"4 段"是对的；"8"对应的是 <b>2×2×2 = 8 条路线组合</b>（分支1×分支2×分支3）。</p>
+
+  <div class="flow">
+    <div class="seg"><div class="sn">段 ① 开端 · 文件 0000–0015</div><div class="sf">第一话～第四话：教程 + 山贼战 + 巴恩斯城，蕾娜/巴入队，艾莉娜、克洛黛特登场</div></div>
+    <div class="branch"><div class="bt">★ 选项 1（文件 0016）</div><div class="bo">「寻找蕾娜」/「寻找巴」</div></div>
+    <div class="seg"><div class="sn">段 ② · 文件 0016–0019</div><div class="sf">莉丝蒂登场，妮库丝/艾莉相关</div></div>
+    <div class="branch"><div class="bt">★ 选项 2（文件 0020）</div><div class="bo">「追龙」/「追妮库丝」＝ 攻略第十一话「炎の使い手」优米尔线 / 梅露法线</div></div>
+    <div class="seg"><div class="sn">段 ③ · 文件 0020–0029</div><div class="sf">龙讨伐 / 商壳敌 / 森守护者 / 龙之颚 等</div></div>
+    <div class="branch"><div class="bt">★ 选项 3（文件 0030）</div><div class="bo">「前往冥界」/「返回地面」</div></div>
+    <div class="seg"><div class="sn">段 ④ · 文件 0030–0050</div><div class="sf">冥界篇 / 终焉之渊 / 龙之巫女 / 三路线终局（39）</div></div>
+  </div>
+
+  <div class="ok"><b>✔ 攻略核对结果：</b>三处选项与中文攻略（NW旅团、电玩之家、中关村《全流程详细攻略》）完全对上：<br>
+  ① 分支1「寻找蕾娜/寻找巴」→ 决定蕾娜线 or 巴线；<br>
+  ② 分支2「追龙/追妮库丝」→ 优米尔线（娜娜艾露离队）or 梅露法线（诺瓦离队）；<br>
+  ③ 分支3「冥界/地面」→ 决定最终话与隐藏同伴（艾丽娜/艾丽入队需选冥界，伊露玛需选追龙）。</div>
+
+  <details open>
+    <summary>QBSC 主线 51 个文件明细（文件｜胜利条件｜剧情关联标注）</summary>
+    <table>
+      <tr><th>文件</th><th>胜利 / 败北条件（提取原文）</th><th>标注</th><th>剧情/关联</th></tr>
+      <tr><td class="mono">0000</td><td>逃到桥边｜#F被击败・#M被击败｜消灭所有敌人</td><td><span class="t1">第一话</span></td><td>教程（移动/攻击/属性/宝石/斗气/友好度全讲解）+ 山贼战，蕾娜・巴增援入队</td></tr>
+      <tr><td class="mono">0001</td><td>全歼敌人｜全灭我方</td><td><span class="t1">第二话</span></td><td>旅は道連れ：同行旅程，拉米卡+哈比增援，捕获（成为伙伴）教学</td></tr>
+      <tr><td class="mono">0002</td><td>全歼敌人｜蕾娜被击倒｜赢得女皇决斗｜在女皇决斗中落败</td><td><span class="t1">城镇</span></td><td>到达巴恩斯城，卫兵盘查，蕾娜紧张</td></tr>
+      <tr><td class="mono">0003</td><td>全灭敌人｜我方全灭</td><td><span class="t1">第三话</span></td><td>「爪を磨ぐ者」艾莉娜战</td></tr>
+      <tr><td class="mono">0004</td><td>打倒艾莉娜｜蕾娜被打倒</td><td><span class="t2">关键战</span></td><td>艾莉娜战 → 蕾娜 vs 艾莉娜 QB 决斗</td></tr>
+      <tr><td class="mono">0005</td><td>全灭敌人｜蕾娜被击倒</td><td><span class="t1">主线</span></td><td>山贼战</td></tr>
+      <tr><td class="mono">0006</td><td>歼灭所有敌人｜巴被击败｜女皇对决获胜/失败</td><td><span class="t2">捕获</span></td><td>巴相关战 + 怪物捕获</td></tr>
+      <tr><td class="mono">0007</td><td>打倒克洛黛特｜蕾娜被打倒｜女皇决斗获胜/失败</td><td><span class="t2">关键战</span></td><td>克洛黛特登场战</td></tr>
+      <tr><td class="mono">0008</td><td>敌人全灭｜我方全灭</td><td><span class="t1">城镇</span></td><td>城镇事件（地区）</td></tr>
+      <tr><td class="mono">0009</td><td>敌人全灭｜我方全灭</td><td><span class="t1">城镇</span></td><td>城镇事件（地区）</td></tr>
+      <tr><td class="mono">0010</td><td>消灭全部敌人｜我方全灭</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0011</td><td>消灭所有敌人｜优米尔被击败｜打倒龙｜优米尔被击败</td><td><span class="t2">关键战</span></td><td>优米尔登场 + 龙战</td></tr>
+      <tr><td class="mono">0012</td><td>全歼敌人｜优米尔被击败｜击败分身卡特蕾娅｜优米尔被击败</td><td><span class="t2">关键战·捕获</span></td><td>卡特蕾娅（分身）战</td></tr>
+      <tr><td class="mono">0013</td><td>敌方全灭｜我方全灭</td><td><span class="t1">主线</span></td><td>阿莱茵：「好吧，跟我来」</td></tr>
+      <tr><td class="mono">0014</td><td>全灭敌人｜全灭我方</td><td><span class="t1">城镇</span></td><td>城镇事件</td></tr>
+      <tr><td class="mono">0015</td><td>敌军全灭｜我军全灭｜女皇决斗获胜/落败</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0016</td><td>打倒艾莉娜｜蕾娜被打倒</td><td><span class="t3">★选项1</span></td><td><b>「寻找蕾娜」/「寻找巴」</b>；莉丝蒂登场（"这边！快点！"）</td></tr>
+      <tr><td class="mono">0017</td><td>消灭所有敌人｜我方全灭｜打倒妮库丝｜艾莉被打倒・同伴全灭</td><td><span class="t2">关键战</span></td><td>妮库丝 + 艾莉相关</td></tr>
+      <tr><td class="mono">0018</td><td>击倒#TC 等（角色训练台词）</td><td><span class="t4">训练模式</span></td><td><b>训练模式文件</b>（角色间训练台词 + 条件），非剧情</td></tr>
+      <tr><td class="mono">0019</td><td>敌方全灭｜我方全灭</td><td><span class="t1">主线</span></td><td>"这是个陷阱吗！？"</td></tr>
+      <tr><td class="mono">0020</td><td>敌人全灭｜我方全灭</td><td><span class="t3">★选项2</span></td><td><b>「追龙」/「追妮库丝」</b>＝第十一话 炎の使い手（妮库丝/拉米卡/多拉战）</td></tr>
+      <tr><td class="mono">0021</td><td>击败朵拉｜我方全灭｜击败卡特蕾娅</td><td><span class="t2">关键战</span></td><td>朵拉战</td></tr>
+      <tr><td class="mono">0022</td><td>全灭敌人｜全灭我方</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0023</td><td>敌人全灭｜我方全灭</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0024</td><td>消灭所有敌人｜我方全灭｜击败梅娜丝</td><td><span class="t2">关键战</span></td><td>梅娜丝战</td></tr>
+      <tr><td class="mono">0025</td><td>全灭敌人｜#F被击败｜击败梅娜丝</td><td><span class="t2">关键战</span></td><td>梅娜丝战（2）</td></tr>
+      <tr><td class="mono">0026</td><td>全灭敌人｜全灭我方｜女皇决斗获胜/落败</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0027</td><td>消灭所有敌人｜优米尔被击败｜击败分身卡特蕾娅｜女皇决斗胜利</td><td><span class="t2">关键战</span></td><td>卡特蕾娅（分身）战</td></tr>
+      <tr><td class="mono">0028</td><td>消灭所有敌人｜#F被击败・除#F外全员被击败</td><td><span class="t1">城镇</span></td><td>城镇事件</td></tr>
+      <tr><td class="mono">0029</td><td>全灭敌人｜全灭我方</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0030</td><td>全灭敌人｜全灭我方</td><td><span class="t3">★选项3</span></td><td><b>「前往冥界」/「返回地面」</b>；斯提克斯（冥界）</td></tr>
+      <tr><td class="mono">0031</td><td>消灭所有敌人｜#F被击倒・除#F外全员被击倒｜女皇决斗胜利/败北</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0032</td><td>敌人全灭｜我方全灭</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0033</td><td>击败伊尔玛｜蕾娜被击败｜女皇决斗胜利/失败</td><td><span class="t2">关键战</span></td><td>伊尔玛（依露玛）战</td></tr>
+      <tr><td class="mono">0034</td><td>敌人全灭｜我方全灭</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0035</td><td>全歼敌人｜蕾娜被击败｜击败艾莉娜、克洛黛特</td><td><span class="t2">关键战</span></td><td>艾莉娜 + 克洛黛特战</td></tr>
+      <tr><td class="mono">0036</td><td>全灭敌人｜#F被击败</td><td><span class="t2">关键战</span></td><td>兰谢尔＆苏谢尔登场</td></tr>
+      <tr><td class="mono">0037</td><td>击败兰谢尔、苏谢尔｜我方全灭</td><td><span class="t2">关键战</span></td><td>双胞胎（龙之巫女）战</td></tr>
+      <tr><td class="mono">0038</td><td>击败卡特蕾娅｜优米尔被击败｜女皇决斗获胜/落败</td><td><span class="t1">主线</span></td><td>返回现实世界（巴/诺瓦/卡特蕾娅/娜娜艾露回归）</td></tr>
+      <tr><td class="mono">0039</td><td>击败娜娜艾露和梅尔法｜#F被击败｜击败优米尔和诺瓦｜击败巴和卡特蕾娅</td><td><span class="t2">关键战·三路线</span></td><td><b>三路线终局战</b>（按分支不同对手不同）</td></tr>
+      <tr><td class="mono">0040</td><td>敌人全灭｜我方全灭</td><td><span class="t1">主线</span></td><td>拉米卡："可恶！又被打败了～！"</td></tr>
+      <tr><td class="mono">0041</td><td>全歼敌人｜我方全灭</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0042</td><td>全灭敌人｜全灭友军</td><td><span class="t1">城镇</span></td><td>城镇事件</td></tr>
+      <tr><td class="mono">0043</td><td>敌方全灭｜我方全灭</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0044</td><td>敌人全灭｜我方全灭</td><td><span class="t1">主线</span></td><td>异次元入口（梅尔法/米歇尔/巴）</td></tr>
+      <tr><td class="mono">0045</td><td>全灭敌人｜我方全灭</td><td><span class="t1">主线</span></td><td>卡特蕾娅："……终于要决战了"</td></tr>
+      <tr><td class="mono">0046</td><td>１０回合内全体友军抵达目标｜任意友军被击倒・未抵达</td><td><span class="t2">特殊战</span></td><td>限时突破/逃脱战</td></tr>
+      <tr><td class="mono">0047</td><td>击败艾莉娜与克洛黛特｜蕾娜被击败</td><td><span class="t2">关键战</span></td><td>艾莉娜 + 克洛黛特战（2）</td></tr>
+      <tr><td class="mono">0048</td><td>打倒妮库丝｜娜娜艾露被打倒｜女皇决斗胜利/败北</td><td><span class="t2">关键战</span></td><td>返回世界 + 妮库丝决斗</td></tr>
+      <tr><td class="mono">0049</td><td>全灭敌人｜我方全灭</td><td><span class="t1">主线</span></td><td>—</td></tr>
+      <tr><td class="mono">0050</td><td>全灭敌人｜#F被击败</td><td><span class="t1">主线</span></td><td>—</td></tr>
+    </table>
+  </details>
+
+  <h3>分法 B：战斗与剧情关联标注（上面表格已含）</h3>
+  <p class="sub">QBSC 是 SRPG——<b>每个关卡文件 = 剧情导入 + 战斗 + 剧情收尾</b>，战斗与剧情强绑定，无独立"战斗文件"。已把 <span class="t2">关键战</span>（BOSS/决斗/分支战）单独标出：艾莉娜（0004）、克洛黛特（0007）、卡特蕾娅分身（0012/0027）、妮库丝（0017/0048）、朵拉（0021）、梅娜丝（0024/0025）、伊尔玛（0033）、兰谢尔＆苏谢尔（0037）、三路线终局（0039）等。<b>唯一独立的战斗类型是 0018 训练模式</b>（角色训练台词，非剧情）。</p>
+
+  <h3>分法 C：自由对话按角色分段（0051–0162 = 16 角色 × 7 段）</h3>
+  <p class="sub">每角色 7 个文件 = 6 个夜间/事件段 + 1 个「自由对话完成」收尾段（每段尾句有"变亲近/感受到爱/自由对话完成"推进标记）。</p>
+  <table>
+    <tr><th>角色</th><th>代码/说明</th><th>文件范围</th><th>收尾文件尾句</th></tr>
+    <tr><td><b>#F 大小姐（主角）</b></td><td>玩家女主（QBSC 默认名 cute）</td><td class="mono">0051–0057</td><td>完成了与#F的自由对话。</td></tr>
+    <tr><td>蕾娜</td><td>流浪的战士</td><td class="mono">0058, 0066–0070, 0127*</td><td>*0127 为单行特殊夜谈事件</td></tr>
+    <tr><td>巴</td><td>武者巫女</td><td class="mono">0059–0065</td><td>完成了与巴的自由对话。</td></tr>
+    <tr><td>优米尔</td><td>钢铁姬</td><td class="mono">0071–0077</td><td>完成了与优米尔的自由对话。</td></tr>
+    <tr><td>娜娜艾露</td><td>天使</td><td class="mono">0078–0084</td><td>已完成与娜娜艾露的自由对话。</td></tr>
+    <tr><td>诺瓦</td><td>森林守护人</td><td class="mono">0085–0091</td><td>已完成与诺瓦的自由对话。</td></tr>
+    <tr><td>梅尔法</td><td>圣女</td><td class="mono">0092–0098</td><td>与梅尔法的自由对话已完成。</td></tr>
+    <tr><td>#GA</td><td>哈比</td><td class="mono">0099–0105</td><td>已完成与#GA的自由交谈。</td></tr>
+    <tr><td>#SA</td><td>女郎蜘蛛</td><td class="mono">0106–0112</td><td>#SA的自由对话已完成。</td></tr>
+    <tr><td>#GB</td><td>高等哈比</td><td class="mono">0113–0119</td><td>#GB的自由对话已完成。</td></tr>
+    <tr><td>#GC</td><td>狂野哈比</td><td class="mono">0120–0126</td><td>已完成与#GC的自由交谈。</td></tr>
+    <tr><td>#TA</td><td>双角鬼</td><td class="mono">0128–0134</td><td>已完成与#TA的自由对话。</td></tr>
+    <tr><td>#SB</td><td>姬蜘蛛</td><td class="mono">0135–0141</td><td>#SB的自由对话已完成。</td></tr>
+    <tr><td>#SC</td><td>鬼蜘蛛</td><td class="mono">0142–0148</td><td>#SC的自由对话已完成。</td></tr>
+    <tr><td>#TB</td><td>恐爪龙</td><td class="mono">0149–0155</td><td>#TB的自由对话已完成。</td></tr>
+    <tr><td>#TC</td><td>暴龙（ティラノ）</td><td class="mono">0156–0162</td><td>#TC的自由对话已全部完成。</td></tr>
+  </table>
+
+  <h3>分法 D：战斗台词按角色代码</h3>
+  <p class="sub">每个主线文件开头的 9 行 <span class="mono">#GA/#SA/#TA/#GB/#SB/#TB/#GC/#SC/#TC</span> = 随机遭遇战 9 种可捕获怪物（ギャル型モンスター）的开战台词，两作代码体系一致：<b>G=哈比族，S=蜘蛛族，T=龙族</b>（详见文末对照表）。自由对话段同样按这些代码分角色，可直接把 9 组怪物台词打包给同一个人翻。</p>
+</div>
+
+<!-- ==================== QGSC ==================== -->
+<div class="card">
+  <h2>二、QGSC（女皇之门 螺旋混沌）<span class="g">utf8/QGSC/</span></h2>
+  <p class="sub">map.bin 共 161 个 .txt + shared.bin/0009.lice 共 2 个 .txt。结构比 QBSC 复杂：<b>0000–0084</b> 关卡（85，每关=30 种怪物招募对话+战斗条件+剧情）、<b>0085–0088</b> 城镇商店事件、<b>0089</b> 训练教学、<b>0090–0123</b> 自由对话（34）、<b>0124–0160</b> 地图块名称（<span class="kw">日文未翻译，非剧情文本</span>）。</p>
+
+  <h3>分法 A：主线按「话 × 分支选项」切段 —— 提取文本中为 <b style="color:#c2255c">7 段（6 个选项）</b></h3>
+  <p class="sub">QGSC 同样为「话」制（攻略 wiki 至第 49 话 Spiral Colosseum，另有分支专属话）。本次提取文本中能定位到 <b>6 处选项</b>，切成 7 段；结局由 28 话之后的选项组合决定（爱丽丝/舞/莉莉/玛隆 4 种结局）。</p>
+
+  <div class="flow">
+    <div class="seg"><div class="sn">段 ① · 0000–0002</div><div class="sf">序盘：哈比族等招募教学</div></div>
+    <div class="branch"><div class="bt">★ 选项 1（0003）</div><div class="bo">「追赶舞和朵拉」/「追赶绚子和拉米卡」＝ Stage 3 分流</div></div>
+    <div class="seg"><div class="sn">段 ② · 0003–0017</div><div class="sf">森林/追击战</div></div>
+    <div class="branch"><div class="bt">★ 选项 2（0018）</div><div class="bo">「前往兰谢尔所在处」/「前往苏谢尔所在处」＝ Stage 18 双子护卫战</div></div>
+    <div class="seg"><div class="sn">段 ③ · 0018–0040</div><div class="sf">虚数界神殿 / 学园篇</div></div>
+    <div class="branch"><div class="bt">★ 选项 3（0041）</div><div class="bo">「与爱丽丝寻找秘宝」/「追随艾涅，与莉莉同行」</div></div>
+    <div class="seg"><div class="sn">段 ④ · 0041–0045</div><div class="sf">—</div></div>
+    <div class="branch"><div class="bt">★ 选项 4（0046）</div><div class="bo">「与爱丽丝前往暴走族据点」/「与舞前往强盗团据点」</div></div>
+    <div class="seg"><div class="sn">段 ⑤ · 0046</div><div class="sf">—</div></div>
+    <div class="branch"><div class="bt">★ 选项 5（0047）</div><div class="bo">「寻找蘑菇」/「采集蜂蜜」（小分支）</div></div>
+    <div class="seg"><div class="sn">段 ⑥ · 0047–0068</div><div class="sf">中盘各路线</div></div>
+    <div class="branch"><div class="bt">★ 选项 6（0069）</div><div class="bo">「跟我来！」/「和阿莱茵一起走」</div></div>
+    <div class="seg"><div class="sn">段 ⑦ · 0069–0084</div><div class="sf">后盘：维丝战等 → 结局分支</div></div>
+  </div>
+
+  <div class="ok"><b>✔ 攻略核对结果：</b>选项 1、2 与 GameFAQs 攻略（Stage 3 分流、Stage 18 双子战）吻合。GameFAQs 还记载 <b>Stage 22（舞/莉莉路线分流）、Stage 28（选爱丽丝 or 莉莉）、Stage 31（选绚子/舞/阿莱茵）</b>等更多分叉决定 4 种结局——但本次提取文本中未见对应「路线选择」字样（可能以菜单形式存在、不落文本，翻译时无需处理）。</div>
+
+  <details>
+    <summary>QGSC 主线 85 个文件明细（文件｜胜利条件节选｜剧情关联）</summary>
+    <table>
+      <tr><th>文件</th><th>胜利条件节选（第1条）</th><th>标注</th></tr>
+      <tr><td class="mono">0000–0002</td><td>消灭所有敌人 等</td><td><span class="t1">序盘招募教学</span></td></tr>
+      <tr><td class="mono">0003</td><td>击败朵拉或拉米卡</td><td><span class="t3">★选项1</span> 舞/朵拉 vs 绚子/拉米卡分流</td></tr>
+      <tr><td class="mono">0004</td><td>敌人全灭・击败所有龙</td><td><span class="t1">主线</span></td></tr>
+      <tr><td class="mono">0005</td><td>击败除伊吕波以外的所有敌人</td><td><span class="t1">主线</span> 伊吕波登场</td></tr>
+      <tr><td class="mono">0006</td><td>与凯拉特或蒂诺保持相邻・与蒂姬相邻1回合</td><td><span class="t1">主线</span> 蒂姬登场</td></tr>
+      <tr><td class="mono">0007</td><td>击败阿莉尤塔</td><td><span class="t2">关键战</span> 阿莉尤塔</td></tr>
+      <tr><td class="mono">0008</td><td>击败朵拉或阿莉尤塔</td><td><span class="t2">关键战</span></td></tr>
+      <tr><td class="mono">0009</td><td>与伊吕波相邻1回合</td><td><span class="t1">主线</span></td></tr>
+      <tr><td class="mono">0010</td><td>全灭敌人・诺瓦被击倒</td><td><span class="t2">关键战</span> 阿莱茵</td></tr>
+      <tr><td class="mono">0011</td><td>卡洽、莉莉存活</td><td><span class="t1">主线</span> 卡洽/莉莉</td></tr>
+      <tr><td class="mono">0012</td><td>击败朵拉、阿莉尤塔、露娜任意一人</td><td><span class="t2">关键战</span> 三人组</td></tr>
+      <tr><td class="mono">0013</td><td>击败拉米卡或菲米娜</td><td><span class="t2">关键战</span></td></tr>
+      <tr><td class="mono">0014</td><td>歼灭所有敌人</td><td><span class="t1">主线</span></td></tr>
+      <tr><td class="mono">0015</td><td>击败菲米娜或露娜</td><td><span class="t2">关键战</span> 米歇尔</td></tr>
+      <tr><td class="mono">0016</td><td>打倒朵拉或拉米卡・打倒阿莉尤塔</td><td><span class="t2">关键战</span></td></tr>
+      <tr><td class="mono">0017</td><td>击败拉米卡或朵拉</td><td><span class="t2">关键战</span></td></tr>
+      <tr><td class="mono">0018</td><td>４回合内兰谢尔与苏谢尔存活</td><td><span class="t3">★选项2</span> 双子护卫战</td></tr>
+      <tr><td class="mono">0019</td><td>打倒伊尔玛或露娜</td><td><span class="t2">关键战</span> 伊尔玛</td></tr>
+      <tr><td class="mono">0020</td><td>蕾娜击败艾莉娜或克洛黛特</td><td><span class="t2">关键战</span> 蕾娜对决</td></tr>
+      <tr><td class="mono">0021</td><td>与虹原茵可相邻1回合</td><td><span class="t1">主线</span> 虹原茵可登场</td></tr>
+      <tr><td class="mono">0022</td><td>全灭敌人・７回合以内</td><td><span class="t1">主线</span> 限时</td></tr>
+      <tr><td class="mono">0023</td><td>击败阿尔德拉、露娜、阿莉尤塔任意一人</td><td><span class="t2">关键战</span></td></tr>
+      <tr><td class="mono">0024</td><td>打倒艾薇或菲米娜</td><td><span class="t2">关键战</span> 艾薇</td></tr>
+      <tr><td class="mono">0025</td><td>让爱丽丝、兰谢尔＆苏谢尔（到达/存活）</td><td><span class="t1">主线</span></td></tr>
+      <tr><td class="mono">0026</td><td>敌人全灭</td><td><span class="t1">主线</span></td></tr>
+      <tr><td class="mono">0027</td><td>打倒维丝</td><td><span class="t2">关键战</span> 维丝（ヴァイス）</td></tr>
+      <tr><td class="mono">0028</td><td>米歇尔、兰谢尔＆苏谢尔（存活/被击败）</td><td><span class="t2">关键战</span></td></tr>
+      <tr><td class="mono">0029</td><td>击败巴</td><td><span class="t2">关键战</span> 巴</td></tr>
+      <tr><td class="mono">0030</td><td>击败服部绚子</td><td><span class="t2">关键战</span> 绚子</td></tr>
+      <tr><td class="mono">0031</td><td>击败卡特蕾娅</td><td><span class="t2">关键战</span> 卡特蕾娅</td></tr>
+      <tr><td class="mono">0032</td><td>用#M打倒露娜・用莉莉打倒露娜</td><td><span class="t2">关键战</span> 露娜分身</td></tr>
+      <tr><td class="mono">0033</td><td>用#M击败菲米娜・用不知火舞击败菲米娜</td><td><span class="t2">关键战</span> 菲米娜分身</td></tr>
+      <tr><td class="mono">0034</td><td>用#M击败阿莉尤塔</td><td><span class="t2">关键战</span> 阿莉尤塔分身</td></tr>
+      <tr><td class="mono">0035</td><td>真镜名弥娜存活３回合</td><td><span class="t1">主线</span> 弥娜</td></tr>
+      <tr><td class="mono">0036</td><td>击败菲米娜或艾涅</td><td><span class="t2">关键战</span></td></tr>
+      <tr><td class="mono">0037</td><td>蒂姬存活３回合</td><td><span class="t1">主线</span> 蒂姬</td></tr>
+      <tr><td class="mono">0038</td><td>与库特相邻1回合</td><td><span class="t1">主线</span> 库特/桃桃/琴音</td></tr>
+      <tr><td class="mono">0039</td><td>击败梅罗娜、梅娜丝、艾莉任意一人</td><td><span class="t2">关键战</span> 三人组</td></tr>
+      <tr><td class="mono">0040</td><td>击败阿尔德拉</td><td><span class="t2">关键战</span> 阿尔德拉</td></tr>
+      <tr><td class="mono">0041</td><td>击败所有泥泞触手・击败艾涅</td><td><span class="t3">★选项3</span> 「与爱丽丝寻找秘宝」/「追随艾涅，与莉莉同行」</td></tr>
+      <tr><td class="mono">0042</td><td>与神秘少女相邻1回合</td><td><span class="t1">主线</span></td></tr>
+      <tr><td class="mono">0043</td><td>击败阿莉尤塔或艾涅</td><td><span class="t2">关键战</span></td></tr>
+      <tr><td class="mono">0044</td><td>击败露娜</td><td><span class="t2">关键战</span></td></tr>
+      <tr><td class="mono">0045</td><td>#M与诺爱尔·梵米利昂相邻</td><td><span class="t1">主线</span> 诺爱尔登场</td></tr>
+      <tr><td class="mono">0046</td><td>抵达博物馆前击败露娜</td><td><span class="t3">★选项4</span> 「与爱丽丝前往暴走族据点」/「与舞前往强盗团据点」</td></tr>
+      <tr><td class="mono">0047</td><td>５回合内阻止敌人进入目标区域</td><td><span class="t3">★选项5</span> 「寻找蘑菇」/「采集蜂蜜」</td></tr>
+      <tr><td class="mono">0048–0068</td><td>敌人全灭 / 击败XX 系列</td><td><span class="t1">主线</span> 中盘各路线（含弥娜、露娜、艾涅、菲米娜等多场分身战）</td></tr>
+      <tr><td class="mono">0069</td><td>消灭所有敌人・击败露娜、菲米娜、艾涅</td><td><span class="t3">★选项6</span> 「跟我来！」/「和阿莱茵一起走」</td></tr>
+      <tr><td class="mono">0070–0076</td><td>击败艾涅/菲米娜 系列</td><td><span class="t1">主线</span></td></tr>
+      <tr><td class="mono">0077</td><td>破坏维丝的头部</td><td><span class="t2">关键战</span> 维丝战</td></tr>
+      <tr><td class="mono">0078</td><td>击败维丝</td><td><span class="t2">关键战</span></td></tr>
+      <tr><td class="mono">0079–0082</td><td>（无战斗条件）</td><td><span class="t4">事件</span> 结局/事件段</td></tr>
+      <tr><td class="mono">0083</td><td>打倒伊吕波、真镜名弥娜・打倒服部绚子、不知火舞</td><td><span class="t2">关键战</span> 四人组</td></tr>
+      <tr><td class="mono">0084</td><td>打倒阿莱茵、诺瓦・打倒娜娜艾露、梅尔法</td><td><span class="t2">关键战</span></td></tr>
+    </table>
+  </details>
+
+  <h3>分法 B：自由对话按角色（0090–0123，34 个角色各 1 段）</h3>
+  <table>
+    <tr><th>文件</th><th>角色</th><th>文件</th><th>角色</th><th>文件</th><th>角色</th></tr>
+    <tr><td class="mono">0090</td><td>艾薇</td><td class="mono">0102</td><td>米歇尔（事件含库特）</td><td class="mono">0114</td><td>莉丝蒂</td></tr>
+    <tr><td class="mono">0091</td><td>艾莉</td><td class="mono">0103</td><td>#TA 双角鬼</td><td class="mono">0115</td><td>莉莉</td></tr>
+    <tr><td class="mono">0092</td><td>#SA 女郎蜘蛛</td><td class="mono">0104</td><td>#UA 剑龙鬼</td><td class="mono">0116</td><td>#LA 拉维拉</td></tr>
+    <tr><td class="mono">0093</td><td>#YA 妖精</td><td class="mono">0105</td><td>查姆查姆</td><td class="mono">0117</td><td>#RA 照龙鬼</td></tr>
+    <tr><td class="mono">0094</td><td>爱丽丝</td><td class="mono">0106</td><td>蒂姬</td><td class="mono">0118</td><td>神奇桃桃</td></tr>
+    <tr><td class="mono">0095</td><td>阿尔德拉</td><td class="mono">0107</td><td>朵拉</td><td class="mono">0119</td><td>服部绚子</td></tr>
+    <tr><td class="mono">0096</td><td>阿莱茵</td><td class="mono">0108</td><td>诺爱尔·梵米利昂</td><td class="mono">0120</td><td>琴音</td></tr>
+    <tr><td class="mono">0097</td><td>伊吕波</td><td class="mono">0109</td><td>#GA 哈比</td><td class="mono">0121</td><td>#KA 九尾</td></tr>
+    <tr><td class="mono">0098</td><td>虹原茵可</td><td class="mono">0110</td><td>#F 主角（玛隆）</td><td class="mono">0122</td><td>柳生十兵卫</td></tr>
+    <tr><td class="mono">0099</td><td>艾奇多娜</td><td class="mono">0111</td><td>真镜名弥娜</td><td class="mono">0123</td><td>不知火舞</td></tr>
+    <tr><td class="mono">0100</td><td>#OA 奥德莉</td><td class="mono">0112</td><td>#DA 美杜莎</td><td></td><td></td></tr>
+    <tr><td class="mono">0101</td><td>卡洽</td><td class="mono">0113</td><td>拉米卡</td><td></td><td></td></tr>
+  </table>
+
+  <h3>分法 C：城镇事件 / 训练 / 地图数据</h3>
+  <table>
+    <tr><th>文件</th><th>内容</th><th>说明</th></tr>
+    <tr><td class="mono">0085–0088</td><td><span class="t1">城镇事件</span></td><td>汉斯商店（店主/打工妹换装事件）、宝石说明教程（0088）</td></tr>
+    <tr><td class="mono">0089</td><td><span class="t4">训练教学</span></td><td>训练系统说明（友好度/模拟战）</td></tr>
+    <tr><td class="mono">0124–0160</td><td><span class="t5">地图块名称</span></td><td><b>日语原文未翻译</b>（未設定/樹木/草地/砂地/ゲイト…），是地图块数据名，不属于剧情文本；翻译与否取决于是否要汉化地图数据</td></tr>
+  </table>
+
+  <h3>分法 D：训练模式（shared.bin/0009.lice，2 个文件）</h3>
+  <table>
+    <tr><th>文件</th><th>内容</th></tr>
+    <tr><td class="mono">0000.logo.txt</td><td>训练模式全部角色台词（友好度提升提示 + 各角色训练对手台词 + 训练中获胜/败北/15回合条件 + #A–#L 代码角色训练台词）</td></tr>
+    <tr><td class="mono">0001.logo.txt</td><td>训练战斗条件：全歼敌方目标 / 我方全军覆没</td></tr>
+  </table>
+</div>
+
+<!-- ==================== 代码对照 ==================== -->
+<div class="card">
+  <h2>三、角色代码对照表（#XX → 角色）<span class="g">两作共用</span></h2>
+  <p class="sub">首字母 = 种族/家族，第 2 字母 = 同族个体。QGSC 全 30 种可捕获怪物（ギャル型モンスター）；QBSC 出场其中 G/S/T 三族 9 种。翻译时同族台词风格应统一。</p>
+  <table>
+    <tr><th>代码</th><th>家族</th><th>#_A</th><th>#_B</th><th>#_C</th></tr>
+    <tr><td class="mono">G</td><td>哈比族</td><td>哈比（#GA）</td><td>高等哈比（#GB）</td><td>狂野哈比（#GC）</td></tr>
+    <tr><td class="mono">S</td><td>蜘蛛族</td><td>女郎蜘蛛（#SA）</td><td>姬蜘蛛（#SB）</td><td>鬼蜘蛛（#SC）</td></tr>
+    <tr><td class="mono">T</td><td>龙族</td><td>双角鬼（#TA）</td><td>恐爪龙（#TB）</td><td>暴龙/ティラノ（#TC）</td></tr>
+    <tr><td class="mono">R</td><td>龙族（追加）</td><td>照龙鬼（#RA）</td><td>雷克斯（#RB）</td><td>提加尔（#RC）</td></tr>
+    <tr><td class="mono">U</td><td>剑龙族</td><td>剑龙鬼（#UA）</td><td>剑龙（#UB）</td><td>莱农（#UC）</td></tr>
+    <tr><td class="mono">O</td><td>植物族</td><td>奥德莉（#OA）</td><td>大王花（#OB）</td><td>曼伊塔（#OC）</td></tr>
+    <tr><td class="mono">D</td><td>蛇发/海怪族</td><td>美杜莎（#DA）</td><td>戈耳工（#DB）</td><td>九头蛇（#DC）</td></tr>
+    <tr><td class="mono">K</td><td>狐族</td><td>九尾（#KA）</td><td>妖狐（#KB）</td><td>仙狐（#KC）</td></tr>
+    <tr><td class="mono">Y</td><td>妖精族</td><td>妖精（#YA）</td><td>汀克尔（#YB）</td><td>皮克希（#YC）</td></tr>
+    <tr><td class="mono">L</td><td>花精族</td><td>拉维拉（#LA）</td><td>伊格德拉（#LB）</td><td>雅格莉拉（#LC）</td></tr>
+  </table>
+  <p class="note"><b>#F / #M</b>：主角对。QBSC 中 #F=大小姐（默认名 cute）、#M=随从（ジャン）；QGSC 中 #F=玛隆（まろん）、#M=ジャン。同一套对话模板两作复用，翻译可互相参照。</p>
+</div>
+
+<!-- ==================== 结论 ==================== -->
+<div class="card">
+  <h2>四、结论与翻译分组建议</h2>
+  <table>
+    <tr><th>问题</th><th>结论</th></tr>
+    <tr><td>"是 4 段还是 8 段？"</td><td><b>按选项切段 = 4 段</b>（QBSC 3 个选项）；"8" = 2×2×2 八条路线组合。QGSC 则切为 7 段（6 个选项）。</td></tr>
+    <tr><td>第一处选项是"寻找谁"？</td><td>是。QBSC 文件 <span class="mono">0016</span>：「寻找蕾娜」/「寻找巴」。</td></tr>
+    <tr><td>战斗要不要标剧情关联？</td><td>要，已标。两作均为 SRPG，<b>剧情与战斗在同一文件内交替</b>（关卡=导入+战斗+收尾），无独立战斗文本；只有训练模式（QBSC 0018、QGSC shared/0009、0089）是独立战斗文本。</td></tr>
+    <tr><td>战斗"抓获"</td><td>即"成为伙伴"招募对话（每关开头 30 种怪物台词 + 捕获条件），QGSC 在每关文件开头、QBSC 在含招募标记的关卡中，可整体打包翻译。</td></tr>
+    <tr><td>自由对话怎么分段？</td><td>QBSC：<b>16 角色 × 7 段</b>（0051–0162）；QGSC：<b>34 角色 × 1 段</b>（0090–0123）。两种都适合按角色分给固定译者保证语气一致。</td></tr>
+    <tr><td>两作关系</td><td>QBSC（PS2 前作）与 QGSC（PSP 续作）共用 #F/#M 主角框架、怪物代码体系与大量模板台词，翻译时可先 QBSC 后 QGSC，直接复用。</td></tr>
+    <tr><td>待处理异常</td><td>QGSC <span class="mono">0124–0160</span> 为日语地图块名（未翻译）；QBSC <span class="mono">0127</span> 为单行特殊夜谈；QGSC <span class="mono">0102</span> 收尾句"与大小姐"疑为旧主角文案残留，翻译时可按米歇尔事件处理。</td></tr>
+  </table>
+</div>
+
+</div>
+</body>
+</html>
