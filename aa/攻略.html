@@ -1,0 +1,1228 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AQA 剧本攻略 · 选项与解锁条件</title>
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--bd:#e3e6ec;--tx:#1c1f26;--mut:#6b7280;
+--ac:#3b5bdb;--ac2:#eef2ff;--ok:#c0392b;--ng:#1e7a4d;--gold:#b8860b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;font-size:14px;line-height:1.7}
+header{background:var(--card);border-bottom:1px solid var(--bd);padding:18px 24px;position:sticky;top:0;z-index:50}
+h1{margin:0 0 4px;font-size:19px}
+.sub{color:var(--mut);font-size:12px}
+nav{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:5px 12px;border-radius:14px;background:var(--ac2);color:var(--ac);
+text-decoration:none;font-size:12.5px;font-weight:600}
+nav a:hover{background:var(--ac);color:#fff}
+main{max-width:1180px;margin:0 auto;padding:22px 24px 80px}
+section{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:20px 22px;margin-bottom:20px}
+h2{font-size:16px;margin:0 0 14px;padding-bottom:9px;border-bottom:2px solid var(--ac2)}
+h3{font-size:14.5px;margin:20px 0 10px;color:var(--ac)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{border:1px solid var(--bd);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f1f3f7;font-weight:600;white-space:nowrap}
+td.c,th.c{text-align:center}
+code{background:#f1f3f7;padding:1px 5px;border-radius:4px;font-size:12px;
+font-family:ui-monospace,Consolas,monospace}
+.grid{overflow-x:auto}
+.aff{font-weight:700;white-space:nowrap}
+.aff b{color:var(--ok)}.aff i{color:var(--ng);font-style:normal}
+.tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11.5px;
+font-weight:700;background:var(--ac2);color:var(--ac);margin-right:6px}
+.box{background:#fbfcfe;border:1px solid var(--bd);border-left:3px solid var(--ac);
+border-radius:6px;padding:10px 14px;margin:10px 0;font-size:13px}
+.warn{background:#fff8e6;border-left-color:var(--gold)}
+.ch{border:1px solid var(--bd);border-radius:8px;margin:10px 0;overflow:hidden}
+.ch>.hd{background:#fafbfd;padding:8px 14px;font-size:12.5px;color:var(--mut);
+border-bottom:1px solid var(--bd)}
+.ch>.hd b{color:var(--tx);font-size:13px}
+.ch table{margin:0;border:0}
+.ch td,.ch th{border:0;border-bottom:1px solid #eef0f4}
+.ch tr:last-child td{border-bottom:0}
+.opt{font-weight:600}
+.arw{color:var(--mut);font-size:12px}
+ul.tight{margin:6px 0;padding-left:20px}ul.tight li{margin:3px 0}
+.kv{display:grid;grid-template-columns:100px 1fr;gap:4px 12px;font-size:13px}
+.kv div:nth-child(odd){color:var(--mut)}
+</style></head><body>
+<header><h1>AQA 剧本攻略 · 选项 / 跳转 / 解锁条件</h1>
+<div class="sub">静态分析 1086 个 .asm 脚本 · 166 个选项块 · 仅输出结构与选项，未展开剧情</div>
+<nav><a href="#sys">系统结构</a><a href="#var">好感度变量</a><a href="#map">路线总览</a><a href="#unlock">解锁条件</a><a href="#end">TRUE结局判定</a><a href="#flag">标志位分支</a><a href="#all">全部选项</a></nav></header><main>
+<section id="sys"><h2>一、系统结构与名词</h2>
+<div class="kv"><div>脚本总量</div><div>1086 个（全局 ID 0–1085），46 个剧本包，每包恰好 1 个入口</div><div>包的含义</div><div><b>日期 × 路线</b>。跨包（跨日／跨线）调度由引擎完成，不在脚本内</div><div>命名规则</div><div><code>SCR_&lt;K|T&gt;&lt;MMDD&gt;&lt;CCC&gt;&lt;段&gt;&lt;组&gt;&lt;选项&gt;</code>　K＝通常线，T＝TRUE 线；组内选项 01/02/03 汇流到下一组的 00</div><div>选项指令</div><div><code>MSG_SHOW &lt;选项数&gt;</code> → 逐行选项文本 → <code>CASE_n / CALL_FUNC &lt;目标ID&gt;</code> → <code>END_SWITCH</code></div><div>标志分支</div><div><code>DEF_CHOICE &lt;标志号&gt;</code>（标志成立则跳）／<code>IF_CHECK &lt;变量&gt; &lt;阈值&gt;</code>（达标则走第一条，否则走默认）</div><div>已读标记</div><div><code>IF_FLAG &lt;角色变量&gt; &lt;文本序号&gt;</code>，由此确认变量↔角色对应关系</div></div>
+<div class="box warn">本作为<b>时间循环</b>题材：同一天存在多个平行版本（如 4/21 有 共通／优芽／莉迪亚／天音 四版）。真正决定「进入哪条线」的跨包调度写在引擎里，脚本中不可见；攻略中标注为「引擎调度」的部分属脚本外推断。</div></section>
+<section id="var"><h2>二、好感度变量</h2><table><tr><th>变量</th><th>角色</th><th>TRUE 线终局阈值</th><th>增减来源</th></tr>
+<tr><td class="c"><code>1</code></td><td><b>优芽</b></td><td class="c">≥ 5</td><td class="arw">17 个包：4/21 优芽、4/22 优芽、4/22 共通/序章、4/22 天音、4/22 莉迪亚、4/23 优芽、4/23 天音、4/23 莉迪亚…</td></tr>
+<tr><td class="c"><code>2</code></td><td><b>美琴</b></td><td class="c">≥ 16</td><td class="arw">31 个包：4/21 优芽、4/21 共通/序章、4/22 优芽、4/22 共通/序章、4/22 天音、4/22 美琴、4/22 莉迪亚、4/23 优芽…</td></tr>
+<tr><td class="c"><code>3</code></td><td><b>心菜</b></td><td class="c">≥ 5</td><td class="arw">14 个包：4/22 共通/序章、4/22 天音、4/22 心菜、4/22 莉迪亚、4/23 天音、4/23 心菜、4/23 莉迪亚、4/24 共通/序章…</td></tr>
+<tr><td class="c"><code>4</code></td><td><b>琉璃</b></td><td class="c">≥ 5</td><td class="arw">8 个包：4/22 共通/序章、4/23 共通/序章、4/24 共通/序章、4/24 天音、4/24 琉璃、4/25 琉璃、4/25 莉迪亚、4/26 琉璃…</td></tr>
+<tr><td class="c"><code>5</code></td><td><b>莉迪亚</b></td><td class="c">≥ 5</td><td class="arw">9 个包：4/22 共通/序章、4/22 莉迪亚、4/23 共通/序章、4/23 莉迪亚、4/24 共通/序章、4/24 天音、4/24 莉迪亚、4/25 莉迪亚…</td></tr>
+<tr><td class="c"><code>6</code></td><td><b>天音</b></td><td class="c">≥ 5</td><td class="arw">8 个包：4/22 共通/序章、4/22 天音、4/23 共通/序章、4/23 天音、4/24 共通/序章、4/24 天音、4/25 天音、4/26 天音…</td></tr>
+</table><div class="box">好感度增减<b>写在选项的目标脚本里</b>（即选中某项后，跳转到的那个脚本开头执行 <code>VAR_INC/VAR_DEC</code>），因此下表的「效果」列可直接当作该选项的加成。</div></section>
+<section id="map"><h2>三、路线 × 日期总览</h2><div class="grid"><table><tr><th>日期</th><th class="c">共通/序章</th><th class="c">美琴</th><th class="c">心菜</th><th class="c">琉璃</th><th class="c">优芽</th><th class="c">莉迪亚</th><th class="c">天音</th><th class="c">TRUE</th></tr>
+<tr><td><b>4/21</b></td><td class="c"><code>0–10</code><div class="arw">11 脚本</div></td><td class="c arw">—</td><td class="c arw">—</td><td class="c arw">—</td><td class="c"><code>430–440</code><div class="arw">11 脚本</div></td><td class="c"><code>575–583</code><div class="arw">9 脚本</div></td><td class="c"><code>744–750</code><div class="arw">7 脚本</div></td><td class="c"><code>888–901</code><div class="arw">14 脚本</div></td></tr>
+<tr><td><b>4/22</b></td><td class="c"><code>11–70</code><div class="arw">60 脚本</div></td><td class="c arw">—</td><td class="c arw">—</td><td class="c arw">—</td><td class="c"><code>441–461</code><div class="arw">21 脚本</div></td><td class="c"><code>584–608</code><div class="arw">25 脚本</div></td><td class="c"><code>751–775</code><div class="arw">25 脚本</div></td><td class="c"><code>902–945</code><div class="arw">44 脚本</div></td></tr>
+<tr><td><b>4/23</b></td><td class="c arw">—</td><td class="c"><code>71–96</code><div class="arw">26 脚本</div></td><td class="c"><code>97–122</code><div class="arw">26 脚本</div></td><td class="c"><code>123–169</code><div class="arw">47 脚本</div></td><td class="c"><code>462–484</code><div class="arw">23 脚本</div></td><td class="c"><code>609–641</code><div class="arw">33 脚本</div></td><td class="c"><code>776–799</code><div class="arw">24 脚本</div></td><td class="c"><code>946–970</code><div class="arw">25 脚本</div></td></tr>
+<tr><td><b>4/24</b></td><td class="c arw">—</td><td class="c"><code>170–196</code><div class="arw">27 脚本</div></td><td class="c"><code>197–232</code><div class="arw">36 脚本</div></td><td class="c"><code>233–268</code><div class="arw">36 脚本</div></td><td class="c"><code>485–505</code><div class="arw">21 脚本</div></td><td class="c"><code>642–669</code><div class="arw">28 脚本</div></td><td class="c"><code>800–821</code><div class="arw">22 脚本</div></td><td class="c"><code>971–992</code><div class="arw">22 脚本</div></td></tr>
+<tr><td><b>4/25</b></td><td class="c arw">—</td><td class="c"><code>269–291</code><div class="arw">23 脚本</div></td><td class="c"><code>292–314</code><div class="arw">23 脚本</div></td><td class="c"><code>315–349</code><div class="arw">35 脚本</div></td><td class="c"><code>506–533</code><div class="arw">28 脚本</div></td><td class="c"><code>670–696</code><div class="arw">27 脚本</div></td><td class="c"><code>822–846</code><div class="arw">25 脚本</div></td><td class="c"><code>993–1014</code><div class="arw">22 脚本</div></td></tr>
+<tr><td><b>4/26</b></td><td class="c arw">—</td><td class="c"><code>350–367</code><div class="arw">18 脚本</div></td><td class="c"><code>368–391</code><div class="arw">24 脚本</div></td><td class="c"><code>392–416</code><div class="arw">25 脚本</div></td><td class="c"><code>534–556</code><div class="arw">23 脚本</div></td><td class="c"><code>697–730</code><div class="arw">34 脚本</div></td><td class="c"><code>847–867</code><div class="arw">21 脚本</div></td><td class="c"><code>1015–1039</code><div class="arw">25 脚本</div></td></tr>
+<tr><td><b>4/27</b></td><td class="c arw">—</td><td class="c"><code>417–418</code><div class="arw">2 脚本</div></td><td class="c"><code>419–425</code><div class="arw">7 脚本</div></td><td class="c"><code>426–429</code><div class="arw">4 脚本</div></td><td class="c"><code>557–574</code><div class="arw">18 脚本</div></td><td class="c"><code>731–743</code><div class="arw">13 脚本</div></td><td class="c"><code>868–887</code><div class="arw">20 脚本</div></td><td class="c"><code>1040–1078</code><div class="arw">39 脚本</div></td></tr>
+<tr><td><b>4/28</b></td><td class="c arw">—</td><td class="c arw">—</td><td class="c arw">—</td><td class="c arw">—</td><td class="c arw">—</td><td class="c arw">—</td><td class="c arw">—</td><td class="c"><code>1079–1085</code><div class="arw">7 脚本</div></td></tr>
+</table></div>
+<div class="box"><b>读法：</b>每个格子是一段可独立运行的剧本包。美琴／心菜／琉璃三线共用 4/21–4/22 的共通包（共通包内已含三人的分支段），因此这三条线从 4/23 起才分家；优芽／莉迪亚／天音三线则从 4/21 起就有各自的平行版本。</div></section>
+<section id="unlock"><h2>四、各线解锁条件</h2>
+<h3>A. 共通包内可直接验证的分流点</h3>
+<div class="box">4/22 共通包（ID 11–70）的终点有三个：<code>29</code>（心菜段）／<code>50</code>（美琴段）／<code>70</code>（琉璃段）。走到哪个终点，完全由包内的选项决定——这是脚本内<b>唯一可静态验证</b>的路线分流点。</div>
+<table><tr><th>目标</th><th>条件（按 ID 顺序的选项）</th></tr>
+<tr><td><span class="tag">琉璃</span>到达 <code>70</code></td><td>在 <code>46</code> 选「<b>去游戏厅</b>」→ <code>51</code>，之后走完琉璃段 <code>51→…→70</code>。<br><span class="arw">其余两项（回家睡觉/去吃拉面）直接结束于 <code>50</code></span></td></tr>
+<tr><td><span class="tag">心菜</span>到达 <code>29</code></td><td>在 <code>37</code> 选「<b>在图书室里闲逛</b>」→ <code>15</code>；在 <code>15</code> 选「<b>帮忙</b>」→ <code>16</code>；在 <code>22</code> 选「<b>帮心菜收拾</b>」→ <code>24</code> → <code>25</code> → … → <code>29</code>。<br><span class="arw">注意：<code>22</code> 若选「和美琴去现场」→ <code>23</code> → <code>44</code>，会并回美琴段</span></td></tr>
+<tr><td><span class="tag">美琴</span>到达 <code>50</code></td><td>默认路线：不进入上述两条分支即为美琴段，终点 <code>50</code>。</td></tr>
+</table>
+<h3>B. 引擎调度（脚本外）</h3>
+<div class="box warn">以下为<b>结构推断</b>，脚本内无对应指令，需以实际游戏验证：</div><ul class="tight">
+<li><b>4/21 的四个平行版本</b>（共通 0–10／优芽 430／莉迪亚 575／天音 744）由循环次数／剧情状态切换，TRUE 线另有 888 版。</li>
+<li><b>从 4/23 起</b>每天在 6 条角色线（美琴·心菜·琉璃·优芽·莉迪亚·天音）与 TRUE 线之间择一运行，选择依据应为 4/22 终点 + 好感度。</li>
+<li><b>TRUE 线</b>（T 脚本，4/21–4/28）是独立时间轴，在 4/27 由标志位 30–35 分派到各角色结局段，4/28 由 36–41 分派到 6 个后日谈。</li>
+<li><b>战斗结果</b>由引擎判定：如 4/23 TRUE 的 <code>960</code>（战败）与<code>961</code>（胜）两条入口，脚本内无任何指令指向 <code>961</code>。</li>
+</ul></section>
+<section id="end"><h2>五、TRUE 线结局判定（IF_CHECK）</h2>
+<table><tr><th>脚本</th><th>角色</th><th>判定</th><th>达标 →</th><th>未达标 →</th></tr>
+<tr><td class="c"><code>1050</code></td><td><b>天音</b></td><td class="c">变量6 ≥ <b>5</b></td><td><code>1047</code> <span class="arw">恭﹁好︱︱上啊︱︱！﹂</span></td><td><code>1048</code> <span class="arw">结果，天音的一击未能发动，紧接着就被莉沙的火焰吞噬了︙︙我的…</span></td></tr>
+<tr><td class="c"><code>1056</code></td><td><b>心菜</b></td><td class="c">变量3 ≥ <b>5</b></td><td><code>1052</code> <span class="arw">恭﹁怎么可能会让你得逞﹂</span></td><td><code>1053</code> <span class="arw">恭﹁︙︙明白了。那么，能拜托你吗﹂心菜﹁︙︙﹂</span></td></tr>
+<tr><td class="c"><code>1061</code></td><td><b>莉迪亚</b></td><td class="c">变量5 ≥ <b>5</b></td><td><code>1059</code> <span class="arw">匠﹁嗯？︙︙嗯？﹂</span></td><td><code>1060</code> <span class="arw">莉迪亚﹁/哈啊啊啊啊啊啊啊！﹂</span></td></tr>
+<tr><td class="c"><code>1066</code></td><td><b>美琴</b></td><td class="c">变量2 ≥ <b>16</b></td><td><code>1063</code> <span class="arw">正想着，美琴的身体突然泛起了白光。</span></td><td><code>1064</code> <span class="arw">我的记忆也就到此为止了。隐约感觉听到了美琴在远方的悲鸣，但我…</span></td></tr>
+<tr><td class="c"><code>1073</code></td><td><b>琉璃</b></td><td class="c">变量4 ≥ <b>5</b></td><td><code>1067</code> <span class="arw">我收回了拳头上的力道。琉璃绿色的拳击将我的手弹了开来。</span></td><td><code>1068</code> <span class="arw">要是挨了琉璃的攻击就全完了。我强行低下头，侧头闪避躲过了琉璃…</span></td></tr>
+<tr><td class="c"><code>1078</code></td><td><b>优芽</b></td><td class="c">变量1 ≥ <b>5</b></td><td><code>1075</code> <span class="arw">莉沙﹁不自量力！看招，火焰！︙︙什么！﹂</span></td><td><code>1076</code> <span class="arw">莉沙﹁不自量力！火焰！﹂优芽﹁啊︙︙、啊嘎、啊啊啊︱︱︱︱︱…</span></td></tr>
+</table>
+<div class="box">六人阈值统一为 <b>≥5</b>，唯独<b>美琴为 ≥16</b>——因为美琴几乎在每条线的剧情里都会加减，累计量天然更高。达标分支最终汇入 <code>1044</code>（匠败北・好结局），未达标汇入 <code>1045</code>（坏结局）。</div></section>
+<section id="flag"><h2>六、标志位分支（DEF_CHOICE）</h2>
+<h3>4/21　<code>4</code>　21ESS20000</h3>
+<table><tr><th>标志位</th><th>跳转目标</th><th>目标首句</th></tr>
+<tr><td class="c"><code>0</code> 成立</td><td><code>6</code> 21ESS30000　<span class=tag>共通/序章</span></td><td class="arw">啊︱︱累死了。虽然我也没干什么大事就是了。</td></tr>
+<tr><td class="c"><code>0</code> 不成立</td><td><code>5</code> 21ESS20100　<span class=tag>共通/序章</span></td><td class="arw">我家就在这鸣神神社里面。虽说如此，其实也就是建在神社旁边，房子本身只是一栋极为普…</td></tr>
+</table>
+<h3>4/21　<code>6</code>　21ESS30000</h3>
+<table><tr><th>标志位</th><th>跳转目标</th><th>目标首句</th></tr>
+<tr><td class="c"><code>3</code></td><td><code>7</code> 21ESS30101　<span class=tag>共通/序章</span></td><td class="arw">不过怎么回事，这种感觉，总觉得以前好像也有过︙︙对了，大概接下来美月就会︙︙</td></tr>
+<tr><td class="c"><code>5</code></td><td><code>7</code> 21ESS30101　<span class=tag>共通/序章</span></td><td class="arw">不过怎么回事，这种感觉，总觉得以前好像也有过︙︙对了，大概接下来美月就会︙︙</td></tr>
+<tr><td class="c"><code>7</code></td><td><code>7</code> 21ESS30101　<span class=tag>共通/序章</span></td><td class="arw">不过怎么回事，这种感觉，总觉得以前好像也有过︙︙对了，大概接下来美月就会︙︙</td></tr>
+<tr><td class="c"><b>默认</b></td><td><code>8</code> 21ESS30200</td><td class="arw">咚咚。门被敲响了。</td></tr>
+</table>
+<h3>4/21　<code>8</code>　21ESS30200</h3>
+<table><tr><th>标志位</th><th>跳转目标</th><th>目标首句</th></tr>
+<tr><td class="c"><code>3</code></td><td><code>9</code> 21ESS30301　<span class=tag>共通/序章</span></td><td class="arw">看吧︙︙果然总觉得以前发生过同样的事︙︙</td></tr>
+<tr><td class="c"><code>5</code></td><td><code>9</code> 21ESS30301　<span class=tag>共通/序章</span></td><td class="arw">看吧︙︙果然总觉得以前发生过同样的事︙︙</td></tr>
+<tr><td class="c"><code>7</code></td><td><code>9</code> 21ESS30301　<span class=tag>共通/序章</span></td><td class="arw">看吧︙︙果然总觉得以前发生过同样的事︙︙</td></tr>
+<tr><td class="c"><b>默认</b></td><td><code>10</code> 21ESS30400</td><td class="arw">恭﹁今天吃汉堡肉啊﹂美琴﹁我开动啦﹂恭﹁咦？昭雄叔呢？﹂</td></tr>
+</table>
+<h3>4/22　<code>38</code>　22MKT20300</h3>
+<table><tr><th>标志位</th><th>跳转目标</th><th>目标首句</th></tr>
+<tr><td class="c"><code>3</code></td><td><code>39</code> 22MKT20401　<span class=tag>美琴</span></td><td class="arw">︙︙这本书，该怎么办呢。</td></tr>
+<tr><td class="c"><code>5</code></td><td><code>39</code> 22MKT20401　<span class=tag>美琴</span></td><td class="arw">︙︙这本书，该怎么办呢。</td></tr>
+<tr><td class="c"><code>7</code></td><td><code>39</code> 22MKT20401　<span class=tag>美琴</span></td><td class="arw">︙︙这本书，该怎么办呢。</td></tr>
+<tr><td class="c"><b>默认</b></td><td><code>40</code> 22MKT20501</td><td class="arw">难得拿到了，就读读看吧︙︙。我拿着绘本走到桌边，翻开了书页。</td></tr>
+</table>
+<h3>4/23　<code>98</code>　23KKN00001</h3>
+<table><tr><th>标志位</th><th>跳转目标</th><th>目标首句</th></tr>
+<tr><td class="c"><code>20</code></td><td><code>99</code> 23KKN00101　<span class=tag>心菜</span></td><td class="arw">恭﹁啊，我读过了。不过，姬咲你喜欢那种故事吗？虽然感觉有点伤感︙︙﹂</td></tr>
+<tr><td class="c"><b>默认</b></td><td><code>100</code> 23KKN00102</td><td class="arw">啊，没看。呃︱︱呃︱︱。</td></tr>
+</table>
+<h3>4/27　<code>1043</code>　27ESS10003</h3>
+<table><tr><th>标志位</th><th>跳转目标</th><th>目标首句</th></tr>
+<tr><td class="c"><code>30</code></td><td><code>1074</code> 27YUM10000　<span class=tag>优芽</span></td><td class="arw">我和优芽沿着长长的通道拼命奔跑。这条通道到底要延伸到哪里去啊︙︙。</td></tr>
+<tr><td class="c"><code>31</code></td><td><code>1062</code> 27MKT10000　<span class=tag>美琴</span></td><td class="arw">我和美琴在长长的通道里奔跑着。</td></tr>
+<tr><td class="c"><code>32</code></td><td><code>1051</code> 27KKN10000　<span class=tag>心菜</span></td><td class="arw">我与姬咲一同向着城堡深处进发。</td></tr>
+<tr><td class="c"><code>33</code></td><td><code>1070</code> 27RUR20000　<span class=tag>琉璃</span></td><td class="arw">我和琉璃总之一心朝着城堡深处前进。</td></tr>
+<tr><td class="c"><code>34</code></td><td><code>1058</code> 27LYD10000　<span class=tag>莉迪亚</span></td><td class="arw">莉迪亚和我正朝着城堡深处飞奔。</td></tr>
+<tr><td class="c"><code>35</code></td><td><code>1046</code> 27AIA10000　<span class=tag>天音</span></td><td class="arw">我和天音总之先往深处跑去。到底还要走多远啊。</td></tr>
+</table>
+<h3>4/28　<code>1079</code>　28ESS00000</h3>
+<table><tr><th>标志位</th><th>跳转目标</th><th>目标首句</th></tr>
+<tr><td class="c"><code>36</code></td><td><code>1085</code> 28YUM10000　<span class=tag>优芽</span></td><td class="arw">战斗结束后的数日。我们重获了平静的日常生活。和过去没有任何不同。</td></tr>
+<tr><td class="c"><code>37</code></td><td><code>1083</code> 28MKT10000　<span class=tag>美琴</span></td><td class="arw">战斗结束后的数日。我们重获了平静的日常生活。和过去没有任何不同。︙︙不，也有些许…</td></tr>
+<tr><td class="c"><code>38</code></td><td><code>1081</code> 28KKN10000　<span class=tag>心菜</span></td><td class="arw">恭﹁︙︙无论如何都要去吗？﹂</td></tr>
+<tr><td class="c"><code>39</code></td><td><code>1084</code> 28RUR10000　<span class=tag>琉璃</span></td><td class="arw">琉璃﹁/快点快点︴。在这一边的说︴﹂</td></tr>
+<tr><td class="c"><code>40</code></td><td><code>1082</code> 28LYD10000　<span class=tag>莉迪亚</span></td><td class="arw">战斗结束后的数日︱︱。</td></tr>
+<tr><td class="c"><code>41</code></td><td><code>1080</code> 28AIA10000　<span class=tag>天音</span></td><td class="arw">接着，几天过去了。我尽情享受着日常生活。当然，今天早上也是如此。今天放假。一定要…</td></tr>
+</table>
+<div class="box">标志位 <b>30–35</b>（4/27）与 <b>36–41</b>（4/28）都是 6 个一组、顺序一致：<b>优芽 → 美琴 → 心菜 → 琉璃 → 莉迪亚 → 天音</b>，即 TRUE 线的角色分派表。</div>
+<div class="box warn"><b>关于 4/21 的 <code>4</code>（唯一含 EXEC_CHOICE 的块）：</b>块内出现两条 <code>CALL_FUNC</code> 且被 <code>EXEC_CHOICE</code> 隔开，「成立／不成立」的对应由指令顺序推定。两条路殊途同归：<code>5</code> 的唯一前驱是 <code>4</code> 且 <code>5→6</code>，实际效果只是<b>是否插入 <code>5</code>（鸣神神社说明）这一段</b>，之后必定汇合到 <code>6</code>。</div></section>
+<section id="all"><h2>七、全部选项一览（166 组）</h2>
+<table><tr><th>日期</th><th>线</th><th>ID 区间</th><th class="c">选项数</th><th class="c">脚本数</th></tr>
+<tr><td>4/21</td><td><b>共通/序章</b></td><td><code>0–10</code></td><td class="c">0</td><td class="c">11</td></tr>
+<tr><td>4/21</td><td><b>优芽</b></td><td><code>430–440</code></td><td class="c">2</td><td class="c">11</td></tr>
+<tr><td>4/21</td><td><b>莉迪亚</b></td><td><code>575–583</code></td><td class="c">0</td><td class="c">9</td></tr>
+<tr><td>4/21</td><td><b>天音</b></td><td><code>744–750</code></td><td class="c">0</td><td class="c">7</td></tr>
+<tr><td>4/21</td><td><b>TRUE</b></td><td><code>888–901</code></td><td class="c">2</td><td class="c">14</td></tr>
+<tr><td>4/22</td><td><b>共通/序章</b><span class="arw">（含 共通/序章·心菜·美琴·琉璃 段）</span></td><td><code>11–70</code></td><td class="c">12</td><td class="c">60</td></tr>
+<tr><td>4/22</td><td><b>优芽</b></td><td><code>441–461</code></td><td class="c">2</td><td class="c">21</td></tr>
+<tr><td>4/22</td><td><b>莉迪亚</b></td><td><code>584–608</code></td><td class="c">5</td><td class="c">25</td></tr>
+<tr><td>4/22</td><td><b>天音</b></td><td><code>751–775</code></td><td class="c">4</td><td class="c">25</td></tr>
+<tr><td>4/22</td><td><b>TRUE</b></td><td><code>902–945</code></td><td class="c">7</td><td class="c">44</td></tr>
+<tr><td>4/23</td><td><b>美琴</b></td><td><code>71–96</code></td><td class="c">4</td><td class="c">26</td></tr>
+<tr><td>4/23</td><td><b>心菜</b></td><td><code>97–122</code></td><td class="c">4</td><td class="c">26</td></tr>
+<tr><td>4/23</td><td><b>琉璃</b></td><td><code>123–169</code></td><td class="c">9</td><td class="c">47</td></tr>
+<tr><td>4/23</td><td><b>优芽</b></td><td><code>462–484</code></td><td class="c">4</td><td class="c">23</td></tr>
+<tr><td>4/23</td><td><b>莉迪亚</b></td><td><code>609–641</code></td><td class="c">7</td><td class="c">33</td></tr>
+<tr><td>4/23</td><td><b>天音</b></td><td><code>776–799</code></td><td class="c">5</td><td class="c">24</td></tr>
+<tr><td>4/23</td><td><b>TRUE</b></td><td><code>946–970</code></td><td class="c">4</td><td class="c">25</td></tr>
+<tr><td>4/24</td><td><b>美琴</b></td><td><code>170–196</code></td><td class="c">3</td><td class="c">27</td></tr>
+<tr><td>4/24</td><td><b>心菜</b></td><td><code>197–232</code></td><td class="c">6</td><td class="c">36</td></tr>
+<tr><td>4/24</td><td><b>琉璃</b></td><td><code>233–268</code></td><td class="c">7</td><td class="c">36</td></tr>
+<tr><td>4/24</td><td><b>优芽</b></td><td><code>485–505</code></td><td class="c">4</td><td class="c">21</td></tr>
+<tr><td>4/24</td><td><b>莉迪亚</b></td><td><code>642–669</code></td><td class="c">5</td><td class="c">28</td></tr>
+<tr><td>4/24</td><td><b>天音</b></td><td><code>800–821</code></td><td class="c">4</td><td class="c">22</td></tr>
+<tr><td>4/24</td><td><b>TRUE</b></td><td><code>971–992</code></td><td class="c">4</td><td class="c">22</td></tr>
+<tr><td>4/25</td><td><b>美琴</b></td><td><code>269–291</code></td><td class="c">4</td><td class="c">23</td></tr>
+<tr><td>4/25</td><td><b>心菜</b></td><td><code>292–314</code></td><td class="c">4</td><td class="c">23</td></tr>
+<tr><td>4/25</td><td><b>琉璃</b></td><td><code>315–349</code></td><td class="c">6</td><td class="c">35</td></tr>
+<tr><td>4/25</td><td><b>优芽</b></td><td><code>506–533</code></td><td class="c">4</td><td class="c">28</td></tr>
+<tr><td>4/25</td><td><b>莉迪亚</b></td><td><code>670–696</code></td><td class="c">5</td><td class="c">27</td></tr>
+<tr><td>4/25</td><td><b>天音</b></td><td><code>822–846</code></td><td class="c">3</td><td class="c">25</td></tr>
+<tr><td>4/25</td><td><b>TRUE</b></td><td><code>993–1014</code></td><td class="c">1</td><td class="c">22</td></tr>
+<tr><td>4/26</td><td><b>美琴</b></td><td><code>350–367</code></td><td class="c">2</td><td class="c">18</td></tr>
+<tr><td>4/26</td><td><b>心菜</b></td><td><code>368–391</code></td><td class="c">5</td><td class="c">24</td></tr>
+<tr><td>4/26</td><td><b>琉璃</b></td><td><code>392–416</code></td><td class="c">4</td><td class="c">25</td></tr>
+<tr><td>4/26</td><td><b>优芽</b></td><td><code>534–556</code></td><td class="c">4</td><td class="c">23</td></tr>
+<tr><td>4/26</td><td><b>莉迪亚</b></td><td><code>697–730</code></td><td class="c">6</td><td class="c">34</td></tr>
+<tr><td>4/26</td><td><b>天音</b></td><td><code>847–867</code></td><td class="c">4</td><td class="c">21</td></tr>
+<tr><td>4/26</td><td><b>TRUE</b><span class="arw">（含 天音·共通/序章·心菜·莉迪亚·美琴·琉璃·优芽 段）</span></td><td><code>1015–1039</code></td><td class="c">2</td><td class="c">25</td></tr>
+<tr><td>4/27</td><td><b>美琴</b></td><td><code>417–418</code></td><td class="c">0</td><td class="c">2</td></tr>
+<tr><td>4/27</td><td><b>心菜</b></td><td><code>419–425</code></td><td class="c">1</td><td class="c">7</td></tr>
+<tr><td>4/27</td><td><b>琉璃</b></td><td><code>426–429</code></td><td class="c">0</td><td class="c">4</td></tr>
+<tr><td>4/27</td><td><b>优芽</b></td><td><code>557–574</code></td><td class="c">3</td><td class="c">18</td></tr>
+<tr><td>4/27</td><td><b>莉迪亚</b></td><td><code>731–743</code></td><td class="c">1</td><td class="c">13</td></tr>
+<tr><td>4/27</td><td><b>天音</b></td><td><code>868–887</code></td><td class="c">3</td><td class="c">20</td></tr>
+<tr><td>4/27</td><td><b>TRUE</b><span class="arw">（含 天音·共通/序章·心菜·莉迪亚·美琴·琉璃·优芽 段）</span></td><td><code>1040–1078</code></td><td class="c">0</td><td class="c">39</td></tr>
+<tr><td>4/28</td><td><b>TRUE</b><span class="arw">（含 天音·共通/序章·心菜·莉迪亚·美琴·琉璃·优芽 段）</span></td><td><code>1079–1085</code></td><td class="c">0</td><td class="c">7</td></tr>
+<tr><td colspan="3"><b>合计</b></td><td class="c"><b>166</b></td><td class="c"><b>1086</b></td></tr></table>
+<h3 id="p11">4/22　<span class="tag">共通/序章</span><code>11–70</code><span class="arw">　入口 [11]　终点 [29, 50, 70]</span></h3>
+<div class="ch"><div class="hd"><b>〔15〕</b>　唔︱︱虽然嘴上说没问题，但这种时候还是帮姬咲一把比较好吧。不过，贸然插手好像也不太好。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">帮忙</td><td class="c"><code>16</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不帮忙</td><td class="c"><code>19</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔18〕</b>　︙︙走掉了。她是想说水和烟立场不同吗？就算让我变成烟我也做不到啊。︙︙那么，这本书该怎么处理呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">读</td><td class="c"><code>20</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不读</td><td class="c"><code>21</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔22〕</b>　︙︙嗯？姬咲︙︙。还在收拾刚才被我弄倒的书吗。比起陪美琴胡闹，我是不是留下来帮姬咲会比较好呢︙︙。该怎么选呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">和美琴去现场</td><td class="c"><code>23</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">帮心菜收拾</td><td class="c"><code>24</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔25〕</b>　美琴﹁这样啊︙︙。啊，姬咲同学会不会知道些什么呢︙︙﹂恭﹁姬咲吗︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">说不定知道些什么</td><td class="c"><code>26</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">她话很少呢</td><td class="c"><code>27</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">她个子真娇小呢</td><td class="c"><code>28</code></td><td class="aff"><b>心菜+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔32〕</b>　美琴露出这种表情，就代表她打算开始搞什么麻烦事了。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">敷衍过去</td><td class="c"><code>33</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不管她</td><td class="c"><code>34</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">陪美琴</td><td class="c"><code>35</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔37〕</b>　也不能︙︙就这么一个人回去啊。该干点什么呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去帮美琴的忙</td><td class="c"><code>38</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">在图书室里闲逛</td><td class="c"><code>15</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔39〕</b>　︙︙这本书，该怎么办呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">阅读这本书</td><td class="c"><code>40</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">把书放回书架</td><td class="c"><code>41</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔46〕</b>　话又说回来，这真是赔了夫人又折兵、白忙活一场。这种时候，是该赶紧回家睡觉呢︙︙还是去游戏厅发泄一下压力呢︙︙该怎么选呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">回家睡觉</td><td class="c"><code>47</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">去游戏厅</td><td class="c"><code>48</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">去吃拉面</td><td class="c"><code>49</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔51〕</b>　这、这是什么鬼啊︱︱！</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">布偶吗？</td><td class="c"><code>52</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">手办？</td><td class="c"><code>53</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">呜咪？</td><td class="c"><code>54</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔55〕</b>　恭﹁︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">我什么都没看见</td><td class="c"><code>56</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">救它</td><td class="c"><code>57</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">掀开看看</td><td class="c"><code>58</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔62〕</b>　美月﹁要是有证据的话就是另一回事了﹂恭﹁既然这样︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去抓一只过来</td><td class="c"><code>63</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">给她们看面包袋</td><td class="c"><code>64</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">看着我的眼睛！</td><td class="c"><code>65</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔66〕</b>　难道是遭遇过人类什么不好的对待吗？可恶，总觉得很在意。那个时候，我到底怎么做才好呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">更温柔一些</td><td class="c"><code>67</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">抓住她</td><td class="c"><code>68</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">询问详情</td><td class="c"><code>69</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p71">4/23　<span class="tag">美琴</span><code>71–96</code><span class="arw">　入口 [71]　终点 [96]</span></h3>
+<div class="ch"><div class="hd"><b>〔72〕</b>　起火事件也是如此，我已经不想再让美琴继续掺和下去了。这种时候，还是应该先把她的注意力从电视上引开吧。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">换台</td><td class="c"><code>73</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">提议去学校</td><td class="c"><code>74</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">把味噌汤打翻</td><td class="c"><code>75</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔77〕</b>　来了来了！</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去</td><td class="c"><code>78</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不去</td><td class="c"><code>79</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">敷衍过去</td><td class="c"><code>80</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔86〕</b>　像我这样的人︙︙到底有什么可图的啊。︙︙。但是，还有另外一种可能。那就是二阶堂︙︙</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">喜欢我</td><td class="c"><code>87</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">是我失散多年的妹妹</td><td class="c"><code>88</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">喜欢美琴</td><td class="c"><code>89</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔91〕</b>　毕竟被美红阿姨那么严厉地训斥了一番，美琴大概也不会再提去跑案发现场的事了吧。当时被训得心惊胆战，但换个角度想倒也不坏。总…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去确认</td><td class="c"><code>92</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不去确认</td><td class="c"><code>93</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">试着主动邀请</td><td class="c"><code>94</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<h3 id="p97">4/23　<span class="tag">心菜</span><code>97–122</code><span class="arw">　入口 [97]　终点 [106, 122]</span></h3>
+<div class="ch"><div class="hd"><b>〔104〕</b>　不过︙︙嘛，确实答应了听他商量︙︙该怎么办好呢︙︙</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">姑且帮他一把吧</td><td class="c"><code>105</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">还是靠你自己的力量吧</td><td class="c"><code>106</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔107〕</b>　这家伙没救了。毫无疑问已经彻底暴走了。该阻止他吗︙︙</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">阻止他</td><td class="c"><code>108</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不阻止</td><td class="c"><code>109</code></td><td class="aff"><i>心菜−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">煽风点火</td><td class="c"><code>110</code></td><td class="aff"><b>心菜+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔113〕</b>　就算你问我等于什么︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">２</td><td class="c"><code>114</code></td><td class="aff"><i>心菜−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不知道</td><td class="c"><code>115</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">是语言吧</td><td class="c"><code>116</code></td><td class="aff"><b>心菜+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔118〕</b>　美琴﹁让我想想，比如︙︙去游乐园，或者去水族馆，啊，动物园也不错呢。啊，呐，恭觉得去哪里好？﹂恭﹁这个嘛︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">游乐园</td><td class="c"><code>119</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">图书馆</td><td class="c"><code>120</code></td><td class="aff"><i>美琴−</i><b>心菜+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">游戏厅</td><td class="c"><code>121</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<h3 id="p123">4/23　<span class="tag">琉璃</span><code>123–169</code><span class="arw">　入口 [123]　终点 [169]</span></h3>
+<div class="ch"><div class="hd"><b>〔124〕</b>　美琴﹁到底是什么啦，说来听听嘛﹂恭﹁在梦里我︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">变成了妖精</td><td class="c"><code>125</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">巴掌大小</td><td class="c"><code>126</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">变成了美少女</td><td class="c"><code>127</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔128〕</b>　美琴﹁诶？什么？﹂恭﹁就是说，昨天捡到妖精的地方﹂美月﹁傻不傻啊。你还在说那种胡话？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">才不是胡话！</td><td class="c"><code>129</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">妖精真的存在</td><td class="c"><code>130</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">总觉得有点在意</td><td class="c"><code>131</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔133〕</b>　亏我还特意买好了，结果全被不明飞行物体吃光了。啊，对了。匠的话说不定会相信妖精的事呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">试着说一下</td><td class="c"><code>134</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">放弃</td><td class="c"><code>135</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">试探一下</td><td class="c"><code>136</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔138〕</b>　美琴﹁恭，又在说这种话了。跟我们说说倒也罢了，对别人可是会造成困扰的吧！﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">困扰什么的</td><td class="c"><code>139</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">跟你说说就没事吗？</td><td class="c"><code>140</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">虽说对别人︙︙</td><td class="c"><code>141</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔143〕</b>　势头过猛的狗没能刹住车，在马路上打了个滚，但很快就重新调整好姿势，这次转而朝我低吼起来。这还真有点吓人啊。该怎么办呢︙︙…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">赶走</td><td class="c"><code>144</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">驯服野狗</td><td class="c"><code>145</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">无视</td><td class="c"><code>146</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔147〕</b>　琉璃﹁诶？您可以让我吃上饭吗︱︱？﹂恭﹁嗯﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">如果你不介意我是人类的话</td><td class="c"><code>148</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">你肚子饿了吧？</td><td class="c"><code>149</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">看你可爱特别优待你</td><td class="c"><code>150</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔153〕</b>　琉璃开心地拍打着翅膀。总之，先喂她吃哪一样呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">菠萝面包</td><td class="c"><code>154</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">香蕉</td><td class="c"><code>155</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">寿司卷</td><td class="c"><code>156</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔160〕</b>　︱︱看来电视剧正播到高潮。该怎么办呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">再次向美琴搭话</td><td class="c"><code>161</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">再次向美月搭话</td><td class="c"><code>162</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">向昭雄先生搭话</td><td class="c"><code>163</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">4</td><td class="opt">老实等待</td><td class="c"><code>164</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔165〕</b>　啊，忘了琉璃睡觉的地方了。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">来这边吧</td><td class="c"><code>166</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">要一起睡吗？</td><td class="c"><code>167</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">角落就可以了吗？</td><td class="c"><code>168</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p170">4/24　<span class="tag">美琴</span><code>170–196</code><span class="arw">　入口 [170]　终点 [196]</span></h3>
+<div class="ch"><div class="hd"><b>〔173〕</b>　我感到后背一阵发凉。也就是说，这意味着︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">在针对我</td><td class="c"><code>174</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">在避开我</td><td class="c"><code>175</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">纯属偶然</td><td class="c"><code>176</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔182〕</b>　︙︙就是现在！往哪边逃！</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">一起往后逃</td><td class="c"><code>183</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">一起从瓦尔肯身旁冲过去</td><td class="c"><code>184</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">兵分两路</td><td class="c"><code>185</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔187〕</b>　知道我叫︙︙鸣神︙︙恭︙︙的神秘男子。而且，最近闹得︹红月市︺沸沸扬扬的起火、落雷事件，也与我的名字有所关联︙︙。哪怕是…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">瓦尔肯毫无关系</td><td class="c"><code>188</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">瓦尔肯是凶手</td><td class="c"><code>189</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">瓦尔肯是受害者</td><td class="c"><code>190</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p197">4/24　<span class="tag">心菜</span><code>197–232</code><span class="arw">　入口 [197]　终点 [232]</span></h3>
+<div class="ch"><div class="hd"><b>〔200〕</b>　匠﹁这样啊。那，姑且问一下吧。恭你想吃什么？﹂恭﹁什么叫姑且啊。让我想想︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">家庭餐厅</td><td class="c"><code>201</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">正宗中餐</td><td class="c"><code>202</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">汉堡</td><td class="c"><code>203</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔205〕</b>　心菜﹁只要大家都方便，去哪里都可以﹂美琴﹁恭想去哪？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">公园</td><td class="c"><code>206</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">购物</td><td class="c"><code>207</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">游乐园</td><td class="c"><code>208</code></td><td class="aff"><b>美琴+</b><b>心菜+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔209〕</b>　说着，美琴展示出了一件带着荷叶边、轻飘飘的连衣裙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">美琴</td><td class="c"><code>210</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">姬咲</td><td class="c"><code>211</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">匠</td><td class="c"><code>212</code></td><td class="aff"><i>美琴−</i><i>心菜−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔213〕</b>　恭﹁嘛，也许吧。那从哪里开始玩起？﹂心菜﹁恭想去哪里呢？﹂恭﹁诶？我？由我来决定吗？我想去︙︙让我想想啊︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">过山车</td><td class="c"><code>214</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">鬼屋</td><td class="c"><code>215</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">摩天轮</td><td class="c"><code>216</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔221〕</b>　恭﹁你这家伙︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">真是有趣的家伙啊</td><td class="c"><code>222</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">真是个让人搞不懂的家伙啊</td><td class="c"><code>223</code></td><td class="aff"><i>心菜−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">挺可爱的嘛</td><td class="c"><code>224</code></td><td class="aff"><b>心菜+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔227〕</b>　真是的，脾气真臭啊。这样看来，就算跟美琴一起回去也只会被拿来撒气吧。今天不如就︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">和匠聊聊</td><td class="c"><code>228</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">送姬咲回去</td><td class="c"><code>229</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">还是和美琴一起回去</td><td class="c"><code>230</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p233">4/24　<span class="tag">琉璃</span><code>233–268</code><span class="arw">　入口 [233]　终点 [268]</span></h3>
+<div class="ch"><div class="hd"><b>〔233〕</b>　︙︙。真是的。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">结巴得太厉害了</td><td class="c"><code>234</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">知道了，我起来就是了</td><td class="c"><code>235</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">那我可以继续睡了吧</td><td class="c"><code>236</code></td><td class="aff"><i>琉璃−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔239〕</b>　琉璃嘴角还粘着一颗大大的米粒，一脸不安地注视着我。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">精神好比什么都强</td><td class="c"><code>240</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">只是有点意外</td><td class="c"><code>241</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">其实我是在寄宿</td><td class="c"><code>242</code></td><td class="aff"><i>琉璃−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔245〕</b>　琉璃这么说着，气鼓鼓地嘟起了腮帮子。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">就当是这样吧</td><td class="c"><code>246</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">乖孩子乖孩子</td><td class="c"><code>247</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">那么，接下来︙︙</td><td class="c"><code>248</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔250〕</b>　琉璃﹁在？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">给我老实点</td><td class="c"><code>251</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">别吃太多</td><td class="c"><code>252</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">冷静点</td><td class="c"><code>253</code></td><td class="aff"><b>琉璃+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔254〕</b>　昭雄叔正一边看着报纸，一边喝着晚酌的啤酒。看来，他是真的完全没有注意到琉璃。那么，从这里开始才是问题所在。晚饭可没法像便…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">回房间吃</td><td class="c"><code>255</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">装进保鲜盒里</td><td class="c"><code>256</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">让琉璃忍耐一下</td><td class="c"><code>257</code></td><td class="aff"><i>琉璃−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔260〕</b>　两人用半睁着的白眼盯着我。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">是小妖精干的好事吧？</td><td class="c"><code>261</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">因为肚子饿了</td><td class="c"><code>262</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">因为暴食症︙︙</td><td class="c"><code>263</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔264〕</b>　恭﹁这也是没办法的事啊。我想不出更好的借口了﹂琉璃﹁即便如此也不能说谎哦︴。说谎可是当小偷的开端哦︴！﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">好啦好啦</td><td class="c"><code>265</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">你要我说实话吗？</td><td class="c"><code>266</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">唉，说谎确实不好</td><td class="c"><code>267</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p269">4/25　<span class="tag">美琴</span><code>269–291</code><span class="arw">　入口 [269]　终点 [291]</span></h3>
+<div class="ch"><div class="hd"><b>〔270〕</b>　美琴平时看起来也没和二阶堂关系好到那种程度，感觉也不像是知道他家的关系啊。那该怎么办呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">老实呆在家里</td><td class="c"><code>271</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">前往事件现场</td><td class="c"><code>272</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">在商店街散步</td><td class="c"><code>273</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔276〕</b>　看起来相当疼的样子。这样下去可不行啊。该怎么办呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去公园休息一下吧</td><td class="c"><code>277</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">借我的肩膀给你靠吧</td><td class="c"><code>278</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">要我公主抱你吗</td><td class="c"><code>279</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔282〕</b>　可要是这样放着不管，二阶堂可能又会跑到别处去。既然如此，现在就该问个清楚吗︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">询问</td><td class="c"><code>283</code></td><td class="aff"><i>优芽−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不问</td><td class="c"><code>284</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">引诱到美琴所在的地方</td><td class="c"><code>285</code></td><td class="aff"><i>优芽−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔287〕</b>　突然被她说了那番话。这到底是什么意思啊。把我叫到那种地方去，她是打算做什么︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">向我告白爱意</td><td class="c"><code>288</code></td><td class="aff"><i>优芽−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">与我决斗</td><td class="c"><code>289</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">将我抹杀</td><td class="c"><code>290</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p292">4/25　<span class="tag">心菜</span><code>292–314</code><span class="arw">　入口 [292]　终点 [309, 312]</span></h3>
+<div class="ch"><div class="hd"><b>〔292〕</b>　恭﹁既然知道你就拦着点啊！﹂美月﹁嗯。不过我想着今天是周日，偶尔一次也无所谓嘛﹂恭﹁这叫什么歪理啊︙︙﹂美月﹁不过，烧焦…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">凭什么是我去？</td><td class="c"><code>293</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">知道了</td><td class="c"><code>294</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">用普通的锅不就行了</td><td class="c"><code>295</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔297〕</b>　就这样让她走好吗？</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">拦住她</td><td class="c"><code>298</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">一起逃跑</td><td class="c"><code>299</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">不管她</td><td class="c"><code>300</code></td><td class="aff"><i>心菜−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔302〕</b>　心菜﹁目前并没有。︙︙你为何要如此执着地与我扯上关系？﹂恭﹁这个嘛︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">为什么呢</td><td class="c"><code>303</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">因为受人之托</td><td class="c"><code>304</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">因为很可爱</td><td class="c"><code>305</code></td><td class="aff"><b>心菜+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔308〕</b>　该怎么办才好！</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">战斗</td><td class="c"><code>310</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">躲藏</td><td class="c"><code>311</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">逃跑</td><td class="c"><code>312</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p315">4/25　<span class="tag">琉璃</span><code>315–349</code><span class="arw">　入口 [315]　终点 [349]</span></h3>
+<div class="ch"><div class="hd"><b>〔315〕</b>　恭﹁那个︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">在收拾房间</td><td class="c"><code>316</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">在玩摔跤游戏</td><td class="c"><code>317</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">地震了︙︙</td><td class="c"><code>318</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔321〕</b>　琉璃﹁琉璃总是给大家添麻烦︙︙呜呜︙︙咕噜咕噜，实在太内疚了︙︙美味的饭菜都︙︙嗝︙︙咽不下去了呜︱咕嘟﹂恭﹁︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">哭还是吃，选一个</td><td class="c"><code>322</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">这不是吃得很香嘛</td><td class="c"><code>323</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">我没生气哦</td><td class="c"><code>324</code></td><td class="aff"><b>琉璃+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔327〕</b>　琉璃﹁好乖好乖。好可爱哦︴。主人，我们养这只小猫好不好？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">确实很可爱，但︙︙</td><td class="c"><code>328</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">现在有点︙︙</td><td class="c"><code>329</code></td><td class="aff"><i>琉璃−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">我决定不了</td><td class="c"><code>330</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔335〕</b>　恭﹁好啦我知道了。不用在意了﹂琉璃﹁但是但是但是，真的非常对不起︙︙﹂恭﹁都说了没事了︙︙﹂琉璃﹁下次，下次琉璃一定会努…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">你什么都不用做</td><td class="c"><code>336</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">只要呆着就好</td><td class="c"><code>337</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">老实待着别动</td><td class="c"><code>338</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔340〕</b>　可恶，到底该去哪儿找啊！</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">商业街</td><td class="c"><code>341</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">学校</td><td class="c"><code>342</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">意外地，鸣海神社</td><td class="c"><code>343</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔345〕</b>　恭﹁虽然姑且买了个新书架回来。但收拾起来好像得花不少时间呢﹂美琴﹁你打算怎么办？﹂恭﹁没办法，今晚︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去美琴的房间睡吧</td><td class="c"><code>346</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">去美月的房间睡吧</td><td class="c"><code>347</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">去客厅睡吧</td><td class="c"><code>348</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p350">4/26　<span class="tag">美琴</span><code>350–367</code><span class="arw">　入口 [350]　终点 [358, 367]</span></h3>
+<div class="ch"><div class="hd"><b>〔351〕</b>　呜︙︙好敏锐。这种时候真拿美琴没办法啊︙︙。该怎么回答呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">什么都没有哦</td><td class="c"><code>352</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">其实被表白了</td><td class="c"><code>353</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">刚才在想美琴的事</td><td class="c"><code>354</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔356〕</b>　︙︙。在那种地方，到底要干什么︙︙。搞不好的话，今晚我就再也回不来这个家了。即使如此，我也要去吗？</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去</td><td class="c"><code>357</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不去，睡觉</td><td class="c"><code>358</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">叫上美琴一起去</td><td class="c"><code>359</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<h3 id="p368">4/26　<span class="tag">心菜</span><code>368–391</code><span class="arw">　入口 [368]　终点 [383, 385, 391]</span></h3>
+<div class="ch"><div class="hd"><b>〔368〕</b>　姬咲和︙︙匠？而且不知为何一脸严肃地深聊着。话说，姬咲是不是在害怕？果然，昨天他们俩之间发生了什么吗︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">静观其变</td><td class="c"><code>369</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">插话介入</td><td class="c"><code>370</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">揍匠一顿</td><td class="c"><code>371</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔374〕</b>　︙︙那是，姬咲？姬咲一直抬头仰望着天空，一动不动。虽然偶尔能看到嘴唇在动，但从这里听不清她在说什么。︙︙在干嘛呢？</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">试着跟她搭话</td><td class="c"><code>375</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">当做没看见</td><td class="c"><code>376</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">观察情况</td><td class="c"><code>377</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔381〕</b>　怎么办。左边是墙壁。但是，那家伙已经看穿了我的动作。能逃得掉吗？</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">往右逃</td><td class="c"><code>382</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">愣在原地</td><td class="c"><code>383</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔384〕</b>　心菜﹁/恭可以先回家。我自己会想办法处理的﹂恭﹁就算你叫我回家︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">回家</td><td class="c"><code>385</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不回家</td><td class="c"><code>386</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔387〕</b>　像往常一样吃过晚饭，洗完澡回到自己的房间，今天发生的事感觉就像一场梦一样。姬咲你到底︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">宇宙人</td><td class="c"><code>388</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">妖精</td><td class="c"><code>389</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">女仆型机器人</td><td class="c"><code>390</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p392">4/26　<span class="tag">琉璃</span><code>392–416</code><span class="arw">　入口 [392]　终点 [414, 416]</span></h3>
+<div class="ch"><div class="hd"><b>〔392〕</b>　琉璃正在―――</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">被狗袭击</td><td class="c"><code>393</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">被人类袭击</td><td class="c"><code>394</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">被饥饿侵袭</td><td class="c"><code>395</code></td><td class="aff"><b>琉璃+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔399〕</b>　︙︙然而，到处都找不到琉璃的身影。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">大声呼喊</td><td class="c"><code>400</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">设置陷阱</td><td class="c"><code>401</code></td><td class="aff"><i>琉璃−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">推理所在地</td><td class="c"><code>402</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔404〕</b>　啧︙︙。该怎么办。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去打扫</td><td class="c"><code>405</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">逃跑</td><td class="c"><code>406</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">撒谎</td><td class="c"><code>407</code></td><td class="aff"><i>琉璃−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔410〕</b>　琉璃﹁/哇哇哇哇！主人︴救、救救我啊︴﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">战斗</td><td class="c"><code>411</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">逃跑</td><td class="c"><code>415</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p419">4/27　<span class="tag">心菜</span><code>419–425</code><span class="arw">　入口 [419]　终点 [425]</span></h3>
+<div class="ch"><div class="hd"><b>〔419〕</b>　︙︙谁也不在？图书室里没人也是理所当然的，毕竟是休息日。但是，姬咲的身影也不在这里。―――总觉得有种莫名的心慌。不，她一…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">教室</td><td class="c"><code>420</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">屋顶</td><td class="c"><code>421</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">操场</td><td class="c"><code>422</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p430">4/21　<span class="tag">优芽</span><code>430–440</code><span class="arw">　入口 [430]　终点 [440]</span></h3>
+<div class="ch"><div class="hd"><b>〔432〕</b>　美琴﹁怎么了吗？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">没，没什么</td><td class="c"><code>433</code></td><td class="aff"><i>优芽−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">有点事</td><td class="c"><code>434</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">总觉得有点在意</td><td class="c"><code>435</code></td><td class="aff"><b>优芽+</b><i>美琴−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔436〕</b>　美月﹁哥，饭做好咯﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">马上来</td><td class="c"><code>437</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">稍等一下</td><td class="c"><code>438</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">今晚的晚饭该不会是︙︙</td><td class="c"><code>439</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p441">4/22　<span class="tag">优芽</span><code>441–461</code><span class="arw">　入口 [441]　终点 [461]</span></h3>
+<div class="ch"><div class="hd"><b>〔443〕</b>　恭﹁干嘛啊﹂美琴﹁那个︙︙关于今早的新闻﹂恭﹁啊︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">果然是那个</td><td class="c"><code>444</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">别放在心上！</td><td class="c"><code>445</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">花嘴鸭一家吗？</td><td class="c"><code>446</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔457〕</b>　美琴﹁欢迎回来︴。只是回去拿个落下的东西，未免也太慢了吧。你去哪干嘛了啊﹂恭﹁呃︙︙什么干嘛了︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去街机厅了</td><td class="c"><code>458</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">吃拉面去了︙︙</td><td class="c"><code>459</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">和二阶堂</td><td class="c"><code>460</code></td><td class="aff"><b>优芽+</b><i>美琴−</i></td></tr>
+</table></div>
+<h3 id="p462">4/23　<span class="tag">优芽</span><code>462–484</code><span class="arw">　入口 [462]　终点 [477, 484]</span></h3>
+<div class="ch"><div class="hd"><b>〔462〕</b>　美琴欲言又止地看着我，但我却无能为力。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">递一下酱汁</td><td class="c"><code>463</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">这个真好吃</td><td class="c"><code>464</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">今天午饭吃什么？</td><td class="c"><code>465</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔468〕</b>　美琴﹁发什么呆呢﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">没，没什么︙︙</td><td class="c"><code>469</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">便当太好吃了</td><td class="c"><code>470</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">匠回来得好慢啊</td><td class="c"><code>471</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔475〕</b>　优芽﹁明白了吗。你是逃脱不了这个命运的。那么，你的答复是︙︙怎么样。帮不帮我二阶堂优芽的忙﹂恭﹁那个︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">帮忙</td><td class="c"><code>476</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不帮</td><td class="c"><code>477</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">只要对美琴保密的话</td><td class="c"><code>478</code></td><td class="aff"><b>美琴+</b><b>优芽+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔480〕</b>　美琴﹁我回来啦︴﹂恭﹁欢迎回来︴。挺晚的呢︙︙﹂美琴﹁嗯。因为去打工了嘛︴。咦？美月还没回来吗？﹂恭﹁好像是。可能去买东…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">诶！　你做？</td><td class="c"><code>481</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">我来做</td><td class="c"><code>482</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">还是算了吧</td><td class="c"><code>483</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<h3 id="p485">4/24　<span class="tag">优芽</span><code>485–505</code><span class="arw">　入口 [485]　终点 [505]</span></h3>
+<div class="ch"><div class="hd"><b>〔485〕</b>　优芽﹁太慢了，迟到了１分钟！﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">啊，抱歉</td><td class="c"><code>486</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">别在意嘛</td><td class="c"><code>487</code></td><td class="aff"><i>优芽−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">真吹毛求疵</td><td class="c"><code>488</code></td><td class="aff"><i>优芽−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔491〕</b>　优芽﹁︙︙净是些平时二阶堂优芽不会吃的东西呢。你有什么推荐吗﹂恭﹁我想想啊﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">关东煮</td><td class="c"><code>492</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">饭团</td><td class="c"><code>493</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">法兰克福香肠</td><td class="c"><code>494</code></td><td class="aff"><b>优芽+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔496〕</b>　情报︙︙吗。要是能有什么高效收集情报的方法就好了︙︙。比如这样吧︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去图书室看看</td><td class="c"><code>497</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">问问姬咲</td><td class="c"><code>498</code></td><td class="aff"><i>优芽−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">求神拜佛试试</td><td class="c"><code>499</code></td><td class="aff"><i>优芽−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔501〕</b>　呜︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">没什么特别的</td><td class="c"><code>502</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">稍微︙︙</td><td class="c"><code>503</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">要说有倒也算有</td><td class="c"><code>504</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p506">4/25　<span class="tag">优芽</span><code>506–533</code><span class="arw">　入口 [506]　终点 [533]</span></h3>
+<div class="ch"><div class="hd"><b>〔506〕</b>　美琴﹁难道说你们两个︙︙﹂恭﹁不，那个怎么说呢所以呃︱︱﹂美琴﹁在交往吗？﹂恭﹁哈？怎么可能？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">不是啦</td><td class="c"><code>507</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">要是那样就好了</td><td class="c"><code>508</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">不可能吧</td><td class="c"><code>509</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔512〕</b>　诶？</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">约、约会？</td><td class="c"><code>513</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">我和二阶堂怎么可能︙︙</td><td class="c"><code>514</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">只是在调查而已</td><td class="c"><code>515</code></td><td class="aff"><i>优芽−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔524〕</b>　恭﹁我说︙︙﹂优芽﹁干、干嘛﹂恭﹁二阶堂你啊︙︙﹂优芽﹁︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">真是个大小姐呢</td><td class="c"><code>525</code></td><td class="aff"><i>优芽−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">说话方式真奇怪呢</td><td class="c"><code>526</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">为什么愿意做到︙︙</td><td class="c"><code>527</code></td><td class="aff"><b>优芽+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔529〕</b>　死、死了？匠他︙︙?!</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">骗人︙︙的吧</td><td class="c"><code>530</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">开什么玩笑啊</td><td class="c"><code>531</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">这样︙︙啊</td><td class="c"><code>532</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p534">4/26　<span class="tag">优芽</span><code>534–556</code><span class="arw">　入口 [534]　终点 [556]</span></h3>
+<div class="ch"><div class="hd"><b>〔534〕</b>　美琴﹁我早就做好心理准备了﹂恭﹁我︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">我不想连你也失去</td><td class="c"><code>535</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">我不想扯上关系</td><td class="c"><code>536</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">我绝不原谅</td><td class="c"><code>537</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔540〕</b>　优芽﹁追查五百藏的行踪。说到底，他为什么偏偏要在周日晚上跑到学校来︙︙。能想到的可能性是什么？﹂恭﹁那是︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">落下了东西</td><td class="c"><code>541</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">查资料</td><td class="c"><code>542</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">告白</td><td class="c"><code>543</code></td><td class="aff"><i>优芽−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔547〕</b>　恭﹁那个，姬咲。我想问你一个问题︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">人能轻易被烧着吗？</td><td class="c"><code>548</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">需要多高的温度</td><td class="c"><code>549</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">你觉得凶手是谁？</td><td class="c"><code>550</code></td><td class="aff"><i>心菜−</i><b>优芽+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔552〕</b>　美琴﹁等等美月，别说多余的话﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">原来是这样啊</td><td class="c"><code>553</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">抱歉︙︙</td><td class="c"><code>554</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">真是爱多管闲事</td><td class="c"><code>555</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<h3 id="p557">4/27　<span class="tag">优芽</span><code>557–574</code><span class="arw">　入口 [557]　终点 [574]</span></h3>
+<div class="ch"><div class="hd"><b>〔557〕</b>　太阳终于升起，天色渐渐亮了起来。继续这样漫无目的地走下去也不是办法。该怎么办呢︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去学校</td><td class="c"><code>558</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">去商业街</td><td class="c"><code>559</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">去公园</td><td class="c"><code>560</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔562〕</b>　优芽﹁有什么不可以的？﹂莉沙﹁老师可不允许不纯洁的男女交往哦﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">不是在约会</td><td class="c"><code>563</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不是男女交往</td><td class="c"><code>564</code></td><td class="aff"><i>优芽−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">不需要许可</td><td class="c"><code>565</code></td><td class="aff"><b>优芽+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔567〕</b>　二阶堂真是的︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">这也未免太︙︙</td><td class="c"><code>568</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">啊，也是啊</td><td class="c"><code>569</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">难得来一趟</td><td class="c"><code>570</code></td><td class="aff"><b>优芽+</b></td></tr>
+</table></div>
+<h3 id="p584">4/22　<span class="tag">莉迪亚</span><code>584–608</code><span class="arw">　入口 [584]　终点 [603, 608]</span></h3>
+<div class="ch"><div class="hd"><b>〔584〕</b>　啊︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">笨蛋</td><td class="c"><code>585</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">哼︴嗯</td><td class="c"><code>586</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">真不像你的作风</td><td class="c"><code>587</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔593〕</b>　那么，从哪里开始找呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">鸣神神社</td><td class="c"><code>594</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">住宅区</td><td class="c"><code>595</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">公园</td><td class="c"><code>596</code></td><td class="aff"><b>优芽+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔597〕</b>　︙︙真的假的，完全不懂吗？真拿她没办法︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">请客</td><td class="c"><code>598</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">把喝了一半的给她</td><td class="c"><code>599</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔600〕</b>　美月装作若无其事的样子准备关上门。怎么办。就这样放任不管好吗?!</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">等等这是误会</td><td class="c"><code>601</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">听我解释！</td><td class="c"><code>602</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">接下来才是重头戏</td><td class="c"><code>603</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔604〕</b>　美琴﹁等︙︙你要贴到什么时候啊。︙︙快放开啦！﹂恭﹁︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">放开</td><td class="c"><code>605</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">抱紧</td><td class="c"><code>606</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">注视</td><td class="c"><code>607</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p609">4/23　<span class="tag">莉迪亚</span><code>609–641</code><span class="arw">　入口 [609]　终点 [641]</span></h3>
+<div class="ch"><div class="hd"><b>〔609〕</b>　现在几点了︙︙才不到六点吗。怎么办呢。再睡一觉还是︙︙</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">睡觉</td><td class="c"><code>610</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">起床</td><td class="c"><code>611</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">读书</td><td class="c"><code>612</code></td><td class="aff"><b>心菜+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔613〕</b>　︙︙诶？你说什么？</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">佣兵？</td><td class="c"><code>614</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">养鸡？</td><td class="c"><code>615</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">这样啊，诶︴</td><td class="c"><code>616</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔617〕</b>　铠甲女﹁可是，你却没有逃跑呢﹂恭﹁啊，没、那是因为︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">说起来确实是呢</td><td class="c"><code>618</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">我现在就逃</td><td class="c"><code>619</code></td><td class="aff"><i>莉迪亚−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">感觉你是个好人</td><td class="c"><code>620</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔622〕</b>　唔︱︱感觉哪一个都差强人意啊︙︙硬要选的话︙︙</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">美琴的意见吧</td><td class="c"><code>623</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">二阶堂的方案吧</td><td class="c"><code>624</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">姬咲的提议吧</td><td class="c"><code>625</code></td><td class="aff"><b>心菜+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔628〕</b>　如果我进行精神修行，结果或许就能拯救匠也说不定。总之，先随便找个人，聊聊关于精神修行的事情吧。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">寻找美琴</td><td class="c"><code>629</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">寻找二阶堂</td><td class="c"><code>630</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">寻找姬咲</td><td class="c"><code>631</code></td><td class="aff"><b>心菜+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔632〕</b>　铠甲女﹁嗯，但不仅如此，还包括战斗中的心态等全方位的准备。探查对手的动向，约束自我，时刻保持冷静的判断。而且一旦对手露出…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">请多关照</td><td class="c"><code>633</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">我也能行吗</td><td class="c"><code>634</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">我没有剑</td><td class="c"><code>635</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔637〕</b>　美琴﹁什么嘛，快点说呀﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">倒在路边了</td><td class="c"><code>638</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">顺道去了趟街机厅</td><td class="c"><code>639</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">刚才一个人在修行</td><td class="c"><code>640</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<h3 id="p642">4/24　<span class="tag">莉迪亚</span><code>642–669</code><span class="arw">　入口 [642]　终点 [669]</span></h3>
+<div class="ch"><div class="hd"><b>〔642〕</b>　说得也是。这真是个艰难的抉择。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">肉体</td><td class="c"><code>643</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">精神</td><td class="c"><code>644</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">恋爱</td><td class="c"><code>645</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔646〕</b>　唔︙︙该怎么回答呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">散步</td><td class="c"><code>647</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">修行</td><td class="c"><code>648</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">秘密</td><td class="c"><code>649</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔652〕</b>　要、要从这里面选︙︙吗？不管哪个看起来都纯粹是霸凌啊。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">水手服</td><td class="c"><code>653</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">紧身连体衣</td><td class="c"><code>654</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">正座</td><td class="c"><code>655</code></td><td class="aff"><b>优芽+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔660〕</b>　铠甲女﹁哎呀哎呀，你在看哪里呢﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">对不起我不是故意的</td><td class="c"><code>661</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">我才没看胸呢</td><td class="c"><code>662</code></td><td class="aff"><i>莉迪亚−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">看您的笑容</td><td class="c"><code>663</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔665〕</b>　恭﹁什么忙东忙西︙︙，你们根本就只是拿我寻开心吧。我自己也是有在好好考虑各种事情的﹂美琴﹁各种事情是指什么啊﹂恭﹁那个嘛…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">修行</td><td class="c"><code>666</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">授课</td><td class="c"><code>667</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">冥想</td><td class="c"><code>668</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<h3 id="p670">4/25　<span class="tag">莉迪亚</span><code>670–696</code><span class="arw">　入口 [670]　终点 [696]</span></h3>
+<div class="ch"><div class="hd"><b>〔670〕</b>　又小又可爱，还是个贪吃鬼啊。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">真想见见看</td><td class="c"><code>671</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">感觉好像认识这么个人</td><td class="c"><code>672</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">听起来挺不容易的啊</td><td class="c"><code>673</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔675〕</b>　恭﹁勇者大人的话，这件怎么样？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">清纯的连衣裙</td><td class="c"><code>676</code></td><td class="aff"><i>莉迪亚−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">性感的超短裙</td><td class="c"><code>677</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">水手服</td><td class="c"><code>678</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔681〕</b>　铠甲女﹁看起来都很好吃。你有什么推荐吗？﹂恭﹁那要我说的话﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">章鱼烧</td><td class="c"><code>682</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">鲷鱼烧</td><td class="c"><code>683</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">稻荷寿司</td><td class="c"><code>684</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔686〕</b>　这个人该不会是︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">是个路痴吧</td><td class="c"><code>687</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不会看地图吧</td><td class="c"><code>688</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">是个天然呆吧</td><td class="c"><code>689</code></td><td class="aff"><i>莉迪亚−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔692〕</b>　虽然听到了︙︙。唔︱︱。难办了该怎么办。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">蒙混过关</td><td class="c"><code>693</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">道歉</td><td class="c"><code>694</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">找借口</td><td class="c"><code>695</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<h3 id="p697">4/26　<span class="tag">莉迪亚</span><code>697–730</code><span class="arw">　入口 [697]　终点 [730]</span></h3>
+<div class="ch"><div class="hd"><b>〔697〕</b>　呃，还有能当下饭菜的东西是︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">金枪鱼</td><td class="c"><code>698</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">话梅</td><td class="c"><code>699</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">芥末章鱼</td><td class="c"><code>700</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔706〕</b>　心菜﹁连个联络都没有就没在约定时间出现，这是违反道德的行为﹂恭﹁那个︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">道歉</td><td class="c"><code>707</code></td><td class="aff"><b>美琴+</b><b>优芽+</b><b>心菜+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">糊弄过去</td><td class="c"><code>708</code></td><td class="aff"><i>美琴−</i><i>优芽−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">说谎</td><td class="c"><code>709</code></td><td class="aff"><i>美琴−</i><i>优芽−</i><i>心菜−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔710〕</b>　美琴﹁地点怎么办？在这里做吗？﹂优芽﹁也是。你觉得哪里好？在什么地方能集中精神﹂恭﹁让我想想︙︙﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">鸣神神社</td><td class="c"><code>711</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">公园</td><td class="c"><code>712</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">商店街</td><td class="c"><code>713</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔715〕</b>　让女孩子去战斗有些于心不忍。更何况对手还是她的亲哥哥︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">我知道了</td><td class="c"><code>716</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">做不到</td><td class="c"><code>717</code></td><td class="aff"><i>优芽−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">改天吧</td><td class="c"><code>718</code></td><td class="aff"><i>优芽−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔719〕</b>　好。现在的我能做到的事︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">集中精神</td><td class="c"><code>720</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">为二阶堂加油</td><td class="c"><code>721</code></td><td class="aff"><i>优芽−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">随心所欲摆布二阶堂</td><td class="c"><code>722</code></td><td class="aff"><i>优芽−</i><i>美琴−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔725〕</b>　恭﹁︙︙︙︙︙︙︙︙﹂是回去呢，还是︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">回家</td><td class="c"><code>726</code></td><td class="aff"><i>莉迪亚−</i></td></tr>
+<tr><td class="c arw">2</td><td class="opt">独自特训</td><td class="c"><code>727</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">稍作等待</td><td class="c"><code>728</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+</table></div>
+<h3 id="p731">4/27　<span class="tag">莉迪亚</span><code>731–743</code><span class="arw">　入口 [731]　终点 [743]</span></h3>
+<div class="ch"><div class="hd"><b>〔731〕</b>　该怎么说糊弄过去呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">去厕所</td><td class="c"><code>732</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">回房间</td><td class="c"><code>733</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">去修行︙︙</td><td class="c"><code>734</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<h3 id="p751">4/22　<span class="tag">天音</span><code>751–775</code><span class="arw">　入口 [751]　终点 [775]</span></h3>
+<div class="ch"><div class="hd"><b>〔751〕</b>　啊︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">想出眉目了吗？</td><td class="c"><code>752</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">我就猜到是这事</td><td class="c"><code>753</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">好好好</td><td class="c"><code>754</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔760〕</b>　那么，先从哪里开始找呢。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">住宅区</td><td class="c"><code>761</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">图书室</td><td class="c"><code>762</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">学校天台</td><td class="c"><code>763</code></td><td class="aff"><b>优芽+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔765〕</b>　她一脸不满地鼓起腮帮子，瞪了我一眼。真难懂啊。不是﹁大哥哥﹂，而是﹁哥︴哥﹂？到底有什么区别啊︙︙。不过，真不愧是美月的…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">可以这么叫哦</td><td class="c"><code>766</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">随你便</td><td class="c"><code>767</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">这有点不太好吧</td><td class="c"><code>768</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔770〕</b>　遗憾的是她正在洗澡现在接不了︙︙。感觉挺有意思的，稍微逗逗她好了。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">正在与宇宙交信中</td><td class="c"><code>771</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">正在举行求雨仪式</td><td class="c"><code>772</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">正在与天使对话</td><td class="c"><code>773</code></td><td class="aff"><b>天音+</b></td></tr>
+</table></div>
+<h3 id="p776">4/23　<span class="tag">天音</span><code>776–799</code><span class="arw">　入口 [776]　终点 [799]</span></h3>
+<div class="ch"><div class="hd"><b>〔776〕</b>　美月﹁我觉得已经够温柔了﹂美琴﹁不赶紧起来的话，我可要动真格的了！﹂恭﹁︙︙动真格的是想干嘛啊﹂美月﹁︙︙你想被怎样对待…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">什么都别做</td><td class="c"><code>777</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">早饭要让我吃</td><td class="c"><code>778</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">想被亲吻</td><td class="c"><code>779</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔780〕</b>　恭﹁哇啊︙︙完全没有印象啊﹂美月﹁看来你相当喜欢小爱呢。难道迷上她了？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">怎、怎么可能</td><td class="c"><code>781</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">嘛，确实挺可爱的</td><td class="c"><code>782</code></td><td class="aff"><i>美琴−</i><b>天音+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">才刚认识不久啊</td><td class="c"><code>783</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔785〕</b>　唔︱︱。总感觉哪个都不太合意︙︙。硬要说的话︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">美琴的意见吗</td><td class="c"><code>786</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">二阶堂的方案吗</td><td class="c"><code>787</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">姬咲的提议吗</td><td class="c"><code>788</code></td><td class="aff"><b>心菜+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔790〕</b>　美琴﹁欢迎呀，小爱﹂爱﹁我跟你说我跟你说。刚刚我和美琪一直在玩游戏，那个超︴级有意思的。大哥哥你们也一起来玩嘛！﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">啊，好啊</td><td class="c"><code>791</code></td><td class="aff"><i>美琴−</i><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">现在有点不方便</td><td class="c"><code>792</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">有那么好玩吗？</td><td class="c"><code>793</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔795〕</b>　美月﹁说起来，今晚应该有新开播的电视剧吧，没问题吗？看完再回去的话未免也太晚了﹂爱﹁啊啊︴。对哦︱︱！得赶紧回去了！﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">我送你回去吧？</td><td class="c"><code>796</code></td><td class="aff"><b>美琴+</b><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">路上小心哦︴</td><td class="c"><code>797</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">那下次再见啦</td><td class="c"><code>798</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<h3 id="p800">4/24　<span class="tag">天音</span><code>800–821</code><span class="arw">　入口 [800]　终点 [821]</span></h3>
+<div class="ch"><div class="hd"><b>〔801〕</b>　刚才，那个手办是不是开口说话了︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">︙︙算了不管了</td><td class="c"><code>802</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">就当没看见吧</td><td class="c"><code>803</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">总觉得有点在意</td><td class="c"><code>804</code></td><td class="aff"><b>莉迪亚+</b><b>琉璃+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔806〕</b>　唔︱︱。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">真拿你没办法</td><td class="c"><code>807</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">该怎么办好呢</td><td class="c"><code>808</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">果汁可以吗？</td><td class="c"><code>809</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔812〕</b>　︙︙居然一脸认真地说出这么让人害臊的话。该怎么回她呢︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">那就把爱给我吧！</td><td class="c"><code>813</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">说的︙︙也是啊︙︙</td><td class="c"><code>814</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">那倒未必吧</td><td class="c"><code>815</code></td><td class="aff"><i>天音−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔817〕</b>　爱﹁那，我去大哥哥的房间里睡吧﹂恭﹁什、什么！那该不会是指﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">一起睡？</td><td class="c"><code>818</code></td><td class="aff"><i>美琴−</i><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">让我别睡了？</td><td class="c"><code>819</code></td><td class="aff"><i>美琴−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">让我滚出房间？</td><td class="c"><code>820</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p822">4/25　<span class="tag">天音</span><code>822–846</code><span class="arw">　入口 [822]　终点 [846]</span></h3>
+<div class="ch"><div class="hd"><b>〔822〕</b>　爱﹁哎呀﹂恭﹁什么哎呀︙︙。嘛，算了吧︙︙﹂爱﹁要我帮你揉揉吗ー？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">算了吧</td><td class="c"><code>823</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">那就拜托了</td><td class="c"><code>824</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">揉哪里？</td><td class="c"><code>825</code></td><td class="aff"><b>天音+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔830〕</b>　那么，先去玩哪一个呢︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">过山车</td><td class="c"><code>831</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">旋转木马</td><td class="c"><code>832</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">鬼屋</td><td class="c"><code>833</code></td><td class="aff"><i>天音−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔842〕</b>　爱﹁啊︱︱︱！难道说大哥哥是在担心我吗？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">算是吧</td><td class="c"><code>843</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">才不是那样呢</td><td class="c"><code>844</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">倒不如说更担心匠</td><td class="c"><code>845</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<h3 id="p847">4/26　<span class="tag">天音</span><code>847–867</code><span class="arw">　入口 [847]　终点 [867]</span></h3>
+<div class="ch"><div class="hd"><b>〔848〕</b>　美月﹁︙︙稍微︙︙出了点事︙︙这到底是怎么搞的啊﹂恭﹁什么怎么搞的︙︙﹂美月﹁你们到底是怎么弄才能搞成这么乱的啊﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">算是意外吧</td><td class="c"><code>849</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">这是天音弄的</td><td class="c"><code>850</code></td><td class="aff"><i>天音−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">顺其自然就变成这样了︙︙</td><td class="c"><code>851</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔853〕</b>　爱﹁嗯︱︱？刚才那件事是什么事呀？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">小孩子不需要知道</td><td class="c"><code>854</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">没什么大不了的</td><td class="c"><code>855</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">你真的想知道吗？</td><td class="c"><code>856</code></td><td class="aff"><b>天音+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔858〕</b>　爱﹁好︴的。︙︙呐呐，大哥哥，你在家门前干什么呢？好像一直在直勾勾地盯着玄关看呢。啊，该不会是在等我吧？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">啊，没错</td><td class="c"><code>859</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">怎么可能啊</td><td class="c"><code>860</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">只是偶然罢了</td><td class="c"><code>861</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔863〕</b>　天音︙︙过得很不容易啊。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">摸摸头</td><td class="c"><code>864</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">握住手</td><td class="c"><code>865</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">抱住她</td><td class="c"><code>866</code></td><td class="aff"><b>天音+</b></td></tr>
+</table></div>
+<h3 id="p868">4/27　<span class="tag">天音</span><code>868–887</code><span class="arw">　入口 [868]　终点 [887]</span></h3>
+<div class="ch"><div class="hd"><b>〔868〕</b>　美琴﹁︙︙今天大家还要一起练习。你可别偷懒哦﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">知道了</td><td class="c"><code>869</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">我知道</td><td class="c"><code>870</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">︙︙真讨厌啊</td><td class="c"><code>871</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔873〕</b>　优芽﹁怎么了。你在做什么。精神紊乱了哦﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">啊，抱歉</td><td class="c"><code>874</code></td><td class="aff"><i>优芽−</i><b>心菜+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">可是︙︙</td><td class="c"><code>875</code></td><td class="aff"><i>心菜−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">我果然还是︙︙</td><td class="c"><code>876</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔879〕</b>　优芽﹁这家伙是︙︙︙︙﹂恭﹁二阶堂，你认识吗？﹂优芽﹁啊，以前交手过。︙︙恭，你也是。但是，现在的我们毫无胜算﹂恭﹁果然…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">知道了</td><td class="c"><code>880</code></td><td class="aff"><b>美琴+</b><b>优芽+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">只能拼一把了吗</td><td class="c"><code>881</code></td><td class="aff"><b>美琴+</b><b>心菜+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">哦︙︙喔︙︙</td><td class="c"><code>882</code></td><td class="aff"><b>心菜+</b><b>优芽+</b></td></tr>
+</table></div>
+<h3 id="p888">4/21　<span class="tag">TRUE</span><code>888–901</code><span class="arw">　入口 [888]　终点 [901]</span></h3>
+<div class="ch"><div class="hd"><b>〔891〕</b>　美琴﹁诶，什么？怎么了吗？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">别问了！</td><td class="c"><code>892</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">没什么︙︙</td><td class="c"><code>893</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">有点事啦</td><td class="c"><code>894</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔897〕</b>　呃，是什么来着。是日式酱汁，用面味露和高汤调过味来着？</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">不知道啊</td><td class="c"><code>898</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">高汤︙︙</td><td class="c"><code>899</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">爱心︙︙</td><td class="c"><code>900</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<h3 id="p902">4/22　<span class="tag">TRUE</span><code>902–945</code><span class="arw">　入口 [902]　终点 [945]</span></h3>
+<div class="ch"><div class="hd"><b>〔906〕</b>　怎怎怎怎、怎么办。我该怎么做才好。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">借给她看</td><td class="c"><code>907</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">无视她</td><td class="c"><code>908</code></td><td class="aff"><i>莉迪亚−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">寻求帮助</td><td class="c"><code>909</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔912〕</b>　好想拒绝。︙︙虽然想拒绝︙︙。周围正强烈地散发着﹃你快去照顾她啊﹄的气场︙︙。而且，背后还传来了一股莫名的杀气︙︙。唔︱…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">啊，行啊</td><td class="c"><code>913</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">非得是我不行吗？</td><td class="c"><code>914</code></td><td class="aff"><i>莉迪亚−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">为、为什么？</td><td class="c"><code>915</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔917〕</b>　莉迪亚﹁哎呀？你怎么无精打采的﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">没，只是有点</td><td class="c"><code>918</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">没什么</td><td class="c"><code>919</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">太紧张了</td><td class="c"><code>920</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔921〕</b>　美琴﹁诶︱︱怎么搞的，你怎么了嘛？﹂恭﹁不管怎样。我现在有非常重要的事情要办﹂美琴﹁重要的事，是什么呀﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">现在还不能说</td><td class="c"><code>922</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">和二阶堂约会！</td><td class="c"><code>923</code></td><td class="aff"><b>优芽+</b><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">和姬咲有约</td><td class="c"><code>924</code></td><td class="aff"><b>心菜+</b><i>美琴−</i></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔927〕</b>　美月﹁我说老哥，对初次见面的人突然问这种奇怪的话，你到底怎么回事啊？对不起啊，小爱。我哥他脑子不太好使︙︙喂，老哥！快好…</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">对不起</td><td class="c"><code>928</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">︙︙︙︙</td><td class="c"><code>929</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">那个︙︙</td><td class="c"><code>930</code></td><td class="aff"><b>天音+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔932〕</b>　琉璃﹁哈︙︙哈啊︱︱！太美味了︱︱！﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">太好了呢</td><td class="c"><code>933</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">吃饱了吗？</td><td class="c"><code>934</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">没吃够？</td><td class="c"><code>935</code></td><td class="aff"><b>琉璃+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔940〕</b>　啊︱︱︱︱！什么情况?!难道美琴看得到琉璃吗?!</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">看得到吗？</td><td class="c"><code>941</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">你在说什么啊</td><td class="c"><code>942</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">你太累了吧？</td><td class="c"><code>943</code></td><td class="aff"><i>美琴−</i></td></tr>
+</table></div>
+<h3 id="p946">4/23　<span class="tag">TRUE</span><code>946–970</code><span class="arw">　入口 [946, 961]　终点 [970]</span></h3>
+<div class="ch"><div class="hd"><b>〔946〕</b>　︙︙糟了！那、那是我的宝贝啊！</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">别碰那个！</td><td class="c"><code>947</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">等、等等！</td><td class="c"><code>948</code></td><td class="aff"><i>琉璃−</i></td></tr>
+<tr><td class="c arw">3</td><td class="opt">别收拾那个！</td><td class="c"><code>949</code></td><td class="aff"><b>琉璃+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔951〕</b>　︙︙。那个。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">额，没︙︙</td><td class="c"><code>952</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">没什么</td><td class="c"><code>953</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">稍微有点︙︙</td><td class="c"><code>954</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔961〕</b>　︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">什么都不用做</td><td class="c"><code>962</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不要插手比较好</td><td class="c"><code>963</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">只要陪在我身边就好</td><td class="c"><code>964</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔966〕</b>　刚笑出来就被美琴瞪了一眼。一如往常的日常。但是，水面下正在发生极其异常的事情。让人在意的事情也很多，特别是︙︙</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">在意琉璃</td><td class="c"><code>967</code></td><td class="aff"><b>琉璃+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">在意莉迪亚</td><td class="c"><code>968</code></td><td class="aff"><b>莉迪亚+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">在意天音</td><td class="c"><code>969</code></td><td class="aff"><b>天音+</b></td></tr>
+</table></div>
+<h3 id="p971">4/24　<span class="tag">TRUE</span><code>971–992</code><span class="arw">　入口 [971]　终点 [992]</span></h3>
+<div class="ch"><div class="hd"><b>〔971〕</b>　那是︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">算是吧</td><td class="c"><code>972</code></td><td class="aff"><b>莉迪亚+</b><b>琉璃+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不是的</td><td class="c"><code>973</code></td><td class="aff"><b>优芽+</b><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">︙︙︙</td><td class="c"><code>974</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔976〕</b>　咦。本该被烧掉的美琴的课桌换成了新的。地板和墙壁明明也蔓延烧坏了不少，结果全都被修好了。动作真快啊。我接下来该怎么办。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">和二阶堂联络</td><td class="c"><code>977</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">姬咲的话︙︙</td><td class="c"><code>978</code></td><td class="aff"><b>心菜+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">什么都不做</td><td class="c"><code>979</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔981〕</b>　恭﹁︙︙话说，瓦尔肯有说什么吗？﹂优芽﹁没，没说什么大不了的。︙︙要是不介意的话，要去见他一面吗？﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">可以吗？</td><td class="c"><code>982</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">也是啊</td><td class="c"><code>983</code></td><td class="aff"><b>优芽+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">还是算了︙︙</td><td class="c"><code>984</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔988〕</b>　话都说到这份上了，总不能一口回绝吧︙︙。</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">我知道了啦</td><td class="c"><code>989</code></td><td class="aff"><b>天音+</b></td></tr>
+<tr><td class="c arw">2</td><td class="opt">就玩一会儿哦</td><td class="c"><code>990</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">真拿你没办法</td><td class="c"><code>991</code></td><td class="aff"><b>天音+</b></td></tr>
+</table></div>
+<h3 id="p993">4/25　<span class="tag">TRUE</span><code>993–1014</code><span class="arw">　入口 [993]　终点 [1014]</span></h3>
+<div class="ch"><div class="hd"><b>〔993〕</b>　美琴﹁我知道啊。但是，我也想做点什么︙︙﹂恭﹁虽然可能确实如此，但是︙︙﹂美琴﹁恭，拜托了。带我去吧﹂</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">我知道了</td><td class="c"><code>994</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">不行</td><td class="c"><code>995</code></td><td class="aff"><b>美琴+</b></td></tr>
+<tr><td class="c arw">3</td><td class="opt">为什么？</td><td class="c"><code>996</code></td><td class="aff"><b>美琴+</b></td></tr>
+</table></div>
+<h3 id="p1015">4/26　<span class="tag">TRUE</span><code>1015–1039</code><span class="arw">　入口 [1015]　终点 [1024]</span></h3>
+<div class="ch"><div class="hd"><b>〔1021〕</b>　</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">向优芽搭话</td><td class="c"><code>1037</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">向美琴搭话</td><td class="c"><code>1031</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">向心菜搭话</td><td class="c"><code>1025</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">4</td><td class="opt">除此之外</td><td class="c"><code>1019</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+<div class="ch"><div class="hd"><b>〔1022〕</b>　</div>
+<table><tr><th style="width:42px" class="c">#</th><th>选项</th><th style="width:74px" class="c">跳转</th><th style="width:96px">效果</th></tr>
+<tr><td class="c arw">1</td><td class="opt">向琉璃搭话</td><td class="c"><code>1034</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">2</td><td class="opt">向莉迪亚搭话</td><td class="c"><code>1028</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">3</td><td class="opt">想想爱的事</td><td class="c"><code>1022</code></td><td class="aff"><span class="arw">—</span></td></tr>
+<tr><td class="c arw">4</td><td class="opt">除此之外</td><td class="c"><code>1018</code></td><td class="aff"><span class="arw">—</span></td></tr>
+</table></div>
+</main></body></html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AQA 剧情梗概 · 关键选项后的走向（云玩速览）</title>
+<style>
+:root{--bg:#f7f8fa;--card:#fff;--bd:#e3e6ec;--tx:#1c1f26;--mut:#6b7280;
+--ac:#3b5bdb;--ac2:#eef2ff;--ok:#c0392b;--ng:#1e7a4d;--gold:#b8860b;--pur:#6f42c1}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);
+font-family:-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;font-size:14px;line-height:1.75}
+header{background:var(--card);border-bottom:1px solid var(--bd);padding:18px 24px;position:sticky;top:0;z-index:50}
+h1{margin:0 0 4px;font-size:19px}
+.sub{color:var(--mut);font-size:12px}
+nav{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
+nav a{padding:5px 12px;border-radius:14px;background:var(--ac2);color:var(--ac);
+text-decoration:none;font-size:12.5px;font-weight:600}
+nav a:hover{background:var(--ac);color:#fff}
+main{max-width:1080px;margin:0 auto;padding:22px 24px 90px}
+section{background:var(--card);border:1px solid var(--bd);border-radius:10px;
+padding:20px 22px;margin-bottom:20px}
+h2{font-size:16.5px;margin:0 0 4px;padding-bottom:9px;border-bottom:2px solid var(--ac2)}
+h2 .rng{font-size:12px;color:var(--mut);font-weight:400;margin-left:8px}
+h3{font-size:14.5px;margin:20px 0 10px;color:var(--ac)}
+p.lead{margin:8px 0 14px;color:#333}
+.tag{display:inline-block;padding:1px 9px;border-radius:10px;font-size:11.5px;
+font-weight:700;background:var(--ac2);color:var(--ac);margin-right:6px}
+.tag.loop{background:#fdecec;color:var(--ok)}
+.tag.tru{background:#fff4e0;color:var(--gold)}
+.tag.end{background:#eafaf1;color:var(--ng)}
+.kc{border:1px solid var(--bd);border-radius:8px;margin:12px 0;overflow:hidden}
+.kc>.hd{background:#fafbfd;padding:9px 14px;font-size:13px;border-bottom:1px solid var(--bd)}
+.kc>.hd b{color:var(--tx)}
+.kc>.hd .id{color:var(--ac);font-weight:700;font-family:ui-monospace,Consolas,monospace}
+.kc .body{padding:8px 14px 12px}
+.opt{margin:7px 0;padding-left:4px}
+.opt .o{font-weight:600}
+.opt .arw{color:var(--mut);font-size:12px;margin:0 6px}
+.opt .res{color:#222}
+.syn{margin:10px 0;background:#fbfcfe;border-left:3px solid var(--ac);
+border-radius:6px;padding:9px 13px;font-size:13px}
+.box{background:#fbfcfe;border:1px solid var(--bd);border-left:3px solid var(--ac);
+border-radius:6px;padding:10px 14px;margin:12px 0;font-size:13px}
+.box.warn{background:#fff8e6;border-left-color:var(--gold)}
+.box.loop{background:#fdecec;border-left-color:var(--ok)}
+.box.tru{background:#fff4e0;border-left-color:var(--gold)}
+.box .h{font-weight:700;margin-bottom:4px}
+table{border-collapse:collapse;width:100%;font-size:13px;margin:8px 0}
+th,td{border:1px solid var(--bd);padding:7px 10px;text-align:left;vertical-align:top}
+th{background:#f1f3f7;font-weight:600;white-space:nowrap}
+code{background:#f1f3f7;padding:1px 5px;border-radius:4px;font-size:12px;
+font-family:ui-monospace,Consolas,monospace}
+.endsc{background:#fbfcfe;border:1px solid var(--bd);border-radius:8px;
+padding:12px 16px;margin:10px 0;font-size:13.5px}
+.endsc .t{font-weight:700;color:var(--gold);margin-bottom:6px;font-size:14px}
+.endsc.tru .t{color:var(--ok)}
+ul.tight{margin:6px 0;padding-left:20px}ul.tight li{margin:4px 0}
+.spoil{background:#2a2118;color:#f3e9d2;padding:10px 14px;border-radius:8px;
+margin:10px 0;font-size:13px}
+</style></head>
+<body>
+<header>
+<h1>AQA 剧情梗概 · 关键选项后的走向（云玩速览）</h1>
+<div class="sub">静态分析 1086 个 .asm 脚本 · 只挑「真正分流剧情」的关键选项 · 真结局详细展开</div>
+<nav>
+<a href="#ess">共通</a><a href="#mkt">美琴</a><a href="#kkn">心菜</a><a href="#rur">琉璃</a>
+<a href="#yum">优芽</a><a href="#lyd">莉迪亚</a><a href="#aia">天音</a>
+<a href="#tru">★ 真结局(详)</a><a href="#struct">结构说明</a>
+</nav>
+</header>
+<main>
+
+<div class="spoil">⚠ 剧透警告：本页含全部路线关键剧情与真结局。所有人物名/术语以 <code>术语.md</code> 为准（心菜＝姬咲、天音＝爱、优芽＝二阶堂优芽、匠＝五百藏匠）。</div>
+
+<!-- ===== 共通 ===== -->
+<section id="ess">
+<h2>共通 / 序章 <span class="rng">4/21–4/22 · ID 0–70 · 71 脚本</span></h2>
+<p class="lead">这是所有人的起点。4/21 只有共通日常；<b>真正的分流发生在 4/22</b>——你这一天的几个选择，决定 4/23 起进入谁的专属路线。美琴／心菜／琉璃三线共用这段共通包，优芽／莉迪亚／天音则从 4/21 起就有各自的平行版本。</p>
+
+<div class="kc">
+<div class="hd"><span class="id">[22]</span> <b>图书室里，心菜还在收拾被你弄倒的书</b></div>
+<div class="body">
+<div class="opt"><span class="o">帮心菜收拾</span><span class="arw">→</span><span class="res">进入心菜段（24→25→…→29）。这是通往「心菜线」的主路径。</span></div>
+<div class="opt"><span class="o">和美琴去现场</span><span class="arw">→</span><span class="res">并回美琴段（23→44），最终汇入美琴线。若此时不选心菜支线，则基本锁定美琴线。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[37]</span> <b>「也不能就这么一个人回去……该干点什么」</b></div>
+<div class="body">
+<div class="opt"><span class="o">在图书室里闲逛</span><span class="arw">→</span><span class="res">跳转 <code>15</code>，正式进入心菜支线场景。</span></div>
+<div class="opt"><span class="o">去帮美琴的忙</span><span class="arw">→</span><span class="res">留在美琴一侧（38 起）。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[46]</span> <b>白忙一场后，回家睡觉 / 去游戏厅 / 去吃拉面？</b></div>
+<div class="body">
+<div class="opt"><span class="o">去游戏厅</span><span class="arw">→</span><span class="res">跳转 <code>48→51</code>，撞见妖精琉璃，开启琉璃段（51→…→70）。这是通往「琉璃线」的唯一静态可验证入口。</span></div>
+<div class="opt"><span class="o">回家睡觉 / 去吃拉面</span><span class="arw">→</span><span class="res">直接结束于美琴段 <code>50</code>。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[25]</span> <b>美琴提到「姬咲同学会不会知道些什么」</b></div>
+<div class="body">
+<div class="opt"><span class="o">「说不定知道」 / 「她个子真娇小」</span><span class="arw">→</span><span class="res">心菜好感 <code>+</code>。这类对话是心菜线的好感蓄水池。</span></div>
+<div class="opt"><span class="o">「她话很少呢」</span><span class="arw">→</span><span class="res">无好感变化。</span></div>
+</div></div>
+
+<div class="box"><div class="h">4/22 包的三个终点（脚本内唯一可静态验证的分流）</div>
+<ul class="tight">
+<li><code>29</code> — 心菜段终点：和美琴不欢而散，美琴气冲冲跑出房间。</li>
+<li><code>50</code> — 美琴段终点：深夜家中巨响（伏笔：神社方向），继续日常。</li>
+<li><code>70</code> — 琉璃段终点：收束于「今天先睡吧」的平淡日常。</li>
+</ul>
+走到哪个终点，完全由上面几个选项决定。之后 4/23 起，引擎按此结果 + 好感度调度进入六条角色线之一或 TRUE 线。</div>
+<div class="box loop"><div class="h">云玩提示</div>共通线本身没有「结局」——它只是把你送进某条角色线的入口。角色线走到 4/27 都会因「视野扭曲」而时间跳跃重置（详见各线结尾），<b>只有把六人好感都刷到阈值，才会进入下方 TRUE 线打破循环</b>。</div>
+</section>
+
+<!-- ===== 美琴 ===== -->
+<section id="mkt">
+<h2>美琴线 <span class="rng">4/23–4/27 · ID 71–96 / 170–196 / 269–291 / 350–367 / 417–418</span></h2>
+<p class="lead">青梅竹马线。恭一边陪美琴查案，一边被卷入二阶堂（优芽）与瓦尔肯的恩怨。这条线的核心是「坦白与守护」——并在 4/27 以一场告白直面循环。</p>
+
+<div class="kc">
+<div class="hd"><span class="id">[72]</span> <b>不想让美琴继续掺和起火事件，如何引开她？</b></div>
+<div class="body">
+<div class="opt"><span class="o">提议去学校</span><span class="arw">→</span><span class="res">美琴好感 <code>+</code>，二人同行，关系推进。</span></div>
+<div class="opt"><span class="o">换台 / 打翻味噌汤</span><span class="arw">→</span><span class="res">换台扣好感，打翻无影响。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[86]</span> <b>「像我这样的人到底有什么可图的……另一种可能：二阶堂……」</b></div>
+<div class="body">
+<div class="opt"><span class="o">喜欢我 / 是我失散多年的妹妹 / 喜欢美琴</span><span class="arw">→</span><span class="res">三条都是恭的内心吐槽（决定论式脑补），不影响分支，但「喜欢美琴」会扣美琴好感，铺垫后续误会。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[182]</span> <b>危机中「就是现在！往哪边逃！」</b></div>
+<div class="body">
+<div class="opt"><span class="o">一起往后逃 / 从瓦尔肯身旁冲过去</span><span class="arw">→</span><span class="res">美琴好感 <code>+</code>，共同脱险。</span></div>
+<div class="opt"><span class="o">兵分两路</span><span class="arw">→</span><span class="res">无好感，制造分离危机。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[187]</span> <b>知道我叫「鸣神恭」的神秘男子瓦尔肯，与事件有何关联？</b></div>
+<div class="body">
+<div class="opt"><span class="o">瓦尔肯是凶手</span><span class="arw">→</span><span class="res">锁定其为连续事件嫌疑人，主线推理方向。</span></div>
+<div class="opt"><span class="o">毫无关系 / 是受害者</span><span class="arw">→</span><span class="res">走向不同推测，后者引出「撞鬼」式悬念。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[356]</span> <b>「在那种地方到底要干什么……今晚我可能回不来了。即使如此，我也要去吗？」</b></div>
+<div class="body">
+<div class="opt"><span class="o">去 / 叫上美琴一起去</span><span class="arw">→</span><span class="res">美琴好感 <code>+</code>，走向 4/27 决战前的告白场景。</span></div>
+<div class="opt"><span class="o">不去，睡觉</span><span class="arw">→</span><span class="res">跳转 <code>358</code>：放弃前往施工现场，当夜家中遭雷击，恭意识消灭——<b>这是一条「未赴约即死」的坏分支</b>。</span></div>
+</div></div>
+
+<div class="endsc"><div class="t">本线收束（4/27 · ID 418）</div>
+美琴主动提起恭「昨晚说的要保护我那是真的吗」，二人自然而然牵手走出大楼，预感将迎来与以往不同的日常。话音未落，<b>视野突然扭曲</b>——时间跳跃重置，这一周就此收束。美琴线没有独立真结局，它的全部情感积蓄会在 TRUE 线 4/27 的 IF_CHECK（美琴变量≥16）中被调用。</div>
+</section>
+
+<!-- ===== 心菜 ===== -->
+<section id="kkn">
+<h2>心菜线 <span class="rng">4/23–4/27 · ID 97–122 / 197–232 / 292–314 / 368–391 / 419–425</span></h2>
+<p class="lead">图书室少女姬咲＝心菜，是个说话平淡、身份成谜的「WIZ-DOM」相关者。这条线把她的真实身份一点点揭开，并以一个铁盆上的留言将循环真相砸到恭面前。</p>
+
+<div class="kc">
+<div class="hd"><span class="id">[104]</span> <b>匠鼓起勇气来求恭帮他追心菜，帮不帮？</b></div>
+<div class="body">
+<div class="opt"><span class="o">姑且帮他一把</span><span class="arw">→</span><span class="res">匠继续行动，剧情正常推进。</span></div>
+<div class="opt"><span class="o">靠你自己的力量吧</span><span class="arw">→</span><span class="res">跳转 <code>106</code>：匠失落离去，当晚独自在家被雷劈中、永远消失——<b>拒绝即触发循环内的「死亡重置」</b>。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[302]</span> <b>「你为何如此执着地与我扯上关系？」</b></div>
+<div class="body">
+<div class="opt"><span class="o">因为很可爱 / 为什么呢（在意你）</span><span class="arw">→</span><span class="res">心菜好感 <code>+</code>，关系升温。</span></div>
+<div class="opt"><span class="o">因为受匠之托</span><span class="arw">→</span><span class="res">无好感，偏喜剧向。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[308]</span> <b>遭遇危机「该怎么办才好！」</b></div>
+<div class="body">
+<div class="opt"><span class="o">战斗 / 躲藏</span><span class="arw">→</span><span class="res">心菜好感 <code>+</code>，试图保护她。</span></div>
+<div class="opt"><span class="o">逃跑</span><span class="arw">→</span><span class="res">跳转 <code>312</code>：被不良抓住痛揍，当晚被雷劈中——又一条死亡重置分支。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[387]</span> <b>夜深人静，心菜到底是什么？</b></div>
+<div class="body">
+<div class="opt"><span class="o">妖精 / 宇宙人 / 女仆型机器人</span><span class="arw">→</span><span class="res">都是恭的脑洞吐槽，侧面铺垫心菜「非人类 / 组织相关」的真相，不影响分支。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[419]</span> <b>4/27 图书室空无一人，心菜也不在——去哪找？</b></div>
+<div class="body">
+<div class="opt"><span class="o">教室 / 屋顶 / 操场</span><span class="arw">→</span><span class="res">无论去哪，都会撞见从天而降的<b>金属脸盆</b>，盆底写着「Works.557 一直都在监视七海恭。对不起」——用恭的<b>旧名</b>。紧接着视野扭曲，循环重置。</span></div>
+</div></div>
+
+<div class="endsc"><div class="t">本线收束（4/27 · ID 425）</div>
+铁盆留言揭示：心菜＝<b>Works.557</b>，一直在监视并「保护」恭。恭意识到自己连旧名都被掌握、时间循环的本质远超想象，在彻底混乱中迎来视野扭曲、回到循环起点。心菜线的谜底要在 TRUE 线 4/25（ID 1014）才被正式点明，并在 4/28 后日谈（ID 1081）收尾。</div>
+</section>
+
+<!-- ===== 琉璃 ===== -->
+<section id="rur">
+<h2>琉璃线 <span class="rng">4/23–4/27 · ID 123–169 / 233–268 / 315–349 / 392–416 / 426–429</span></h2>
+<p class="lead">路上捡到的小小妖精，称恭为「主人」，句尾带「的说」。这条线是一连串「喂养 + 藏匿 + 救援」的温馨日常，琉璃的真实来历与「破心」世界的关系，要到 TRUE 线才揭晓。</p>
+
+<div class="kc">
+<div class="hd"><span class="id">[124]</span> <b>向美琴描述昨晚的梦（引出妖精话题）</b></div>
+<div class="body">
+<div class="opt"><span class="o">变成了妖精 / 巴掌大小 / 美少女</span><span class="arw">→</span><span class="res">都为后续「我昨天捡到妖精」的发言埋梗，纯喜剧铺垫。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[143]</span> <b>野狗逼近，琉璃遇险，怎么办？</b></div>
+<div class="body">
+<div class="opt"><span class="o">赶走 / 驯服野狗</span><span class="arw">→</span><span class="res">保护琉璃，建立信任。</span></div>
+<div class="opt"><span class="o">无视</span><span class="arw">→</span><span class="res">把琉璃藏身后吹口哨离开，偏喜剧。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[147]</span> <b>「你可以让我吃上饭吗——？」</b></div>
+<div class="body">
+<div class="opt"><span class="o">如果你不介意我是人类 / 看你可爱特别优待</span><span class="arw">→</span><span class="res">收琉璃为「家人」，主仆关系确立，后续投喂梗源源不断。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[250]</span> <b>琉璃偷吃被美琴美月发现，怎么圆？</b></div>
+<div class="body">
+<div class="opt"><span class="o">是小妖精干的好事吧？</span><span class="arw">→</span><span class="res">美琴好感 <code>−</code>（甩锅被嫌），但保住琉璃秘密。</span></div>
+<div class="opt"><span class="o">因为肚子饿 / 暴食症</span><span class="arw">→</span><span class="res">无好感，闹剧收场。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[392] / [410]</span> <b>琉璃接连遇袭（狗／人／饥饿；被不良抓住）</b></div>
+<div class="body">
+<div class="opt"><span class="o">战斗救她</span><span class="arw">→</span><span class="res">琉璃好感 <code>+</code>，「主人来救我了」。</span></div>
+<div class="opt"><span class="o">逃跑（410）</span><span class="arw">→</span><span class="res">跳转 <code>415</code>：战略性撤退，琉璃生死未卜。</span></div>
+</div></div>
+
+<div class="endsc"><div class="t">本线收束（4/27 · ID 429）</div>
+恭与琉璃互相打气「只要是我们俩一定跨得过去」，话音未落<b>视野突然扭曲</b>——循环重置。琉璃线的羁绊（变量 4）会在 TRUE 线 4/27 的 IF_CHECK（琉璃≥5）中决定是否「发动」。</div>
+</section>
+
+<!-- ===== 优芽 ===== -->
+<section id="yum">
+<h2>优芽线（二阶堂优芽）<span class="rng">4/21–4/27 · ID 430–574</span></h2>
+<p class="lead">转学生二阶堂优芽，自称「破心者」，告诉恭他身处时间循环、有生命危险，请求协助。这条线是<b>循环机制的情报主源</b>，并在终盘由优芽发动最后一次「时间跳跃」。</p>
+
+<div class="kc">
+<div class="hd"><span class="id">[432]</span> <b>美琴问「怎么了吗」，你是否在意二阶堂？</b></div>
+<div class="body">
+<div class="opt"><span class="o">有点事 / 总觉得在意</span><span class="arw">→</span><span class="res">优芽好感 <code>+</code>（「有点事」直接关联二阶堂）。</span></div>
+<div class="opt"><span class="o">没，没什么</span><span class="arw">→</span><span class="res">优芽好感 <code>−</code>。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[475]</span> <b>优芽：「你是逃脱不了这个命运的。帮不帮我二阶堂优芽的忙？」</b></div>
+<div class="body">
+<div class="opt"><span class="o">帮忙</span><span class="arw">→</span><span class="res">优芽好感 <code>+</code>，<b>这是整条线的核心承诺</b>：恭正式卷入破心者之战。</span></div>
+<div class="opt"><span class="o">不帮</span><span class="arw">→</span><span class="res">跳转 <code>477</code>：优芽落寞离去，恭「多一事不如少一事」，当夜名字作为落雷遇难者登上报纸——死亡重置。</span></div>
+<div class="opt"><span class="o">只要对美琴保密的话</span><span class="arw">→</span><span class="res">优芽+美琴双 <code>+</code>，既答应又护住青梅竹马。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[491]</span> <b>便利店推荐食物给优芽</b></div>
+<div class="body">
+<div class="opt"><span class="o">关东煮 / 法兰克福香肠</span><span class="arw">→</span><span class="res">优芽好感 <code>+</code>。</span></div>
+<div class="opt"><span class="o">饭团</span><span class="arw">→</span><span class="res">无好感。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[524]</span> <b>挚友匠的死讯传来，如何反应？</b></div>
+<div class="body">
+<div class="opt"><span class="o">这样……啊（冷静）</span><span class="arw">→</span><span class="res">优芽刮目相看；实则是「没有真实感」。推动查案决心。</span></div>
+<div class="opt"><span class="o">骗人 / 开什么玩笑</span><span class="arw">→</span><span class="res">情绪化否认，不影响分支。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[547]</span> <b>问心菜「人能那么轻易被烧着吗？」</b></div>
+<div class="body">
+<div class="opt"><span class="o">需要多高温度 / 人能否被烧光</span><span class="arw">→</span><span class="res">铺垫匠「死于学校火灾」的死因，并引出心菜「真有犯人吗」的哲思。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[562]</span> <b>被班主任莉沙老师盘问「你们在干什么」</b></div>
+<div class="body">
+<div class="opt"><span class="o">不是在约会 / 不需要许可</span><span class="arw">→</span><span class="res">优芽好感 <code>+</code>/<code>−</code>，掩护调查。</span></div>
+</div></div>
+
+<div class="endsc"><div class="t">本线收束（4/27 · ID 574）</div>
+火场中，优芽为护恭发动<b>最后一次时间跳跃</b>：「将相连的时间之锁重新拧合，解放心之咒缚吧！——时间跳跃！」瓦尔肯在旁告诫：跳跃会像失忆，实则只是「被存放在门的另一侧」，要自觉破心者的使命。恭在烈火中紧握优芽的手，决心这次务必回到七天前、毫无遗漏地打破循环。<b>这正是 TRUE 线的入口开关</b>。</div>
+</section>
+
+<!-- ===== 莉迪亚 ===== -->
+<section id="lyd">
+<h2>莉迪亚线 <span class="rng">4/21–4/27 · ID 575–743</span></h2>
+<p class="lead">转学生莉迪亚其实是异世界（极星帝国）的「勇者大人」，持剑做精神修行。这条线前期是「剑术达人特训」喜剧，4/27 才揭开她与最终战的关联。</p>
+
+<div class="kc">
+<div class="hd"><span class="id">[593]</span> <b>从哪里开始找线索？</b></div>
+<div class="body">
+<div class="opt"><span class="o">鸣神神社 / 住宅区 / 公园</span><span class="arw">→</span><span class="res">分别给美琴 / 心菜 / 优芽好感 <code>+</code>，是分散给其他女主蓄好感的支线。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[597]</span> <b>莉迪亚（铠甲女）想喝饮料，怎么做？</b></div>
+<div class="body">
+<div class="opt"><span class="o">请客</span><span class="arw">→</span><span class="res">莉迪亚好感 <code>+</code>，勇者大人正式登场互动。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[613]</span> <b>「……佣兵？」</b></div>
+<div class="body">
+<div class="opt"><span class="o">佣兵？（确认身份）</span><span class="arw">→</span><span class="res">莉迪亚好感 <code>+</code>，逐步揭示她「被雇用的战士」出身。</span></div>
+<div class="opt"><span class="o">养鸡 / 诶—</span><span class="arw">→</span><span class="res">喜剧误解。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[642]</span> <b>向勇者大人拜师，练什么？</b></div>
+<div class="body">
+<div class="opt"><span class="o">精神 / 恋爱</span><span class="arw">→</span><span class="res">莉迪亚好感 <code>+</code>（精神修行 / 撒娇式「教我恋爱」）。</span></div>
+<div class="opt"><span class="o">肉体</span><span class="arw">→</span><span class="res">无好感，戴训练具。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[686]</span> <b>「这个人该不会是……路痴？」</b></div>
+<div class="body">
+<div class="opt"><span class="o">路痴</span><span class="arw">→</span><span class="res">莉迪亚好感 <code>+</code>，强化「强大又可爱」的反差萌。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[725]</span> <b>勇者大人不在时，怎么练？</b></div>
+<div class="body">
+<div class="opt"><span class="o">独自特训 / 稍作等待</span><span class="arw">→</span><span class="res">莉迪亚好感 <code>+</code>，展现「即便一人也要锻炼」的觉悟。</span></div>
+<div class="opt"><span class="o">回家</span><span class="arw">→</span><span class="res">莉迪亚好感 <code>−</code>。</span></div>
+</div></div>
+
+<div class="endsc"><div class="t">本线收束（4/27 · ID 743）</div>
+莉迪亚预见了「未来」：自己、二阶堂、瓦尔肯浑身是血倒下，恭也倒地，美琴扑在身上哭泣。她感慨「没有目的地听令战斗、残害生命，也许毫无价值……我到底为何而战」。恭在绝望中目睹这幅未来，随即<b>视野扭曲，循环重置</b>。莉迪亚的「预见」与战力，要在 TRUE 线 4/27 与匠的决战中被真正调用（变量 5≥5）。</div>
+</section>
+
+<!-- ===== 天音 ===== -->
+<section id="aia">
+<h2>天音线（爱）<span class="rng">4/21–4/27 · ID 744–887</span></h2>
+<p class="lead">天真烂漫、管恭叫「大哥哥」的小女孩天音（爱），前期是治愈系日常。直到 4/27 才揭晓：她其实是敌方的「天使／清除者」。</p>
+
+<div class="kc">
+<div class="hd"><span class="id">[765]</span> <b>天音想叫你「哥哥」，允许吗？</b></div>
+<div class="body">
+<div class="opt"><span class="o">可以 / 随你便</span><span class="arw">→</span><span class="res">天音好感 <code>+</code>，确立亲密称呼。</span></div>
+<div class="opt"><span class="o">这有点不太好</span><span class="arw">→</span><span class="res">无好感。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[770]</span> <b>美月在洗澡接不了电话，怎么逗她？</b></div>
+<div class="body">
+<div class="opt"><span class="o">正在举行求雨仪式</span><span class="arw">→</span><span class="res">天音好感 <code>+</code>，天音信以为真大呼「天使大人」。</span></div>
+<div class="opt"><span class="o">与宇宙交信 / 与天使对话</span><span class="arw">→</span><span class="res">天音好感 <code>+</code>，伏笔她的「天使」本质。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[812]</span> <b>天音说「大家要互相相爱」，怎么回？</b></div>
+<div class="body">
+<div class="opt"><span class="o">那就把爱给我吧！ / 说的也是啊</span><span class="arw">→</span><span class="res">天音好感 <code>+</code>。</span></div>
+<div class="opt"><span class="o">那倒未必吧</span><span class="arw">→</span><span class="res">天音好感 <code>−</code>。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[817]</span> <b>「那我去大哥哥房间里睡吧」</b></div>
+<div class="body">
+<div class="opt"><span class="o">一起睡？</span><span class="arw">→</span><span class="res">天音好感 <code>+</code>（恭慌乱拒绝），美琴好感 <code>−</code>。</span></div>
+</div></div>
+
+<div class="kc">
+<div class="hd"><span class="id">[863]</span> <b>得知天音过得很不容易，怎么做？</b></div>
+<div class="body">
+<div class="opt"><span class="o">抱住她</span><span class="arw">→</span><span class="res">天音好感 <code>+</code>，温情收束日常。</span></div>
+<div class="opt"><span class="o">摸头 / 握手</span><span class="arw">→</span><span class="res">无好感变化。</span></div>
+</div></div>
+
+<div class="endsc"><div class="t">本线收束（4/27 · ID 887）</div>
+天使（天音）逼近，昭雄叔挡在恭身前低语「清除者」。优芽咳血告知：这恐怕是<b>最后一次时间跳跃</b>，嘱恭「这一次一定要成功」。天音面无表情举手，世界扭曲——恭意识模糊前，浮现天音「救救我！」的呼喊。天音的「敌友反转」与「求救」的矛盾，是 TRUE 线必须解开的最后谜题（变量 6≥5）。</div>
+</section>
+
+<!-- ===== TRUE（详） ===== -->
+<section id="tru">
+<h2>★ TRUE 线（详细）<span class="rng">4/21–4/28 · ID 888–1085 · 198 脚本 · 真结局所在</span></h2>
+<p class="lead">当六人好感都达到阈值，循环被真正打破。TRUE 线把前面所有伏笔收束：恭集齐全员，在 4/27 与堕入敌方的挚友<b>匠（五百藏匠）</b>及其搭档<b>莉沙</b>决战，并在 4/28 给出六段后日谈。</p>
+
+<div class="box tru"><div class="h">关键好感选择（节选，决定 4/27 能否全员「发动」）</div>
+<ul class="tight">
+<li><b>莉迪亚</b>：借教科书给她 <code>[906]</code>、陪她 <code>[912]</code>、赞她打扮 <code>[951]</code> → 莉迪亚+</li>
+<li><b>优芽</b>：谎称「和二阶堂有约」<code>[921]</code>、见瓦尔肯 <code>[981]</code> → 优芽+</li>
+<li><b>心菜</b>：去图书室找姬咲 <code>[976/978]</code> → 心菜+</li>
+<li><b>天音</b>：为冒失道歉 <code>[927]</code>、陪她玩游戏 <code>[988]</code> → 天音+</li>
+<li><b>琉璃</b>：给饭吃 <code>[932]</code>、别让她收拾宝贝 <code>[949]</code> → 琉璃+</li>
+<li><b>美琴</b>：坦白后「带美琴去」<code>[993→不行]</code>、4/26「只要陪在我身边」<code>[964]</code> → 美琴+（<b>阈值高达 ≥16</b>，需全程大量加成）</li>
+<li><b>4/26 分组搭话</b> <code>[1021]/[1022]</code>：向谁搭话，决定 4/27 与谁并肩冲入城堡深处（对应 flag 30–35）。</li>
+</ul>
+</div>
+
+<div class="box"><div class="h">4/27 决战 · 六人 IF_CHECK 阈值</div>
+<table>
+<tr><th>角色</th><th>变量</th><th>阈值</th><th>达标 →</th><th>未达标 →</th></tr>
+<tr><td>天音</td><td>6</td><td>≥5</td><td><code>1047</code> 一击发动</td><td><code>1048</code> 被莉沙火焰吞噬</td></tr>
+<tr><td>心菜</td><td>3</td><td>≥5</td><td><code>1052</code> 「怎么会让妳得逞」</td><td><code>1053</code> 退让</td></tr>
+<tr><td>莉迪亚</td><td>5</td><td>≥5</td><td><code>1059</code></td><td><code>1060</code> 莉迪亚败北</td></tr>
+<tr><td>美琴</td><td>2</td><td>≥16</td><td><code>1063</code> 身体泛起白光</td><td><code>1064</code> 记忆终结于悲鸣</td></tr>
+<tr><td>琉璃</td><td>4</td><td>≥5</td><td><code>1067</code> 绿色拳击弹开</td><td><code>1068</code> 闪避</td></tr>
+<tr><td>优芽</td><td>1</td><td>≥5</td><td><code>1075</code></td><td><code>1076</code> 优芽被火焰吞没</td></tr>
+</table>
+<b>全部达标</b> → 汇入 <code>1044</code>（好结局）；<b>任一未达标</b> → 汇入 <code>1045</code>（坏结局）。</div>
+
+<div class="endsc tru"><div class="t">好结局 · ID 1044（匠败北）</div>
+决战落幕，匠惨然一笑：「看来，是我彻底输了呢……」他向莉沙托付后事，莉沙的火焰将他包裹、升腾而去，只留下「谢谢你」三字。恭伸手想拉住却只抓住虚空。循环在此被打破，众人「回到了日常」——但余味苦涩：挚友匠以自我放逐的方式退场。<br><br>
+<b>注：</b>另一条战斗入口 <code>960</code>（战败）中，瓦尔肯为护恭挡下致命一击、身负重伤被急救运走，莉迪亚暂饶众人；<code>961</code>（胜）则是午后停课、恭与美琴沉默归家、琉璃被掳的灰暗段落，由此引出「若我有更强力量」的觉悟——正是 TRUE 线必须全员到齐才能避免的结局。</div>
+
+<div class="endsc"><div class="t">坏结局 · ID 1045</div>
+美月独自在家喃喃：「哥哥……明明是和姐姐一起出门的，回来的却只有姐姐一个人……你去哪儿了啊，哥哥……快点回来吧……不然的话……」——暗示若关键时刻有人未能「发动」，恭便就此消失、循环以最残酷的方式收场。</div>
+
+<div class="box tru"><div class="h">4/28 六段后日谈（flag 36–41 分派）</div>
+决战数日后，依好感分派到六段专属收尾：
+<ul class="tight">
+<li><b>优芽（36→1085）</b>：被二阶堂定为财阀继承人候选，强行绑进宅邸接受「严苛教育」，优芽笑称「不会再放开你了」。</li>
+<li><b>美琴（37→1083）</b>：一如往常的打扫日常，二人确认「不论经历多少次时间跳跃都会在一起」，并以美琴的暴揍收尾，最「自然」的归宿。</li>
+<li><b>心菜（38→1081）</b>：心菜决定回 WIZ-DOM 取回记忆，恭坚持同往（成功率仅 16%＋33%，却被恭用「100%」的笑容化解），奔向基地。</li>
+<li><b>琉璃（39→1084）</b>：神社树丛赏樱野餐，琉璃学会变小孩抱住恭的手臂，又因法术不稳变回妖精，「今后也麻烦不断」的温馨日常。</li>
+<li><b>莉迪亚（40→1082）</b>：莉迪亚要回极星帝国，恭要求「也带上我，教我剑术，做你专用的破心者」，二人开启异世界新未来。</li>
+<li><b>天音（41→1080）</b>：黄金周被天音拽出门暴玩（KTV、保龄球、动物园、水族馆……），「救救我」的求救终成「喵哈哈」的欢笑。</li>
+</ul>
+</div>
+</section>
+
+<!-- ===== 结构说明 ===== -->
+<section id="struct">
+<h2>结构说明（云玩前必读）</h2>
+<div class="box warn"><div class="h">本作是时间循环</div>
+<ul class="tight">
+<li>六条<b>角色线</b>（美琴／心菜／琉璃／优芽／莉迪亚／天音）每一条走到 4/27 都会因「视野扭曲／时间跳跃」而<b>重置</b>——它们没有独立真结局，只是循环中的某一周。各线结尾标注的「死亡重置」分支，是该周内恭死亡、直接回到起点的坏走向。</li>
+<li><b>TRUE 线</b>是独立的「打破循环」时间轴：只有六人好感全达阈值，4/27 决战才会导向 <code>1044</code> 好结局与 <code>4/28</code> 六段后日谈。</li>
+<li>跨包／跨日／跨线的调度写在引擎里，脚本中不可见；本页「分流」「重置」等属结构推断，具体机制以游戏实际表现为准。</li>
+</ul>
+</div>
+<div class="box"><div class="h">与《攻略.html》的关系</div>
+攻略页已列出全部 166 个选项及其跳转 / 好感 / 解锁条件（结构向、不含剧情）。本页只挑<b>关键选项</b>，补上「选了之后剧情怎么走」的梗概，专供快速云玩；二者互补，不冲突。</div>
+</section>
+
+</main></body></html>
